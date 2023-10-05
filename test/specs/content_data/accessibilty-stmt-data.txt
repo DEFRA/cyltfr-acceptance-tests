@@ -1,0 +1,56 @@
+Accessibility statement for Check your long term flood risk
+This accessibility statement applies to the Check your long term flood risk service at check-long-term-flood-risk.service.gov.uk
+This website is run by the Environment Agency. We want as many people as possible to be able to use this website. For example, that means that you should be able to:
+use browser settings or plugins to change colours, contrast levels and fonts
+use browser settings or other software to zoom in up to 300% without the text spilling off the screen
+navigate most of the website using just a keyboard
+navigate most of the website using speech recognition software
+listen to most of the website using a screen reader (including the most recent versions of JAWS, NVDA and VoiceOver)
+We've also made the website text as simple as possible to understand.
+AbilityNet has advice on making your device easier to use if you have a disability.
+How accessible this website is
+We know some parts of this website are not fully accessible. For example:
+the mapping, and the tools that are part of it, are not accessible for those using assistive technology
+in some situations, the contrast of colours on maps is not high enough to be legible to all users
+we link to guidance on GOV.UK that includes PDF documents that are not fully accessible to screen reader software
+Feedback and contact information
+If you need information on this website in a different format like an accessible PDF, large print, easy read, audio recording or braille:
+email enquiries@environment-agency.gov.uk
+call 03708 506 506 (Monday to Friday, 8am to 5pm)
+Reporting accessibility problems with this website
+We're always looking to improve the accessibility of this website. If you find any problems not listed on this page or think we're not meeting accessibility requirements, contact:
+email enquiries@environment-agency.gov.uk
+call 03708 506 506 (Monday to Friday, 8am to 5pm)
+Enforcement procedure
+The Equality and Human Rights Commission (EHRC) is responsible for enforcing the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018 (the ‘accessibility regulations').
+If you're not happy with how we respond to your complaint, contact the Equality Advisory and Support Service (EASS).
+Technical information about this website's accessibility
+The Environment Agency is committed to making its website accessible, in accordance with the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018.
+Compliance status
+This website is partially compliant with the Web Content Accessibility Guidelines version 2.1 AA standard, due to the following exemptions.
+Non-accessible content
+The content listed below is non-accessible for the following reasons.
+Non-compliance with the accessibility regulations
+There are a number of elements of the map user interface that are not fully descriptive or accessible. These are:
+The colour contrast of the scale icon used on the Ordnance Survey mapping fails to meet the required contrast ratio (WCAG 1.4.3 Contrast - Level AA) in certain situations.
+The colour contrast used in various elements of the mapping fails to meet the required contrast ratio (WCAG 1.4.3 Contrast - Level AA) in certain situations.
+The zoom controls provided on the maps do not provide a label that is descriptive enough to inform a user of their function (WCAG 2.4.6 Headings and labels - Level AA).
+We are looking to fix these issues in the following ways:
+We are exploring ways to improve the accessibility of the controls on the map user interface so that they are more descriptive and usable before December 2022.
+We are planning an investigation of a more accessible scheme to differentiate layers used in mapping across all flood services. We plan to carry out this work before July 2023.
+We are planning an investigation about offering alternative, more accessible versions of the Ordnance Survey mapping layers before July 2023.
+Content that's not within the scope of the accessibility regulations
+The website has the following content which is out of scope of the accessibility regulations:
+maps
+third party content which is out of our control, for example a corporate logo on the map the website uses
+PDF content that was published before 23 September 2018
+What we’re doing to improve accessibility
+We commit to providing alternative, non-digital access to the service where requests are made to the Environment Agency
+We commit to providing accessible pdfs where requests are made to the Environment Agency
+Preparation of this accessibility statement
+This statement was prepared on 18 September 2023. It was last reviewed on 2 September 2023.
+This website was last tested on 22 June 2023. The test was carried out by the Digital Accessibility Centre (DAC).
+We tested the following 3 pages, which all users need to interact with to get a flood risk summary for an area:
+Where do you want to check
+Select an address
+Flood risk summary

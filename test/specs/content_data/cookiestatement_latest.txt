@@ -1,0 +1,29 @@
+Cookies
+Cookies are small files saved on your phone, tablet or computer when you visit a website.
+We use cookies to make Check your long term flood risk work and collect information about how you use our service.
+Essential cookies
+Essential cookies keep your information secure while you use Check your long term flood risk. We do not need to ask permission to use them.
+Essential cookies
+Name Purpose Expires
+session Used to store page state When you close your browser
+cookies_policy Saves your cookie consent settings 1 year
+cookies_preferences_set Stores your cookie preferences and lets us know you’ve set them 1 year
+Analytics cookies (optional)
+With your permission, we use Google Analytics to collect data about how you use Check your long term flood risk. This information helps us to improve our service.
+Google is not allowed to use or share our analytics data with anyone.
+Google Analytics stores anonymised information about:
+how you got to Check your long term flood risk
+the pages you visit on Check your long term flood risk and how long you spend on them
+any errors you see while using Check your long term flood risk
+Name Purpose Expires
+_ga Checks if you've visited Check your long term flood risk before. This helps us count how many people visit our site. 2 years
+_gid Checks if you've visited Check your long term flood risk. This helps us count how many people visit our site. 24 hours
+_gat Used to reduce the number of requests made to Google Analytics. 1 minute
+_gat_govuk_shared This helps Google to manage the rate at which they track your site interactions (when high traffic occurs). 1 minute
+Third party cookies
+Our feedback survey
+We use Smart Survey to collect feedback comments. You can find out more in the Smart Survey privacy policy.
+Do you want to accept analytics cookies?
+Yes
+No
+Save cookie settings

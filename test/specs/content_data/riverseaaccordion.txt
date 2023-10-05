@@ -1,0 +1,9 @@
+This flood risk summary is not property specific.
+Low risk means that this area has a chance of flooding of between 0.1% and 1% each year.
+This information is suitable for identifying:
+which parts of streets or parcels of land are at risk, or have the most risk
+the extent, depth and approximate velocity of flooding
+It's very likely to be reliable for identifying the risk to:
+local areas of land
+individual properties - though not whether they will flood internally
+This service takes into account any flood defences.

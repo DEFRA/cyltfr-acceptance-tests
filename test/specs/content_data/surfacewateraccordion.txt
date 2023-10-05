@@ -1,0 +1,9 @@
+This flood risk summary reports the highest risk from surface water within a 15 metre radius of this property.
+
+Very low risk means that this area has a chance of flooding of less than 0.1% each year.
+
+This information is suitable for identifying:
+
+which parts of counties or towns are at risk, or have the most risk
+the approximate extent and depth of flooding
+It's unlikely to be reliable for a local area and very unlikely to be reliable for identifying individual properties at risk.
