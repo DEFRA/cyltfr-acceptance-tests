@@ -25,6 +25,7 @@
     "scripts": {
         "wdio": "wdio run wdio.conf.js",
         "allure": "allure serve ./allure-results",
-        "allure-report": "allure generate /.allure-results --clean && allure open"
+        "allure-report": "allure generate /.allure-results --clean && allure open",
+        "bstack": "wdio run wdio.bstack.conf.js"
     }
 }
