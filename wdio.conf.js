@@ -7,6 +7,7 @@ const fileUtils = require('./test/specs/utilities/deleteFile')
 /* handy shortcuts for running tests against the different environment from local machine.
 NOTE: on pushing to branch and running from jenkins, the below envars shuld always be commented out
 otherwise the test run maybe running against wrong environment */
+// global.baseUrl = process.env.CYLTFR_APP_URL
 global.baseUrl = 'https://ltf-dev.aws.defra.cloud'
 // global.baseUrl = 'https://ltf-tst.aws.defra.cloud'
 // global.baseUrl = 'https://ltf-pre.aws.defra.cloud'

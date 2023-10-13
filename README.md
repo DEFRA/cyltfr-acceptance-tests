@@ -65,19 +65,11 @@ This should now have merged the release candidate branch into both dev and maste
 
 # Environment variables
 
-TBC - below is an example of what it may look like and is place holder
-
 | name               | description      | required |        default        |       valid        | notes |
 |--------------------|------------------|:--------:|-----------------------|:------------------:|-------|
-| FLOOD_APP_SITE_URL | Target Environment url |    yes   |                       |    | When running from Jenkins this is picked up through the CONFIG_FILE_DIRECTORY flood-app.profile.  When running locally this needs to be set in in bashrc. Dev or test environment root url will be required. |
-| LFW_DATA_DB_CONNECTION | Database Environment connection string |    yes   |                       |   | When running from Jenkins this is picked up through the CONFIG_FILE_DIRECTORY flood-service.profile.  When running locally this needs to be set in in bashrc. |
+| CYLTFR_APP_URL | Target Environment url |    yes   |                       |    | The wdio.config.js file lines 11-15 contain options on how to pass this url into the tests.  Ideally envars should be used and picked up by the tests, but for easy switching between environments when running locally, the variable can be set directly in the config file.  |
 | BROWSERSTACK_USERNAME      | User             |    no    |                       |                    |Browserstack user |
 | BROWSERSTACK_ACCESS_KEY       | Key              |    no    |                       |                    |Browserstack key  |
-| PORT               | Port number      |    no    | 4444                  |                    |  Selenium wd     |
-| AWS_PROFILE | The target environment | no | =tst-lfw-profile | =tst-lfw-profile | Used for the forecast tests drop files into s3. This is not a required envar provided run forecast tests is set to false, but if you do want to run these tests locally you will need AWS SDK.  See forecast tests section below. |
-| AWS_SDK_LOAD_CONFIG | Specify AWS config | no | =1 |  |  |
-| RUN_FORECAST_TESTS | Boolean to decide whether to run forecast tests | no | =false | true/false | The jenkins job to execute the flood tests has a choice parameter in place for this.  Note if you want to run the faorecasts tests, they will take up to 15 minutes to wait until data is ready |
-
 
 # Prerequisites
 
