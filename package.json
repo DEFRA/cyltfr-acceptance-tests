@@ -14,7 +14,7 @@
         "@wdio/spec-reporter": "^8.1.2",
         "allure-commandline": "^2.21.0",
         "chai": "^4.3.7",
-        "chromedriver": "^116",
+        "chromedriver": "^117",
         "fs": "^0.0.1-security",
         "mocha": "^10.2.0",
         "resemblejs": "^4.1.0",
@@ -25,6 +25,7 @@
     "scripts": {
         "wdio": "wdio run wdio.conf.js",
         "allure": "allure serve ./allure-results",
-        "allure-report": "allure generate /.allure-results --clean && allure open"
+        "allure-report": "allure generate /.allure-results --clean && allure open",
+        "bstack": "wdio run wdio.bstack.conf.js"
     }
 }
