@@ -4,6 +4,14 @@ const { join } = require('path')
 const allureReporter = require('@wdio/allure-reporter').default
 const fileUtils = require('./test/specs/utilities/deleteFile')
 
+/* handy shortcuts for running tests against the different environment from local machine.
+NOTE: on pushing to branch and running from jenkins, the below envars shuld always be commented out
+otherwise the test run maybe running against wrong environment */
+global.baseUrl = 'https://ltf-dev.aws.defra.cloud'
+// global.baseUrl = 'https://ltf-tst.aws.defra.cloud'
+// global.baseUrl = 'https://ltf-pre.aws.defra.cloud'
+// global.baseUrl = 'http://localhost:3001'
+
 exports.config = {
   //
   // ====================
@@ -28,7 +36,6 @@ exports.config = {
   //
   specs: [
     './test/specs/specs/*.js'
-    // './test/specs/*.js'
   ],
 
   path: '/',
@@ -54,13 +61,7 @@ exports.config = {
   // from the same test should run tests.
   //
   maxInstances: 20,
-  //
-  // If you have trouble getting all important capabilities together, check out the
-  // Sauce Labs platform configurator - a great tool to configure your capabilities:
-  // https://saucelabs.com/platform/platform-configurator
-  //
   capabilities: [{
-
     // maxInstances can get overwritten per capability. So if you have an in-house Selenium
     // grid with only 5 firefox instances available you can make sure that not more than
     // 5 instances get started at a time.
@@ -68,7 +69,7 @@ exports.config = {
     //
     browserName: 'chrome',
     'goog:chromeOptions': {
-      //args: ['headless', 'disable-gpu']
+      args: ['headless', 'disable-gpu']
     },
     // browserName: 'firefox',
     acceptInsecureCerts: true
@@ -108,8 +109,9 @@ exports.config = {
   // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
   // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
   // gets prepended directly.
-  baseUrl: 'https://ltf-dev.aws.defra.cloud/postcode',
-  // baseUrl: 'http://localhost:3001',
+  
+  baseUrl: global.baseUrl,
+  
   // Default timeout for all waitFor* commands.
   waitforTimeout: 10000,
   //
@@ -210,6 +212,7 @@ exports.config = {
   onPrepare: async (config, capabilities) => {
    fileUtils.deleteDirectory('allure-results')
    fileUtils.deleteDirectory('allure-report')
+   console.log('***** You\'re now running this test pack against ', global.baseUrl, ' if this is incorrect you may want to abort the test run *****')
    },
   /**
      * Gets executed before a worker process is spawned and can be used to initialise specific service
