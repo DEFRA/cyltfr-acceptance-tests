@@ -3,6 +3,8 @@ Repo for the CYLTFR UI tests
 
 It uses wdio, combined with Mocha framework and Chai assertions library
 
+Linting is built in with Standard - you will need to add the StandardJS extension in VScode.
+
 ## Branching Strategy
 
 ## Create new branch off development
@@ -13,8 +15,15 @@ It uses wdio, combined with Mocha framework and Chai assertions library
 
 `$ git push -u origin feature/jira-ticket-number-123 or fix/name-of-branch`
 
-stage, commit and push until branch ready to merge
-pull request via git, request review, merge
+stage, commit and push as follows (before pushing anything to branch, its recommended you run `npm run lint` script to check linting as this may be checked in the CI pipeline and prevent the tests from running if errors are detected)
+
+`$ git add -A` (for all files) or `$ git add [file name]`
+
+`$ git commit -m "Some descriptive info"`
+
+`$ git push`
+
+Once you are happy all the changes required are ready to be merged, raise a pull request via git, request review, merge
 
 switch to development branch and git pull
 

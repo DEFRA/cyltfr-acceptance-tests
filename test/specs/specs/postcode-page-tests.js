@@ -2,10 +2,9 @@
 
 const { expect, assert } = require('chai')
 
-const postcodePO = require('../page_objects/postcode_PO')
-const postcodepage = require('../test_data/postcodepage')
-const cookiebanner_PO = require('../page_objects/cookiebanner_PO')
-
+const postcodePO = require('../page_objects/postcode_page')
+const postcodeData = require('../test-data/postcode_data')
+const cookieBannerPo = require('../page_objects/cookiebanner_page')
 
 describe('Checking web elements for postcode page', async () => {
   it('Open page URL and maximize window', async () => {
@@ -14,30 +13,30 @@ describe('Checking web elements for postcode page', async () => {
     await browser.getWindowHandles()
   })
 
-  //To include Cookies banner and Accept the cookie message
-  it('Accept the cookies and hide the message', async() => {
-  await expect(cookiebanner_PO.cookieAcceptbutton).exist
-  await cookiebanner_PO.cookieAcceptbutton.click()
-  await expect(cookiebanner_PO.hideMessagebutton).exist
-  await cookiebanner_PO.hideMessagebutton.click()
+  // To include Cookies banner and Accept the cookie message
+  it('Accept the cookies and hide the message', async () => {
+    await expect(cookieBannerPo.cookieAcceptbutton).exist
+    await cookieBannerPo.cookieAcceptbutton.click()
+    await expect(cookieBannerPo.hideMessagebutton).exist
+    await cookieBannerPo.hideMessagebutton.click()
   })
 
-  //LTFRI-771 - Changes to read data from test_data folder
+  // LTFRI-771 - Changes to read data from test_data folder
 
   it('Check the title', async () => {
     await expect(postcodePO.title).exist
     await console.log('Title', await postcodePO.title.getText())
-    await assert.equal(await postcodePO.title.getText(), postcodedata.title, '')
+    await assert.equal(await postcodePO.title.getText(), postcodeData.title, '')
   })
 
   it('Check the subheading', async () => {
     await expect(postcodePO.subHeading).exist
-    await assert.equal(await postcodePO.subHeading.getText(), postcodedata.subheading, '')
+    await assert.equal(await postcodePO.subHeading.getText(), postcodeData.subheading, '')
   })
 
   it('Check the postcodeHeading', async () => {
     await expect(postcodePO.postcodeHeading).exist
-    await assert.equal(await postcodePO.postcodeHeading.getText(), postcodedata.postcodeHeading)
+    await assert.equal(await postcodePO.postcodeHeading.getText(), postcodeData.postcodeHeading)
   })
 
   it('Check the postcode textbox', async () => {
@@ -46,7 +45,7 @@ describe('Checking web elements for postcode page', async () => {
 
   it('Check the postcode hint', async () => {
     await expect(postcodePO.postcodeHint).exist
-    await assert.equal(await postcodePO.postcodeHint.getText(), postcodedata.postcodehint)
+    await assert.equal(await postcodePO.postcodeHint.getText(), postcodeData.postcodehint)
   })
 
   it('Check the continue button', async () => {
@@ -64,48 +63,47 @@ describe('Checking web elements for postcode page', async () => {
   // Testing for negative scenario with error messages
 
   it('Leave postcode blank Error message', async () => {
-    //await expect(postcodePO.postcodeTextbox.setValue(''))
-    await expect(postcodePO.postcodeTextbox.setValue(postcodepage.empty))
+    // await expect(postcodePO.postcodeTextbox.setValue(''))
+    await expect(postcodePO.postcodeTextbox.setValue(postcodePO.empty))
     await postcodePO.postCodePageContinueCommandButton.click()
     await expect(postcodePO.postcodeError).exist
-    await assert.equal(await postcodePO.postcodeError.getText(), postcodedata.errormessage)
-
+    await assert.equal(await postcodePO.postcodeError.getText(), postcodeData.errormessage)
   })
 
   it('Enter an invalid format less than 4 postcode Error', async () => {
-    await expect(postcodePO.postcodeTextbox.setValue(postcodedata.less))
+    await expect(postcodePO.postcodeTextbox.setValue(postcodeData.less))
     await postcodePO.postCodePageContinueCommandButton.click()
-    expect(await postcodePO.getPostcodeErrorMessage()).to.equals(postcodepage.errormessage)
+    expect(await postcodePO.getPostcodeErrorMessage()).to.equals(postcodePO.errormessage)
   })
 
   /* Need fix as currently displaying an error */
   it('Enter an invalid format more than 6 postcode Error', async () => {
-    await expect(postcodePO.postcodeTextbox.setValue(postcodedata.more))
+    await expect(postcodePO.postcodeTextbox.setValue(postcodeData.more))
     await postcodePO.postCodePageContinueCommandButton.click()
     await expect(postcodePO.postcodeError).exist
-    await assert.equal(await postcodePO.postcodeError.getText(), postcodepage.errormessage)
+    await assert.equal(await postcodePO.postcodeError.getText(), postcodePO.errormessage)
     await expect(postcodePO.postcodeTextbox.setValue(''))
   })
 
   it('Enter an invalid postcode Error', async () => {
-    await expect(postcodePO.postcodeTextbox.setValue(postcodedata.alpha))
+    await expect(postcodePO.postcodeTextbox.setValue(postcodeData.alpha))
     await postcodePO.postCodePageContinueCommandButton.click()
     await expect(postcodePO.postcodeError).exist
-    await assert.equal(await postcodePO.postcodeError.getText(), postcodedata.errormessage)
+    await assert.equal(await postcodePO.postcodeError.getText(), postcodeData.errormessage)
   })
 
   it('Enter special characters postcode Error', async () => {
-    await expect(postcodePO.postcodeTextbox.setValue(postcodedata.specialcharacters))
+    await expect(postcodePO.postcodeTextbox.setValue(postcodeData.specialcharacters))
     await postcodePO.postCodePageContinueCommandButton.click()
     await expect(postcodePO.postcodeError).exist
-    //await assert.equal(await postcodePO.postcodeError.getText(), 'Error: Enter a full postcode in England')
-    await assert.equal(await postcodePO.postcodeError.getText(), postcodedata.errormessage)
+    // await assert.equal(await postcodePO.postcodeError.getText(), 'Error: Enter a full postcode in England')
+    await assert.equal(await postcodePO.postcodeError.getText(), postcodeData.errormessage)
   })
 
   it('Enter only numbers postcode Error', async () => {
-    await expect(postcodePO.postcodeTextbox.setValue(postcodedata.numbers))
+    await expect(postcodePO.postcodeTextbox.setValue(postcodeData.numbers))
     await postcodePO.postCodePageContinueCommandButton.click()
     await expect(postcodePO.postcodeError).exist
-    await assert.equal(await postcodePO.postcodeError.getText(), postcodedata.errormessage)
+    await assert.equal(await postcodePO.postcodeError.getText(), postcodeData.errormessage)
   })
 })

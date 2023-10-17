@@ -1,6 +1,4 @@
 // this is a placeholder file for passing tests over to browserstack
-
-
 'use strict'
 
 const browserstack = require('browserstack-local')

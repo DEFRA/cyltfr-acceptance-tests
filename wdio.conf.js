@@ -110,9 +110,9 @@ exports.config = {
   // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
   // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
   // gets prepended directly.
-  
+
   baseUrl: global.baseUrl,
-  
+
   // Default timeout for all waitFor* commands.
   waitforTimeout: 10000,
   //
@@ -182,11 +182,11 @@ exports.config = {
   // see also: https://webdriver.io/docs/dot-reporter
   reporters: ['spec', 'allure'],
   reporterOptions: {
-   allure: {
+    allure: {
       outputDir: 'allure-results',
       disableWebdriverStepsReporting: true,
       disableWebdriverScreenshotsReporting: true
-   }
+    }
   },
 
   //
@@ -211,10 +211,10 @@ exports.config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      */
   onPrepare: async (config, capabilities) => {
-   fileUtils.deleteDirectory('allure-results')
-   fileUtils.deleteDirectory('allure-report')
-   console.log('***** You\'re now running this test pack against ', global.baseUrl, ' if this is incorrect you may want to abort the test run *****')
-   },
+    fileUtils.deleteDirectory('allure-results')
+    fileUtils.deleteDirectory('allure-report')
+    console.log('***** You\'re now running this test pack against ', global.baseUrl, ' if this is incorrect you may want to abort the test run *****')
+  },
   /**
      * Gets executed before a worker process is spawned and can be used to initialise specific service
      * for that worker as well as modify runtime environments in an async fashion.
@@ -261,8 +261,8 @@ exports.config = {
   // global.assert = chai.assert
   // global.should = chai.should
   // global.expect = chai.expect
-  global.allure = allureReporter
-  },
+    global.allure = allureReporter
+  }
   /**
      * Runs before a WebdriverIO command gets executed.
      * @param {String} commandName hook command name
