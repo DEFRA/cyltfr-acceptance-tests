@@ -1,8 +1,8 @@
 /* global browser it describe expect $ $$ */
-const postcodePO = require('../page_objects/postcode_PO')
-const addressPO = require('../page_objects/address_PO')
-const riskdisplayPO = require('../page_objects/riskdisplay_PO')
-const riskInfotext = require('../page_objects/riskInfotext')
+const postcodePO = require('../page_objects/postcode_page')
+const addressPO = require('../page_objects/address_page')
+const riskdisplayPO = require('../page_objects/risk_display_page')
+const riskInfotext = require('../page_objects/risk_info_text_page')
 const assert = require('chai').assert
 
 describe('Check Your Long Term FLood Risk, risk display', async () => {

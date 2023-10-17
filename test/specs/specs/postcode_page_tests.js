@@ -4,7 +4,7 @@ const { expect, assert } = require('chai')
 
 const postcodePO = require('../page_objects/postcode_page')
 const postcodeData = require('../test-data/postcode_data')
-const cookieBannerPo = require('../page_objects/cookiebanner_page')
+const cookieBannerPo = require('../page_objects/cookie_banner_page')
 
 describe('Checking web elements for postcode page', async () => {
   it('Open page URL and maximize window', async () => {

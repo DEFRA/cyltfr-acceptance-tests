@@ -1,11 +1,11 @@
 /* global browser it describe expect $ */
 // This test case is only for postcodes with reservoir risks
 
-const postcodePO = require('../page_objects/postcode_PO')
-const addressPO = require('../page_objects/address_PO')
-const riskdisplayPO = require('../page_objects/riskdisplay_PO')
+const postcodePO = require('../page_objects/postcode_page')
+const addressPO = require('../page_objects/address_page')
+const riskdisplayPO = require('../page_objects/risk_display_page')
 // const riskInfotext = require('../page_objects/riskInfotext')
-const reservoirpostcode = require('../test_data/reservoirpostcodes')
+const reservoirpostcode = require('../test-data/reservoir_postcodes_data.js')
 const assert = require('chai').assert
 
 describe('Check Your Long Term FLood Risk, risk display', async () => {

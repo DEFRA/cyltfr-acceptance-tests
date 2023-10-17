@@ -1,5 +1,5 @@
 /* global browser, describe, it, expect */
-const privacyNotice = require('../page_objects/privacy_notice')
+const privacyNotice = require('../page_objects/privacy_notice_page')
 const fs = require('fs')
 const assert = require('chai').assert
 

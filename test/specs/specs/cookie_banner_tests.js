@@ -1,7 +1,7 @@
 /* global describe, it, browser */
 const { expect, assert } = require('chai')
 
-const cookiebannerPO = require('../page_objects/cookiebanner_PO')
+const cookiebannerPO = require('../page_objects/cookie_banner_page')
 
 describe('Checking web elements for postcode page', async () => {
   it('Open page URL and maximize window', async () => {
