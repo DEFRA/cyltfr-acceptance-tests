@@ -1,6 +1,6 @@
 /* global browser it describe */
-const postcodePO = require('../page_objects/postcode_PO')
-const addressPO = require('../page_objects/address_PO')
+const postcodePO = require('../page_objects/postcode_page')
+const addressPO = require('../page_objects/address_page')
 const { expect, assert } = require('chai')
 
 describe('Check Your Long Term Flood Risk, Address page', async () => {

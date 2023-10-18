@@ -1,5 +1,5 @@
 /* global browser, describe, it, expect */
-const accessibilityStmt = require('../page_objects/accessibility_stmt')
+const accessibilityStmt = require('../page_objects/accessibility_stmt_page')
 const fs = require('fs')
 const assert = require('chai').assert
 

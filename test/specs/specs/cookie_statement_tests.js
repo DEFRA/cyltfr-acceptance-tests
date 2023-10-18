@@ -1,5 +1,5 @@
 /* global describe, it, browser, expect */
-const cookieStatement = require('../page_objects/cookie_statement')
+const cookieStatement = require('../page_objects/cookie_statement_page')
 const fs = require('fs')
 const assert = require('chai').assert
 
