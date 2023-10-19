@@ -5,7 +5,7 @@ const postcodePO = require('../page_objects/postcode_page')
 const addressPO = require('../page_objects/address_page')
 const riskdisplayPO = require('../page_objects/risk_display_page')
 // const riskInfotext = require('../page_objects/riskInfotext')
-const reservoirpostcode = require('../test-data/reservoir_postcodes_data.js')
+const reservoirpostcode = require('../test_data/reservoir_postcodes_data.js')
 const assert = require('chai').assert
 
 describe('Check Your Long Term FLood Risk, risk display', async () => {

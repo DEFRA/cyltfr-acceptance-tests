@@ -255,12 +255,10 @@ exports.config = {
   // original one without async
   // before: function (capabilities, specs) {
   before: async (capabilities, specs) => {
-  //  const chai = require('chai')
-  // const chaiWebdriver = require('chai-webdriverio').default
-  // chai.use(chaiWebdriver(browser))
-  // global.assert = chai.assert
-  // global.should = chai.should
-  // global.expect = chai.expect
+    const chai = require('chai')
+    global.assert = chai.assert
+    global.should = chai.should
+    global.expect = chai.expect
     global.allure = allureReporter
   }
   /**
