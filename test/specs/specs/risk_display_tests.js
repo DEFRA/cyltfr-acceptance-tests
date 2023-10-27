@@ -1,36 +1,47 @@
-/* global browser it describe expect $ $$ */
+'use strict'
+
 const postcodePage = require('../page_objects/postcode_page')
 const addressPage = require('../page_objects/address_page')
 const riskDisplayDataFile = require('../test_data/risk_display_data')
 const propertyRiskPage = require('../page_objects/risk_display_page')
 const riskInfoTextPage = require('../page_objects/risk_info_text_page')
-const { expect } = require('chai')
 
 describe('Check Your Long Term FLood Risk, risk display type is provided when expected', async () => {
+// loop over each object in the array of data
   riskDisplayDataFile.riskDisplayData.forEach(function (item) {
     it('Should open the page and submit a postcode search', async () => {
       console.log('***** TEST CASE ', item.testCase)
+      // open browser at postcode search with capture bypass token
       await browser.url('/postcode?captchabypass=ce3340ab3695f81da8d7b50875f3819e')
+
+      // check browser is open on correct page and tab title is as expected
       expect(await browser.getTitle()).equals('Where do you want to check? - Check your long term flood risk - GOV.UK')
       expect(await browser.getUrl()).equals(`${baseUrl}/postcode?captchabypass=ce3340ab3695f81da8d7b50875f3819e`)
+
+      // pass in postcode search string and then click continue
       await postcodePage.postcodeTextbox.setValue(item.postcode)
       await postcodePage.postCodePageContinueCommandButton.click()
+
+      // check next page is presented as expected
       expect(await browser.getTitle()).equals('Select an address - Check your long term flood risk - GOV.UK')
     })
 
     it('Should select the correct address from the options and move to the summary page', async () => {
+      // on address page, select the address from the data file, check the continue button is on the page and click it
       await addressPage.selectAddress(item.dropDownValue)
-      // const addresscomboText = await addressPage.addressCombo
-      // await addresscomboText.selectByAttribute('value', 3)
-      await expect(addressPage.addressContinueButton).exist
+      await expect(await addressPage.addressContinueButton).exist
       await addressPage.addressContinueButton.click()
+      // check the risk assessment page is loaded and the expected address has been summarised
+      expect(await browser.getUrl()).equals(`${baseUrl}/risk#`)
       expect(await browser.getTitle()).equals('Your long term flood risk assessment - Check your long term flood risk - GOV.UK')
       expect(await propertyRiskPage.confirmAddressDetail()).contains(item.houseNumber, item.postcode)
     })
 
     it('Should display the correct risk values for the selected property', async () => {
-      expect(await browser.getUrl()).equals(`${baseUrl}/risk#`)
+      // check the risk summary for each risk type is as expected
+      console.log('RISK SUMMARY', await propertyRiskPage.getRiversAndSeaRisk())
       expect(await propertyRiskPage.getRiversAndSeaRisk()).equals(item.riverAndSeaRisk)
+      expect(await propertyRiskPage.getSurfaceWaterRisk()).equals(item.surfaceWaterRisk)
     })
   })
   // it('Get the handle of risk display page', async () => {
