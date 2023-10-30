@@ -6,7 +6,6 @@ module.exports = {
     THE PLAN WILL BE TO SPLIT THE TEST DATA OUT INTO SPECIFIC ARRAYS FOR EACH RISK TYPE AND CREATE A TEST FOR EACH RISK TYPE
     THIS WILL SPEED UP RUN TIME AND MAKE MAINTENANCE EASIER
     */
-
     {
       testCase: 0,
       houseNumber: 2,
@@ -206,7 +205,7 @@ module.exports = {
       riverAndSeaRisk: 'Very low risk',
       surfaceWaterRisk: 'Very low risk',
       reservoirRisk: false,
-      isGroundwaterArea: true
+      groundwaterRisk: true
     },
     // Very low risk - in TA but not GW (LTFRI-62)
     {
@@ -227,7 +226,98 @@ module.exports = {
       riverAndSeaRisk: 'Very low risk',
       surfaceWaterRisk: 'Very low risk',
       reservoirRisk: false,
-      isGroundwaterArea: true
+      groundwaterRisk: true
+    },
+    // groundwater
+    {
+      testCase: 24,
+      houseNumber: 'PARK VIEW COTTAGE',
+      postcode: 'DN19 7DJ',
+      dropDownValue: '14',
+      riverAndSeaRisk: 'High risk',
+      surfaceWaterRisk: 'Low risk',
+      reservoirRisk: false,
+      groundwaterRisk: true
+    },
+    {
+      testCase: 25,
+      houseNumber: 'BEECH LODGE',
+      postcode: 'DN19 7DJ',
+      dropDownValue: '0',
+      riverAndSeaRisk: 'Very low risk',
+      surfaceWaterRisk: 'Very low risk',
+      reservoirRisk: false,
+      groundwaterRisk: true
+    },
+    {
+      testCase: 26,
+      houseNumber: 'CORNER COTTAGE',
+      postcode: 'DN19 7DJ',
+      dropDownValue: '4',
+      riverAndSeaRisk: 'Very low risk',
+      surfaceWaterRisk: 'Low risk',
+      reservoirRisk: false,
+      groundwaterRisk: true
+    },
+    {
+      testCase: 27,
+      houseNumber: 'INVERMAY',
+      postcode: 'DN19 7DJ',
+      dropDownValue: '7',
+      riverAndSeaRisk: 'Very low risk',
+      surfaceWaterRisk: 'Low risk',
+      reservoirRisk: false,
+      groundwaterRisk: true
+    },
+    {
+      testCase: 28,
+      houseNumber: 'PARKVIEW HOUSE',
+      postcode: 'DN19 7DJ',
+      dropDownValue: '15',
+      riverAndSeaRisk: 'Very low risk',
+      surfaceWaterRisk: 'High risk',
+      reservoirRisk: false,
+      groundwaterRisk: true
+    },
+    {
+      testCase: 29,
+      houseNumber: '8',
+      postcode: 'IP33 1YH',
+      dropDownValue: '5',
+      riverAndSeaRisk: 'Very low risk',
+      surfaceWaterRisk: 'High risk',
+      reservoirRisk: true,
+      groundwaterRisk: true
+    },
+    {
+      testCase: 30,
+      houseNumber: 'KEEDALE',
+      postcode: 'DN19 7DJ',
+      dropDownValue: '8',
+      riverAndSeaRisk: 'Very low risk',
+      surfaceWaterRisk: 'Low risk',
+      reservoirRisk: false,
+      groundwaterRisk: true
+    },
+    {
+      testCase: 31,
+      houseNumber: '12',
+      postcode: 'DN19 7DT',
+      dropDownValue: '11',
+      riverAndSeaRisk: 'Medium risk',
+      surfaceWaterRisk: 'Low risk',
+      reservoirRisk: false,
+      groundwaterRisk: true
+    },
+    {
+      testCase: 32,
+      houseNumber: '17',
+      postcode: 'DN19 7DT',
+      dropDownValue: '15',
+      riverAndSeaRisk: 'Medium risk',
+      surfaceWaterRisk: 'Low risk',
+      reservoirRisk: false,
+      groundwaterRisk: true
     }
   ]
 }
