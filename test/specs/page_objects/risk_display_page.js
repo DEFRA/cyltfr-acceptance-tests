@@ -4,13 +4,13 @@ class RiskDisplayPage {
   // LOCATORS
   get pageContent () { return $('main') }
   get heading () { return $('h1') }
-  get addressDetail () { return $("h2[class='govuk-heading-m']") }
-  get riversAndSeaBanner () { return $('div.rivers-sea > div > p > strong') }
-  get surfaceWaterBanner () { return $('div.surface-water > div > p > strong') }
-  get reservoirRiskBanner () { return $('div.reservoirs > div > p') }
-  get reservoirNoRiskBanner () { return $('p=Flooding from reservoirs is unlikely in this area') }
-  get groundwaterRiskBanner () { return $('div.groundwater > div > p') }
-  get groundwaterNoRiskBanner () { return $('p=Flooding from groundwater is unlikely in this area ') }
+  get addressDetail () { return $("h1[class='govuk-heading-l govuk-!-padding-top-0']") }
+  get riversAndSeaBanner () { return $("div[class='govuk-summary-card rivers-sea']") }
+  get surfaceWaterBanner () { return $("div[class='govuk-summary-card govuk-!-margin-top-3 surface-water']") }
+  get reservoirRiskBanner () { return $('#groundwater') }
+  get reservoirNoRiskBanner () { return $('#groundwater') }
+  get groundwaterRiskBanner () { return $('#groundwater') }
+  get groundwaterNoRiskBanner () { return $('#groundwater') }
 
   // METHODS AND FUNCTIONS
 

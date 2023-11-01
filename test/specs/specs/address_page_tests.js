@@ -9,7 +9,7 @@ describe('Check Your Long Term Flood Risk, Address page', async () => {
     expect(await browser.getTitle()).equals('Where do you want to check? - Check your long term flood risk - GOV.UK')
     expect(await browser.getUrl()).equals(`${baseUrl}/postcode`)
     await expect(postcodePage.postcodeTextbox.setValue('WA41AB'))
-    await expect(postcodePage.postCodePageContinueCommandButton.click())
+    await expect(postcodePage.clickContinue())
   })
 
   // it('Check the title and URL of address page', async () => {

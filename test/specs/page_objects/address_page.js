@@ -18,6 +18,11 @@ class AddressPage {
     await (await this.addressCombo).waitForDisplayed()
     return (await this.addressCombo).selectByAttribute('value', item)
   }
+
+  async clickContinue () {
+    await (await this.addressContinueButton).waitForDisplayed({})
+    return (await this.addressContinueButton).click()
+  }
 }
 
 module.exports = new AddressPage()

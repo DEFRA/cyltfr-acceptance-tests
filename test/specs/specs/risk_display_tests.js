@@ -14,7 +14,6 @@ const postcodePage = require('../page_objects/postcode_page')
 const addressPage = require('../page_objects/address_page')
 const riskDisplayDataFile = require('../test_data/risk_display_data')
 const propertyRiskPage = require('../page_objects/risk_display_page')
-const { expect } = require('chai')
 
 describe('Check Your Long Term FLood Risk, risk display type is provided when expected', async () => {
 // loop over each object in the array of data
@@ -29,8 +28,8 @@ describe('Check Your Long Term FLood Risk, risk display type is provided when ex
       expect(await browser.getUrl()).equals(`${baseUrl}/postcode?captchabypass=ce3340ab3695f81da8d7b50875f3819e`)
 
       // pass in postcode search string and then click continue
-      await postcodePage.postcodeTextbox.setValue(item.postcode)
-      await postcodePage.postCodePageContinueCommandButton.click()
+      await postcodePage.enterPostcode(item.postcode)
+      await postcodePage.clickContinue()
 
       // check next page is presented as expected
       expect(await browser.getTitle()).equals('Select an address - Check your long term flood risk - GOV.UK')
@@ -39,8 +38,7 @@ describe('Check Your Long Term FLood Risk, risk display type is provided when ex
     it('Should select the correct address from the options and move to the summary page', async () => {
       // on address page, select the address from the data file, check the continue button is on the page and click it
       await addressPage.selectAddress(item.dropDownValue)
-      await expect(await addressPage.addressContinueButton).exist
-      await addressPage.addressContinueButton.click()
+      await addressPage.clickContinue()
       // check the risk assessment page is loaded and the expected address has been summarised
       expect(await browser.getUrl()).equals(`${baseUrl}/risk#`)
       expect(await browser.getTitle()).equals('Your long term flood risk assessment - Check your long term flood risk - GOV.UK')
@@ -50,26 +48,35 @@ describe('Check Your Long Term FLood Risk, risk display type is provided when ex
     it('Should display the correct risk values for the selected property', async () => {
       // check the river and sea risk is as expected
       expect(await propertyRiskPage.getRiversAndSeaRisk()).equals(item.riverAndSeaRisk)
-      // check the surface water risk is as expected
-      expect(await propertyRiskPage.getSurfaceWaterRisk()).equals(item.surfaceWaterRisk)
+
+      /* check the surface water risk is as expected - note that due to HTML in DOM,
+      there is no way of grabbing the surface water banner, therefore has to be contains and each surface water
+      block of content is unique due to local authority dynamic text */
+      expect(await propertyRiskPage.getSurfaceWaterRisk()).to.contain(item.surfaceWaterRisk)
 
       // if the reservoir risk is expected to be true (in data file)
       if (item.reservoirRisk === true) {
-        // check the reservoir risk message is correct
-        expect(await propertyRiskPage.getReservoirRiskTrue()).equals('There is a risk of flooding from reservoirs in this area')
+      /*
+      check the reservoir risk message is correct - note that due to HTML in DOM,
+      there is no way of grabbing the reservoir banner and the table is generated in logical order, therefore has to be contains
+       */
+        await expect(await propertyRiskPage.getReservoirRiskTrue()).to.contain('Reservoirs There is a risk of flooding from reservoirs in this area.')
       } else {
         // else check the reservoir no risk is correct
-        expect(await propertyRiskPage.getReservoirRiskFalse()).equals('Flooding from reservoirs is unlikely in this area')
+        await expect(await propertyRiskPage.getReservoirRiskFalse()).to.contain('Reservoirs Flooding from reservoirs is unlikely in this area.' +
+        '\n\nWhat a reservoir is and how we check an area\'s risk')
       }
 
       // if the groundwater risk is expected (in data file)
       if (item.groundwaterRisk === true) {
         // check the groundwater risk message is correct
-        expect(await propertyRiskPage.getGroundwaterRiskTrue()).equals('Flooding is possible in the local area when groundwater levels are high')
+        await expect(await propertyRiskPage.getGroundwaterRiskTrue()).to.contain('Groundwater Flooding is possible when groundwater levels are high.' +
+        '\n\nWhat groundwater is and how we check an area\'s risk')
         // else if the groundwater no risk message is expected (in data file file)
       } else if (item.groundwaterRisk === false) {
         // check the groundwater no risk message is correct
-        expect(await propertyRiskPage.getGroundwaterRiskFalse()).equals('Flooding from reservoirs is unlikely in this area')
+        await expect(await propertyRiskPage.getGroundwaterRiskFalse()).to.contain('Groundwater Flooding from groundwater is unlikely in this area.\n\nWhat groundwater is and how we check an area\'s risk' +
+        '\n\n\n\n\nReservoirs Flooding from reservoirs is unlikely in this area.\n\nWhat a reservoir is and how we check an area\'s risk')
       } else {
         // else log out no groundwater value (tech debt to go through all data test cases to add GW value)
         console.log('No groundwater value, assertion not made')

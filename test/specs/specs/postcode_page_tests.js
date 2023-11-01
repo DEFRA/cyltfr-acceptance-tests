@@ -1,9 +1,23 @@
 'use strict'
 
 const postcodePage = require('../page_objects/postcode_page')
+const postcodeErrorPage = require('../page_objects/postcode_error_page')
 const postcodeDataFile = require('../test_data/postcode_data')
 
-describe('Postcode sad path tests', async () => {
+describe('Postcode page content tests', async () => {
+  it('Should have the expected content in the correct page elements', async () => {
+    // open browser at postcode search with capture bypass token
+    await browser.url('/postcode?captchabypass=ce3340ab3695f81da8d7b50875f3819e')
+
+    // check browser is open on correct page and tab title is as expected
+    expect(await browser.getTitle()).equals('Where do you want to check? - Check your long term flood risk - GOV.UK')
+    expect(await browser.getUrl()).equals(`${baseUrl}/postcode?captchabypass=ce3340ab3695f81da8d7b50875f3819e`)
+
+    // add content checks here
+  })
+})
+
+describe('Postcode page sad path tests', async () => {
   postcodeDataFile.invalidPostcode.forEach(function (item) {
     it('Should produce an error message when an invalid postcode is provided', async () => {
       console.log('***** TEST CASE ', item.testCase)
@@ -15,10 +29,12 @@ describe('Postcode sad path tests', async () => {
       expect(await browser.getUrl()).equals(`${baseUrl}/postcode?captchabypass=ce3340ab3695f81da8d7b50875f3819e`)
 
       // pass in postcode search string and then click continue
-      await postcodePage.postcodeTextbox.setValue(item.postcode)
-      await postcodePage.postCodePageContinueCommandButton.click()
+      await postcodePage.enterPostcode(item.postcode)
+      await postcodePage.contBtn.click()
 
       // check the expected error message is produced
+      expect(await postcodePage.getPostcodeBannerMessage()).equals('Enter a full postcode in England')
+      expect(await postcodePage.getPostcodeErrorMessage()).equals('Error:\nEnter a full postcode in England')
     })
   })
 
@@ -33,10 +49,17 @@ describe('Postcode sad path tests', async () => {
       expect(await browser.getUrl()).equals(`${baseUrl}/postcode?captchabypass=ce3340ab3695f81da8d7b50875f3819e`)
 
       // pass in postcode search string and then click continue
-      await postcodePage.postcodeTextbox.setValue(item.postcode)
-      await postcodePage.postCodePageContinueCommandButton.click()
+      await postcodePage.enterPostcode(item.postcode)
+      await postcodePage.contBtn.click()
 
-      // check the expected erro page is produced
+      // check the expected error page is produced
+      expect(await postcodeErrorPage.getPageHeading()).equals('This service is for postcodes in England only')
+      expect(await browser.getTitle()).equals('Check your long term flood risk - Check your long term flood risk - GOV.UK')
+      expect(await browser.getUrl()).equals(`${baseUrl}/england-only?postcode=BT8%204AA&region=northern-ireland#`)
     })
   })
+
+  // Needs new test for Should result in England only page when Scottish or welsh postcode provided, and then an address is selected from drop down
+
+  // test for script injection which will reuslt in silverline error message could be added here
 })

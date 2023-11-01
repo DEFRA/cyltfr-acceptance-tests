@@ -4,7 +4,56 @@ module.exports = {
     {
       testCase: 1,
       postcode: 'WA4'
+    },
+    {
+      testCase: 2,
+      postcode: ''
+    },
+    {
+      testCase: 3,
+      postcode: 'WA4 1ABZ'
+    },
+    {
+      testCase: 4,
+      postcode: 'ZZZ ZZZ'
+    },
+    {
+      testCase: 5,
+      postcode: '£$% @~#*'
+    },
+    {
+      testCase: 6,
+      postcode: '0123456789'
+    },
+    {
+      testCase: 7,
+      postcode: 'ڀځڂڃڄڅ'
+    },
+    {
+      testCase: 8,
+      postcode: 'https://flood-warning-information.service.gov.uk/'
+    },
+    {
+      testCase: 9,
+      postcode: 'àáâãäåçèéêëìíîðñòôõöö'
+    },
+    {
+      testCase: 10,
+      postcode: '“ ‘ ` | / , ; : & < > ^ * ? Tab'
+    },
+    {
+      testCase: 11,
+      postcode: '‘select * from customer'
+    },
+    {
+      testCase: 12,
+      postcode: '^M'
     }
+    // script injection results in silverline error message - use below for a seperate test
+    // {
+    //   testCase13: 13,
+    //   postcode: '<script>alert(\'alerting\')</script>'
+    // }
   ],
   northerIrelandPostcode: [
     {
@@ -13,15 +62,3 @@ module.exports = {
     }
   ]
 }
-
-
-// subheading: 'This service will tell you the flood risk of an area, not a specific property.',
-//       postcodeHeading: 'Enter a postcode',
-//       postcodehint: 'for example, WA4 1AB',
-//       empty: '',
-//       less: 'WA4',
-//       more: 'WA4 1ABZ',
-//       alpha: 'ZZZ ZZZ',
-//       specialcharacters: '£$% @~#*',
-//       numbers: '0123456789',
-//       errormessage: 'Error:\nEnter a full postcode in England'
