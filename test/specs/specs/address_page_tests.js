@@ -12,29 +12,7 @@ describe('Check Your Long Term Flood Risk, Address page', async () => {
     await expect(postcodePage.clickContinue())
   })
 
-  // it('Check the title and URL of address page', async () => {
-  //   const handles = await browser.getWindowHandles()
-  //   await browser.switchToWindow(handles[0])
-  //   await expect(addressPage.heading).exist
-  //   await expect(addressPage.subHeading1).exist
-  //   await expect(addressPage.subHeading2).exist
-  //   browser.pause(3000)
-  // })
+  // it should display error message when no address selected and continue is clicked
 
-  // it('Check the contents of the address page', async () => {
-  //   await expect(addressPage.postcodeTitle).exist
-  //   await expect(addressPage.postcode).exist
-  //   await expect(addressPage.postcodeChange).exist
-  //   await expect(addressPage.selectaddressTitle).exist
-  //   await expect(addressPage.addressCombo).exist
-  //   await expect(addressPage.addressContinueButton).exist
-  // })
-
-  // /** Checking the error message */
-  // it('Do not select any address', async () => {
-  //   await addressPage.addressContinueButton.click()
-  //   await expect(addressPage.addressError.waitForExist({ timeOut: 30000 })).exist
-  //   // await browser.pause(3000)
-  //   await assert.equal(await addressPage.addressError.getText(), 'Error: Select an address', '')
-  // })
+  // it should display england only addresses error page, when an address outside england is selected
 })

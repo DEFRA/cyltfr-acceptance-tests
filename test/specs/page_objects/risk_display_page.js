@@ -5,12 +5,10 @@ class RiskDisplayPage {
   get pageContent () { return $('main') }
   get heading () { return $('h1') }
   get addressDetail () { return $("h1[class='govuk-heading-l govuk-!-padding-top-0']") }
-  get riversAndSeaBanner () { return $("div[class='govuk-summary-card rivers-sea']") }
-  get surfaceWaterBanner () { return $("div[class='govuk-summary-card govuk-!-margin-top-3 surface-water']") }
-  get reservoirRiskBanner () { return $('#groundwater') }
-  get reservoirNoRiskBanner () { return $('#groundwater') }
-  get groundwaterRiskBanner () { return $('#groundwater') }
-  get groundwaterNoRiskBanner () { return $('#groundwater') }
+  get riversAndSeaBanner () { return $("h2[class='govuk-summary-card__title rivers-and-sea']") }
+  get surfaceWaterBanner () { return $("h2[class='govuk-summary-card__title surface-water']") }
+  get reservoirRiskBanner () { return $("dd[class='govuk-summary-list__value reservoirs']") }
+  get groundwaterRiskBanner () { return $('#groundwater-section') }
 
   // METHODS AND FUNCTIONS
 
@@ -29,24 +27,14 @@ class RiskDisplayPage {
     return (await this.surfaceWaterBanner).getText()
   }
 
-  async getReservoirRiskTrue () {
+  async getReservoirRisk () {
     await (await this.reservoirRiskBanner).waitForDisplayed()
     return (await this.reservoirRiskBanner).getText()
   }
 
-  async getReservoirRiskFalse () {
-    await (await this.reservoirNoRiskBanner).waitForDisplayed()
-    return (await this.reservoirNoRiskBanner).getText()
-  }
-
-  async getGroundwaterRiskTrue () {
+  async getGroundwaterRisk () {
     await (await this.groundwaterRiskBanner).waitForDisplayed()
     return (await this.groundwaterRiskBanner).getText()
-  }
-
-  async getGroundwaterRiskFalse () {
-    await (await this.groundwaterNoRiskBanner).waitForDisplayed()
-    return (await this.groundwaterNoRiskBanner).getText()
   }
 }
 module.exports = new RiskDisplayPage()
