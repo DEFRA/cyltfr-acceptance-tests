@@ -1,12 +1,13 @@
-/* global $ */
-const Page = require('./page')
+'use strict'
 
-class PrivacyNotice extends Page {
+class PrivacyNotice {
+  // LOCATORS
   get pageContent () { return $('main') }
 
-  get checkPrivacynoticeContent () {
-    this.pageContent.waitForDisplayed({})
-    return (this.pageContent).getText()
+  // METHODS AND FUNCTIONS
+  async checkPrivacyNoticeContent () {
+    await (await this.pageContent).waitForDisplayed({})
+    return (await this.pageContent).getText()
   }
 }
 module.exports = new PrivacyNotice()
