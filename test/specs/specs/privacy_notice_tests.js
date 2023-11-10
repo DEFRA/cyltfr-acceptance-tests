@@ -1,5 +1,9 @@
 'use strict'
 
+/*
+It would probably be sensible to place all tests for static content into this one file and rename file to static_content_tests
+*/
+
 const privacyNoticePage = require('../page_objects/privacy_notice_page')
 const file = require('../utilities/file')
 // const fs = require('fs')

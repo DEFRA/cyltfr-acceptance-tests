@@ -1,3 +1,7 @@
+/*
+I've not reviewed this test, but there is a similar test in the flood-service-tests-v2 repo which could be replicated for CYLTFR i think
+*/
+
 // /* global describe, it, browser */
 // const { expect, assert } = require('chai')
 

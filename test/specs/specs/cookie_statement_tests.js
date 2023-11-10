@@ -1,3 +1,7 @@
+/*
+Static content test - this could be grouped into privacy notice tests file and renamed static_contents_tests
+*/
+
 // /* global describe, it, browser, expect */
 // const cookieStatement = require('../page_objects/cookie_statement_page')
 // const fs = require('fs')

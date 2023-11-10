@@ -1,3 +1,7 @@
+/*
+This could be added into privacy notice test file and then grouped as static_content_tests
+*/
+
 'use strict'
 
 const accessibilityStmtPage = require('../page_objects/accessibility_stmt_page')
