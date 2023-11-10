@@ -7,11 +7,11 @@ const postcodeDataFile = require('../test_data/postcode_data')
 describe('Postcode page content tests', async () => {
   it('Should have the expected content in the correct page elements', async () => {
     // open browser at postcode search with capture bypass token
-    await browser.url('/postcode?captchabypass=ce3340ab3695f81da8d7b50875f3819e')
+    await browser.url(`${global.capchaBypass}`)
 
     // check browser is open on correct page and tab title is as expected
     expect(await browser.getTitle()).equals('Where do you want to check? - Check your long term flood risk - GOV.UK')
-    expect(await browser.getUrl()).equals(`${baseUrl}/postcode?captchabypass=ce3340ab3695f81da8d7b50875f3819e`)
+    expect(await browser.getUrl()).equals(`${baseUrl}${global.capchaBypass}`)
 
     // add content checks here
   })
@@ -22,11 +22,11 @@ describe('Postcode page sad path tests', async () => {
     it('Should produce an error message when an invalid postcode is provided', async () => {
       console.log('*** INVALID POSTCODE ERROR TEST CASE ', item.testCase)
       // open browser at postcode search with capture bypass token
-      await browser.url('/postcode?captchabypass=ce3340ab3695f81da8d7b50875f3819e')
+      await browser.url(`${global.capchaBypass}`)
 
       // check browser is open on correct page and tab title is as expected
       expect(await browser.getTitle()).equals('Where do you want to check? - Check your long term flood risk - GOV.UK')
-      expect(await browser.getUrl()).equals(`${baseUrl}/postcode?captchabypass=ce3340ab3695f81da8d7b50875f3819e`)
+      expect(await browser.getUrl()).equals(`${baseUrl}${global.capchaBypass}`)
 
       // pass in postcode search string and then click continue
       await postcodePage.enterPostcode(item.postcode)
@@ -42,11 +42,11 @@ describe('Postcode page sad path tests', async () => {
     it('Should result in England only page when Northern Ireland postcode provided', async () => {
       console.log('***NI POSTCODE ERROR TEST CASE ', item.testCase)
       // open browser at postcode search with capture bypass token
-      await browser.url('/postcode?captchabypass=ce3340ab3695f81da8d7b50875f3819e')
+      await browser.url(`${global.capchaBypass}`)
 
       // check browser is open on correct page and tab title is as expected
       expect(await browser.getTitle()).equals('Where do you want to check? - Check your long term flood risk - GOV.UK')
-      expect(await browser.getUrl()).equals(`${baseUrl}/postcode?captchabypass=ce3340ab3695f81da8d7b50875f3819e`)
+      expect(await browser.getUrl()).equals(`${baseUrl}${global.capchaBypass}`)
 
       // pass in postcode search string and then click continue
       await postcodePage.enterPostcode(item.postcode)

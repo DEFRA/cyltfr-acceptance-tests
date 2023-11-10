@@ -20,11 +20,11 @@ describe('Check risk displays are as expected', async () => {
     it('Should open the page and submit a postcode search', async () => {
       console.log('*** Check risk displays are as expected - TEST CASE ', item.testCase)
       // open browser at postcode search with capture bypass token
-      await browser.url('/postcode?captchabypass=ce3340ab3695f81da8d7b50875f3819e')
+      await browser.url(`${global.capchaBypass}`)
 
       // check browser is open on correct page and tab title is as expected
       expect(await browser.getTitle()).equals('Where do you want to check? - Check your long term flood risk - GOV.UK')
-      expect(await browser.getUrl()).equals(`${baseUrl}/postcode?captchabypass=ce3340ab3695f81da8d7b50875f3819e`)
+      expect(await browser.getUrl()).equals(`${baseUrl}${global.capchaBypass}`)
 
       // pass in postcode search string and then click continue
       await postcodePage.enterPostcode(item.postcode)
