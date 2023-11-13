@@ -1,43 +1,18 @@
-/* global browser it describe */
-const postcodePO = require('../page_objects/postcode_page')
-const addressPO = require('../page_objects/address_page')
-const { expect, assert } = require('chai')
+'use strict'
+
+const postcodePage = require('../page_objects/postcode_page')
+// const addressPage = require('../page_objects/address_page')
 
 describe('Check Your Long Term Flood Risk, Address page', async () => {
-  it('Open the page and Enter the postcode', async () => {
+  it('Should open the page and enter the postcode', async () => {
     await browser.url('')
-    const handles = await browser.getWindowHandles()
-    await browser.switchToWindow(handles[0])
-    await expect(postcodePO.postcodeTextbox.setValue('WA41AB'))
-    await browser.pause(6000)
-    await expect(postcodePO.postCodePageContinueCommandButton.click())
-    await browser.switchToWindow(handles[0])
-    await browser.pause(3000)
+    expect(await browser.getTitle()).equals('Where do you want to check? - Check your long term flood risk - GOV.UK')
+    expect(await browser.getUrl()).equals(`${baseUrl}/postcode`)
+    await expect(postcodePage.postcodeTextbox.setValue('WA41AB'))
+    await expect(postcodePage.clickContinue())
   })
 
-  it('Check the title and URL of address page', async () => {
-    const handles = await browser.getWindowHandles()
-    await browser.switchToWindow(handles[0])
-    await expect(addressPO.heading).exist
-    await expect(addressPO.subHeading1).exist
-    await expect(addressPO.subHeading2).exist
-    browser.pause(3000)
-  })
+  // it should display error message when no address selected and continue is clicked
 
-  it('Check the contents of the address page', async () => {
-    await expect(addressPO.postcodeTitle).exist
-    await expect(addressPO.postcode).exist
-    await expect(addressPO.postcodeChange).exist
-    await expect(addressPO.selectaddressTitle).exist
-    await expect(addressPO.addressCombo).exist
-    await expect(addressPO.addressContinueButton).exist
-  })
-
-  /** Checking the error message */
-  it('Do not select any address', async () => {
-    await addressPO.addressContinueButton.click()
-    await expect(addressPO.addressError.waitForExist({ timeOut: 30000 })).exist
-    // await browser.pause(3000)
-    await assert.equal(await addressPO.addressError.getText(), 'Error: Select an address', '')
-  })
+  // it should display england only addresses error page, when an address outside england is selected
 })

@@ -3,6 +3,22 @@ Repo for the CYLTFR UI tests
 
 It uses wdio, combined with Mocha framework and Chai assertions library
 
+# Prerequisites
+
+Node.js v18.x.x +
+
+# Install
+
+First clone the repo using:
+
+`$ git clone`
+
+Then from the root of the project folder:
+
+`$ npm i`
+
+This should install all dependacies etc
+
 Linting is built in with Standard - you will need to add the StandardJS extension in VScode.
 
 ## Branching Strategy
@@ -76,26 +92,9 @@ This should now have merged the release candidate branch into both dev and maste
 
 | name               | description      | required |        default        |       valid        | notes |
 |--------------------|------------------|:--------:|-----------------------|:------------------:|-------|
-| CYLTFR_APP_URL | Target Environment url |    yes   |                       |    | The wdio.config.js file lines 11-15 contain options on how to pass this url into the tests.  Ideally envars should be used and picked up by the tests, but for easy switching between environments when running locally, the variable can be set directly in the config file.  |
-| BROWSERSTACK_USERNAME      | User             |    no    |                       |                    |Browserstack user |
-| BROWSERSTACK_ACCESS_KEY       | Key              |    no    |                       |                    |Browserstack key  |
+| CYLTFR_APP_URL | Target Environment url |    Yes   |                       |    | The wdio.config.js file lines 11-15 contain options on how to pass this url into the tests.  Ideally envars should be used and picked up by the tests, but for easy switching between environments when running locally, the variable can be set directly in the config file.  |
+| TESTING_CAPCHA_BYPASS      | Key for captcha bypass |    Yes    |                       |                    |  This can be found in the projects associated config file |
 
-# Prerequisites
-
-Node.js v16.x.x +
-
-
-# Install
-
-First clone the repo using:
-
-`$ git clone`
-
-Then from the root of the project folder:
-
-`$ npm i`
-
-This should install all dependacies etc
 
 # Run the tests
 
@@ -125,6 +124,8 @@ The repo has allure reporting plugged in so an easy to view output of the test r
 
 # Browserstack testing
 
-A separate webdriver config file, wdio.bstack.conf.js, is used when running Browserstack tests. Note that for these tests a Browserstack user and key will be required. These should be set up as environment variables.  At present it is advisabe to run Browserstack tests against specific tests to keep running time at an optimum. The tests to run are specified in the wdio.bstack.conf.js file.  The device, os, and browser combinations are specified in the browsers.js file.  To run the browserstack tests -
+Currently not in palce
 
-`$ npm run bstack `
+# Jenkins pipeline
+
+The tests are run from the jenkins pipeline and are environment agnostic, relying on config files to inject the required environment variables.

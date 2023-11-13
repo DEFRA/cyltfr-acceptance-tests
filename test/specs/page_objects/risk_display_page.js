@@ -1,68 +1,40 @@
-/* global $ $$ */
-const Page = require('./page')
+'use strict'
 
-class RiskDisplayPO extends Page {
-  get pageContent () {
-    return $('main')
+class RiskDisplayPage {
+  // LOCATORS
+  get pageContent () { return $('main') }
+  get heading () { return $('h1') }
+  get addressDetail () { return $("h1[class='govuk-heading-l govuk-!-padding-top-0']") }
+  get riversAndSeaBanner () { return $("h2[class='govuk-summary-card__title rivers-and-sea']") }
+  get surfaceWaterBanner () { return $("h2[class='govuk-summary-card__title surface-water']") }
+  get reservoirRiskBanner () { return $("dd[class='govuk-summary-list__value reservoirs']") }
+  get groundwaterRiskBanner () { return $('#groundwater-section') }
+
+  // METHODS AND FUNCTIONS
+
+  async confirmAddressDetail () {
+    await (await this.addressDetail).waitForDisplayed()
+    return (await this.addressDetail).getText()
   }
 
-  get heading () {
-    return $('h1')
+  async getRiversAndSeaRisk () {
+    await (await this.riversAndSeaBanner).waitForDisplayed()
+    return (await this.riversAndSeaBanner).getText()
   }
 
-  get subHeading () {
-    return $("h2[class='govuk-heading-m']")
+  async getSurfaceWaterRisk () {
+    await (await this.surfaceWaterBanner).waitForDisplayed()
+    return (await this.surfaceWaterBanner).getText()
   }
 
-  get risktypes () {
-    return $$('h3')
+  async getReservoirRisk () {
+    await (await this.reservoirRiskBanner).waitForDisplayed()
+    return (await this.reservoirRiskBanner).getText()
   }
 
-  get riskLevel () {
-    // return $$('h3')
-    return $$('//p[@class="govuk-!-margin-top-0 risk"]')
-  }
-
-  // Risk Heading and text
-  get surfacewaterRiskContent () {
-    return $('.surface-water')
-  }
-
-  get SummaryLinkContent () {
-    return $('.govuk-details__text[css]')
-  }
-
-  get riversandseaRiskContent () {
-    return $('.rivers-sea')
-  }
-
-  get reservoir () {
-    return $('.reservoirs')
-  }
-
-  get reservoirAccordion () {
-    return $("//div[@class='reservoirs']//details[1]//summary[1]")
-  }
-
-  get groundwater () {
-    return $("//body/div[@class='govuk-width-container ']/main[@id='main-content']/div[@id='risk-page']/div[@class='govuk-grid-row']/div[@class='govuk-grid-column-two-thirds']/div[@class='page-summary']/details[1]")
-  }
-
-  // Risk Rivers and Sea - What you can do accordion
-  get accordionRiversSea () {
-    return $$('.rivers-sea .govuk-details__text')
-  }
-
-  get accordionSurfaceWater () {
-    return $$('.surface-water .govuk-details__text')
-  }
-
-  get accordionReservoir () {
-    return $$('.reservoirs .govuk-details__text')
-  }
-
-  get accordionGroundwater () {
-    return $$('.reservoirs .govuk-details__text')
+  async getGroundwaterRisk () {
+    await (await this.groundwaterRiskBanner).waitForDisplayed()
+    return (await this.groundwaterRiskBanner).getText()
   }
 }
-module.exports = new RiskDisplayPO()
+module.exports = new RiskDisplayPage()
