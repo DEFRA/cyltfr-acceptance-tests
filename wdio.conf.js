@@ -13,7 +13,7 @@ otherwise the test run maybe running against wrong environment */
 // global.baseUrl = 'http://localhost:3001'
 
 global.baseUrl = process.env.CYLTFR_APP_URL
-global.capchaBypass = process.env.TESTING_CAPCHA_BYPASS
+global.capchaBypass = '/postcode?captchabypass=' + process.env.TESTING_CAPCHA_BYPASS
 
 exports.config = {
   //
@@ -129,38 +129,7 @@ exports.config = {
   // Services take over a specific job you don't want to take care of. They enhance
   // your test setup with almost no effort. Unlike plugins, they don't add new
   // commands. Instead, they hook themselves up into the test process.
-  services: ['chromedriver',
-    [
-      'image-comparison',
-      // The options
-      {
-        // Some options, see the docs for more
-        baselineFolder: join(process.cwd(), './baselineImages/'),
-        formatImageName: '{tag}-{logName}-{width}x{height}',
-        screenshotPath: join(process.cwd(), '.tmp/'),
-        savePerInstance: true,
-        autoSaveBaseline: true,
-        blockOutStatusBar: true,
-        blockOutToolBar: true,
-        ignoreNothing: true,
-        // NOTE: When you are testing a hybrid app please use this setting
-        isHybridApp: true,
-        // Options for the tabbing image
-        tabbableOptions: {
-          circle: {
-            size: 18,
-            fontSize: 18
-            // ...
-          },
-          line: {
-            color: 'blue', // hex-code or for example words like `red|black|green`
-            width: 3
-          }
-        }
-        // ... more options
-      }
-    ]
-  ],
+  services: ['chromedriver'],
 
   // Framework you want to run your specs with.
   // The following are supported: Mocha, Jasmine, and Cucumber
@@ -216,6 +185,7 @@ exports.config = {
     fileUtils.deleteDirectory('allure-results')
     fileUtils.deleteDirectory('allure-report')
     console.log('***** You\'re now running this test pack against ', global.baseUrl, ' if this is incorrect you may want to abort the test run *****')
+    console.log('***** THE CAPCHA BYPASS YOU ARE USING IS ' + global.capchaBypass)
   },
   /**
      * Gets executed before a worker process is spawned and can be used to initialise specific service
