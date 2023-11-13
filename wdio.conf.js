@@ -1,6 +1,5 @@
 'use strict'
 
-const { join } = require('path')
 const allureReporter = require('@wdio/allure-reporter').default
 const fileUtils = require('./test/specs/utilities/deleteFile')
 
