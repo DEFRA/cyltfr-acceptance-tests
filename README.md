@@ -100,13 +100,13 @@ This should now have merged the release candidate branch into both dev and maste
 
 Environment variables to be set in bashrc. or terminal.  Then to run tests from cli in root of project:
 
-`$ npm run wdio`
+`$ npm run wdio` - This will run all tests.
 
-This will run all tests, to specify suites or test cases, see wdio docs for more detail.
 
-`$ npm run wdio -- --spec test/specs/specs/test-name.js`
 
-This will run the specified spec file, rather than the entire set of tests
+`$ npm run test` - This will run all tests, and because we have a 'pretest' script, it will run the linting also.  This is mainly for use in pipeline.
+
+`$ npm run wdio -- --spec test/specs/specs/test-name.js` - This will run the specified spec file, rather than the entire set of tests
 
 If running on local Windows machine then to run all tests:
 

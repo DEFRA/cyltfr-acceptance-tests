@@ -231,7 +231,7 @@ exports.config = {
     global.should = chai.should
     global.expect = chai.expect
     global.allure = allureReporter
-  }
+  },
   /**
      * Runs before a WebdriverIO command gets executed.
      * @param {String} commandName hook command name
@@ -272,6 +272,9 @@ exports.config = {
      * @param {Boolean} result.passed    true if test has passed, otherwise false
      * @param {Object}  result.retries   informations to spec related retries, e.g. `{ attempts: 0, limit: 0 }`
      */
+  afterTest: async function (test, context, { error, result, duration, passed, config, retries }) {
+    if (!passed) { await browser.takeScreenshot() }
+  }
   // afterTest: function(test, context, { error, result, duration, passed, retries })
   // {if(error){
   //  takeScreenshot();}},

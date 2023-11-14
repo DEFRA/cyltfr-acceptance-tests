@@ -25,6 +25,8 @@
     "scripts": {
         "lint": "npx standard",
         "wdio": "wdio run wdio.conf.js",
+        "test": "wdio run wdio.conf.js",
+        "pretest": "npm run lint",
         "allure": "allure serve ./allure-results",
         "allure-report": "allure generate /.allure-results --clean && allure open",
         "bstack": "wdio run wdio.bstack.conf.js"

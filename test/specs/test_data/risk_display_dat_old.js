@@ -1,12 +1,11 @@
 module.exports = {
   riskDisplayData: [
-    
+
     /* NOTE THIS FILE IS JUST A BACK UP OF THE ORINGINAL DATA FILE.  THERES LOTS OF STUFF COMMENTED OUT AND ITS JUST ONE LARGE DATA FILE
     THOUGHTS THIS CAN BE BROKEN DOWN PER RISK TYPE AND THE TEST SPLIT OUT, THIS WILL REDUCE RUN TIME AND MAKE IT EASIER FOR MAINTAINANCE.
     IT'S LIKELY THIS FILE WILL BE REMOVED AT SOME POINT SOON.
     */
-    
-    
+
     // * Lines commented out do not currently have postcode to meet the test case permuatation//
     // ** Each permuatation duplicated with a view that reservoir flood risk may be added at later date//
 
@@ -33,7 +32,7 @@ module.exports = {
       riverAndSeaRisk: 'High Risk',
       surfaceWaterRisk: 'Medium Risk',
       reservoirRisk: true
-    }
+    },
     //  { postcode: 'POSTCODE', dropDownValue: XX2465065006,
     // riverAndSeaRisk: RiskLevel.High, surfaceWaterRisk: 'Medium', reservoirRisk: true },
     {
@@ -350,4 +349,3 @@ module.exports = {
     }
   ]
 }
-

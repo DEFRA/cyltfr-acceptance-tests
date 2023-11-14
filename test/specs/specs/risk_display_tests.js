@@ -48,17 +48,12 @@ describe('Check risk displays are as expected', async () => {
       // check the river and sea risk is as expected
       expect(await propertyRiskPage.getRiversAndSeaRisk()).equals(item.riverAndSeaRisk)
 
-      /* check the surface water risk is as expected - note that due to HTML in DOM,
-      there is no way of grabbing the surface water banner, therefore has to be contains and each surface water
-      block of content is unique due to local authority dynamic text */
+      // check the surface water risk is as expected
       expect(await propertyRiskPage.getSurfaceWaterRisk()).to.contain(item.surfaceWaterRisk)
 
       // if the reservoir risk is expected to be true (in data file)
       if (item.reservoirRisk === true) {
-      /*
-      check the reservoir risk message is correct - note that due to HTML in DOM,
-      there is no way of grabbing the reservoir banner and the table is generated in logical order, therefore has to be contains
-       */
+        // check the reservoir risk message is correct
         await expect(await propertyRiskPage.getReservoirRisk()).to.contain('There is a risk of flooding from reservoirs in this area.')
       } else {
         // else check the reservoir no risk is correct
