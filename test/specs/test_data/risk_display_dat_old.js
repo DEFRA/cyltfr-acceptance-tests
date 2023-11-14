@@ -43,7 +43,7 @@ module.exports = {
       riverAndSeaRisk: 'High',
       surfaceWaterRisk: 'Low',
       reservoirRisk: true
-    },
+    }
     // //  { postcode: 'POSTCODE', dropDownValue: XX,
     // //  riverAndSeaRisk: RiskLevel.High, surfaceWaterRisk: 'Low', reservoirRisk: true },
     // //  { postcode: 'POSTCODE', dropDownValue: xx77079867,
