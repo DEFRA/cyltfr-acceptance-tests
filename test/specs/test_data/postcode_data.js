@@ -49,16 +49,36 @@ module.exports = {
       testCase: 12,
       postcode: '^M'
     }
-    // script injection results in silverline error message - use below for a seperate test
-    // {
-    //   testCase13: 13,
-    //   postcode: '<script>alert(\'alerting\')</script>'
-    // }
+  ],
+    //script injection results in silverline error message - use below for a seperate test
+    silverlineError:[
+    {
+       testCase: 1,
+      postcode: '<script>alert(\'alerting\')</script>'
+     }
   ],
   northerIrelandPostcode: [
     {
       testCase: 1,
       postcode: 'BT8 4AA'
+    }
+  ],
+  // added for Welsh and Scotland postcode error messages
+  outsideUKpostcodes: [
+    {
+      testCase: 1,
+      postcode: 'EH1 1HR'
+    },
+    {
+      testCase: 2,
+      postcode: 'CF14 3BL'
+    }
+  ],
+  // added for valid postcode but results in empty result set
+  emptyPostcode: [
+    {
+      testcase: 1,
+      postcode: 'TQ72PM'
     }
   ]
 }
