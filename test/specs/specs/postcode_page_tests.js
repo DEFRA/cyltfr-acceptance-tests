@@ -32,7 +32,7 @@ describe('Postcode page sad path tests', async () => {
       // pass in postcode search string and then click continue
       await postcodePage.enterPostcode(item.postcode)
       await postcodePage.contBtn.click()
-
+      
       // check the expected error message is produced
     
       expect(await postcodePage.getPostcodeBannerMessage()).equals('Enter a full postcode in England')
@@ -55,7 +55,7 @@ describe('Postcode page sad path tests', async () => {
       // pass in postcode search string and then click continue
       await postcodePage.enterPostcode(item.postcode)
       await postcodePage.contBtn.click()
-
+      
       // check the expected error page is produced
       expect(await postcodeErrorPage.getPageHeading()).equals('This service is for postcodes in England only')
       expect(await browser.getTitle()).equals('Check your long term flood risk - Check your long term flood risk - GOV.UK')
@@ -109,7 +109,7 @@ postcodeDataFile.outsideUKpostcodes.forEach(function (item) {
     // pass in postcode search string and then click continue
     await postcodePage.enterPostcode(item.postcode)
     await postcodePage.contBtn.click()
-
+    
     // check the expected error page is produced
     expect(await postcodeErrorPage.getPageHeading()).equals('Sorry, the requested URL was rejected')
     expect(await browser.getTitle()).equals('Sorry, there is a problem with the service - Check long term flood risk - GOV.UK')
@@ -130,7 +130,7 @@ postcodeDataFile.outsideUKpostcodes.forEach(function (item) {
      // pass in postcode search string and then click continue
      await postcodePage.enterPostcode(item.postcode)
      await postcodePage.contBtn.click()
-
+    
      // check the expected error message is produced
    
      expect(await postcodePage.getPostcodeBannerMessage()).equals('This postcode does not appear to exist')
