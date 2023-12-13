@@ -3,7 +3,7 @@
 const postcodePage = require('../page_objects/postcode_page')
 const addressPage = require('../page_objects/address_page')
 const addressDataFile = require('../test_data/address_data')
-const { expect } = require('chai')
+//const { expect } = require('chai')
 
 describe('Check Your Long Term Flood Risk, Address page', async () => {
   it('Should open the page and enter the postcode', async () => {
@@ -14,12 +14,11 @@ describe('Check Your Long Term Flood Risk, Address page', async () => {
     expect(await browser.getTitle()).equals('Where do you want to check? - Check your long term flood risk - GOV.UK')
     expect(await browser.getUrl()).equals(`${baseUrl}${global.capchaBypass}`)
     
-    await expect(postcodePage.enterPostcode('WA41AB'))
-    await browser.pause(3000)
-    await expect(postcodePage.contBtn.click())
+    await postcodePage.enterPostcode('WA41AB')
+    await postcodePage.clickContinue()
 
     // check address page
-    await browser.pause(3000)
+    
     expect(await browser.getTitle()).equals('Select an address - Check your long term flood risk - GOV.UK')
    
    // selecting NO address from the combo
@@ -40,12 +39,9 @@ it('Should check the address result count', async () => {
     expect(await browser.getTitle()).equals('Where do you want to check? - Check your long term flood risk - GOV.UK')
     expect(await browser.getUrl()).equals(`${baseUrl}${global.capchaBypass}`)
     
-    await expect(postcodePage.enterPostcode(item.postcode))
-    await browser.pause(3000)
-    await expect(postcodePage.contBtn.click())
-
+    await postcodePage.enterPostcode(item.postcode)
+    await postcodePage.clickContinue()
     // check address page
-    await browser.pause(3000)
     expect(await browser.getTitle()).equals('Select an address - Check your long term flood risk - GOV.UK')
 
    // check address count result set
