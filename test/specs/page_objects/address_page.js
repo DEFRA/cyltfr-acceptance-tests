@@ -13,7 +13,7 @@ class AddressPage {
   get addressError () { return $("//p[@id='address-error']") }
   get addressContinueButton () { return $('#address-page form button[type=submit]') }
   get bannerError () { return $("ul[class='govuk-list govuk-error-summary__list']") }
-  //getting index path for the address count
+  // getting index path for the address count
   get addressComboText () { return $("//*[@id='address']/option[1]") }
   // METHODS AND FUNCTIONS
   async selectAddress (item) {
@@ -25,7 +25,7 @@ class AddressPage {
     await (await this.addressComboText).waitForDisplayed()
     return (await this.addressComboText).getText()
   }
-  
+
   async clickContinue () {
     await (await this.addressContinueButton).waitForDisplayed({})
     return (await this.addressContinueButton).click()

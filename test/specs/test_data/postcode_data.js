@@ -50,12 +50,12 @@ module.exports = {
       postcode: '^M'
     }
   ],
-    //script injection results in silverline error message - use below for a seperate test
-    silverlineError:[
+  // script injection results in silverline error message - use below for a seperate test
+  silverlineError: [
     {
-       testCase: 1,
+      testCase: 1,
       postcode: '<script>alert(\'alerting\')</script>'
-     }
+    }
   ],
   northerIrelandPostcode: [
     {
