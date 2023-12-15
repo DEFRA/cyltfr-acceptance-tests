@@ -4,7 +4,6 @@ const postcodePage = require('../page_objects/postcode_page')
 const addressPage = require('../page_objects/address_page')
 const addressDataFile = require('../test_data/address_data')
 
-
 describe('Check Your Long Term Flood Risk, Address page', async () => {
   it.skip('Should open the page and enter the postcode', async () => {
     await browser.url(`${global.capchaBypass}`)
@@ -48,7 +47,6 @@ describe('Check Your Long Term Flood Risk, Address page', async () => {
       const resultcount = await resultText.slice(0, resultText.indexOf(' '))
       console.log('address count', resultcount)
       expect(await resultcount).equals(item.expectedResultCount)
-
-   })
+    })
   })
 })
