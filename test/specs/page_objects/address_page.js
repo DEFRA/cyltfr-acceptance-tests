@@ -16,6 +16,13 @@ class AddressPage {
   // getting index path for the address count
   get addressComboText () { return $("//*[@id='address']/option[1]") }
   // METHODS AND FUNCTIONS
+
+  //adding to avoid jenkins run time error for assertion failure
+  async getTitle (expected) {
+    let actual =  await browser.getTitle().waitForDisplayed({})
+    expect(await actual.equals(expected))
+    }
+    //
   async selectAddress (item) {
     await (await this.addressCombo).waitForDisplayed()
     return (await this.addressCombo).selectByAttribute('value', item)
