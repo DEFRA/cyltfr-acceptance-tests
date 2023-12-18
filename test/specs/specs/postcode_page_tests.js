@@ -26,7 +26,9 @@ describe('Postcode page sad path tests', async () => {
       await browser.url(`${global.capchaBypass}`)
 
       // check browser is open on correct page and tab title is as expected
-      expect(await browser.getTitle()).equals('Where do you want to check? - Check your long term flood risk - GOV.UK')
+      // fix for the Jenkins build failure
+      await postcodePage.getTitle('Where do you want to check? - Check your long term flood risk - GOV.UK')
+
       expect(await browser.getUrl()).equals(`${baseUrl}${global.capchaBypass}`)
 
       // pass in postcode search string and then click continue
