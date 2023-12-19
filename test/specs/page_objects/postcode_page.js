@@ -13,10 +13,15 @@ class PostcodePage {
   get bannerError () { return $("ul[class='govuk-list govuk-error-summary__list']") }
 
   // METHODS FUNCTIONS ACTIONS
-  
+
   async getTitle (expected) {
-  let actual =  await browser.getTitle().waitForDisplayed({})
-  expect(await actual.equals(expected))
+    browser.waitUntil(
+      () => browser.execute(() => document.readyState === 'complete'),
+      { timeout: 60 * 1000 }
+    )
+    const actual = await browser.getTitle()
+    console.log('****print the title**********', actual)
+    expect(await browser.getTitle()).to.include(expected)
   }
 
   async enterPostcode (postcode) {
