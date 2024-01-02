@@ -15,20 +15,9 @@ class AddressPage {
   get bannerError () { return $("ul[class='govuk-list govuk-error-summary__list']") }
   // getting index path for the address count
   get addressComboText () { return $("//*[@id='address']/option[1]") }
+
   // METHODS AND FUNCTIONS
 
-  // adding to avoid jenkins run time error for assertion failure
-  async getTitle (expected) {
-    browser.waitUntil(
-      () => browser.execute(() => document.readyState === 'complete'),
-      { timeout: 60 * 1000 }
-    )
-    const actual = await browser.getTitle()
-    console.log('****print the title**********', actual)
-    expect(await browser.getTitle()).to.include(expected)
-  }
-
-  //
   async selectAddress (item) {
     await (await this.addressCombo).waitForDisplayed()
     return (await this.addressCombo).selectByAttribute('value', item)

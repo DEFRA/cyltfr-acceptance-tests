@@ -14,16 +14,6 @@ class PostcodePage {
 
   // METHODS FUNCTIONS ACTIONS
 
-  async getTitle (expected) {
-    browser.waitUntil(
-      () => browser.execute(() => document.readyState === 'complete'),
-      { timeout: 60 * 1000 }
-    )
-    const actual = await browser.getTitle()
-    console.log('****print the title**********', actual)
-    expect(await browser.getTitle()).to.include(expected)
-  }
-
   async enterPostcode (postcode) {
     await (await this.postcodeTextbox).waitForDisplayed({})
     return (await this.postcodeTextbox).setValue(postcode)

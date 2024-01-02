@@ -111,7 +111,7 @@ module.exports = {
       testCase: 10,
       houseNumber: '27a',
       postcode: 'S6 4JP',
-      dropDownValue: '19',
+      dropDownValue: '21',
       riverAndSeaRisk: 'Rivers and the seaMedium risk of flooding',
       surfaceWaterRisk: 'High risk',
       reservoirRisk: true,

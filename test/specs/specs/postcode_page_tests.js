@@ -4,6 +4,8 @@ const postcodePage = require('../page_objects/postcode_page')
 const postcodeErrorPage = require('../page_objects/postcode_error_page')
 const postcodeDataFile = require('../test_data/postcode_data')
 const addressPage = require('../page_objects/address_page')
+// adding the common function
+const commonFunction = require('../page_objects/common_functions')
 
 describe('Postcode page content tests', async () => {
   it('Should have the expected content in the correct page elements', async () => {
@@ -11,7 +13,8 @@ describe('Postcode page content tests', async () => {
     await browser.url(`${global.capchaBypass}`)
 
     // check browser is open on correct page and tab title is as expected
-    expect(await browser.getTitle()).equals('Where do you want to check? - Check your long term flood risk - GOV.UK')
+    // expect(await browser.getTitle()).equals('Where do you want to check? - Check your long term flood risk - GOV.UK')
+    await commonFunction.getTitle('Where do you want to check? - Check your long term flood risk - GOV.UK')
     expect(await browser.getUrl()).equals(`${baseUrl}${global.capchaBypass}`)
 
     // add content checks here
@@ -27,7 +30,7 @@ describe('Postcode page sad path tests', async () => {
 
       // check browser is open on correct page and tab title is as expected
       // fix for the Jenkins build failure
-      await postcodePage.getTitle('Where do you want to check? - Check your long term flood risk - GOV.UK')
+      await commonFunction.getTitle('Where do you want to check? - Check your long term flood risk - GOV.UK')
 
       expect(await browser.getUrl()).equals(`${baseUrl}${global.capchaBypass}`)
 
@@ -50,7 +53,7 @@ describe('Postcode page sad path tests', async () => {
 
       // check browser is open on correct page and tab title is as expected
       // fix for the Jenkins build failure
-      await postcodePage.getTitle('Where do you want to check? - Check your long term flood risk - GOV.UK')
+      await commonFunction.getTitle('Where do you want to check? - Check your long term flood risk - GOV.UK')
       // expect(await browser.getTitle()).equals('Where do you want to check? - Check your long term flood risk - GOV.UK')
       expect(await browser.getUrl()).equals(`${baseUrl}${global.capchaBypass}`)
 
@@ -60,7 +63,8 @@ describe('Postcode page sad path tests', async () => {
 
       // check the expected error page is produced
       expect(await postcodeErrorPage.getPageHeading()).equals('This service is for postcodes in England only')
-      expect(await browser.getTitle()).equals('Check your long term flood risk - Check your long term flood risk - GOV.UK')
+      // expect(await browser.getTitle()).equals('Check your long term flood risk - Check your long term flood risk - GOV.UK')
+      await commonFunction.getTitle('Check your long term flood risk - Check your long term flood risk - GOV.UK')
       expect(await browser.getUrl()).equals(`${baseUrl}/england-only?postcode=BT8%204AA&region=northern-ireland#`)
     })
   })
@@ -73,7 +77,7 @@ describe('Postcode page sad path tests', async () => {
 
       // check browser is open on correct page and tab title is as expected
       // fix for the Jenkins build failure
-      await postcodePage.getTitle('Where do you want to check? - Check your long term flood risk - GOV.UK')
+      await commonFunction.getTitle('Where do you want to check? - Check your long term flood risk - GOV.UK')
       // expect(await browser.getTitle()).equals('Where do you want to check? - Check your long term flood risk - GOV.UK')
       expect(await browser.getUrl()).equals(`${baseUrl}${global.capchaBypass}`)
 
@@ -82,7 +86,8 @@ describe('Postcode page sad path tests', async () => {
       await postcodePage.contBtn.click()
 
       // check address page
-      expect(await browser.getTitle()).equals('Select an address - Check your long term flood risk - GOV.UK')
+      // expect(await browser.getTitle()).equals('Select an address - Check your long term flood risk - GOV.UK')
+      await commonFunction.getTitle('Select an address - Check your long term flood risk - GOV.UK')
 
       // selecting the address from the combo
       await addressPage.selectAddress(1)
@@ -90,7 +95,8 @@ describe('Postcode page sad path tests', async () => {
 
       // check the expected error page is produced
       expect(await postcodeErrorPage.getPageHeading()).equals('This service is for postcodes in England only')
-      expect(await browser.getTitle()).equals('Check your long term flood risk - Check your long term flood risk - GOV.UK')
+      // expect(await browser.getTitle()).equals('Check your long term flood risk - Check your long term flood risk - GOV.UK')
+      await commonFunction.getTitle('Check your long term flood risk - Check your long term flood risk - GOV.UK')
       expect(await browser.getUrl()).equals(`${baseUrl}/england-only`)
     })
   })
@@ -105,7 +111,7 @@ describe('Postcode page sad path tests', async () => {
 
       // check browser is open on correct page and tab title is as expected
       // fix for the Jenkins build failure
-      await postcodePage.getTitle('Where do you want to check? - Check your long term flood risk - GOV.UK')
+      await commonFunction.getTitle('Where do you want to check? - Check your long term flood risk - GOV.UK')
       // expect(await browser.getTitle()).equals('Where do you want to check? - Check your long term flood risk - GOV.UK')
       expect(await browser.getUrl()).equals(`${baseUrl}${global.capchaBypass}`)
 
@@ -115,7 +121,9 @@ describe('Postcode page sad path tests', async () => {
 
       // check the expected error page is produced
       expect(await postcodeErrorPage.getPageHeading()).equals('Sorry, the requested URL was rejected')
-      expect(await browser.getTitle()).equals('Sorry, there is a problem with the service - Check long term flood risk - GOV.UK')
+      //  expect(await browser.getTitle()).equals('Sorry, there is a problem with the service - Check long term flood risk - GOV.UK')
+      await commonFunction.getTitle('Sorry, there is a problem with the service - Check long term flood risk - GOV.UK')
+
     // expect(await browser.getUrl()).equals(`${baseUrl}/postcode`)
     })
 
@@ -128,7 +136,7 @@ describe('Postcode page sad path tests', async () => {
 
         // check browser is open on correct page and tab title is as expected
         // fix for the Jenkins build failure
-        await postcodePage.getTitle('Where do you want to check? - Check your long term flood risk - GOV.UK')
+        await commonFunction.getTitle('Where do you want to check? - Check your long term flood risk - GOV.UK')
         // expect(await browser.getTitle()).equals('Where do you want to check? - Check your long term flood risk - GOV.UK')
         expect(await browser.getUrl()).equals(`${baseUrl}${global.capchaBypass}`)
 
