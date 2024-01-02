@@ -24,7 +24,7 @@ describe('Check risk displays are as expected', async () => {
       await browser.url(`${global.capchaBypass}`)
 
       // check browser is open on correct page and tab title is as expected
-      //expect(await browser.getTitle()).equals('Where do you want to check? - Check your long term flood risk - GOV.UK')
+      // expect(await browser.getTitle()).equals('Where do you want to check? - Check your long term flood risk - GOV.UK')
       await commonFunctions.getTitle('Where do you want to check? - Check your long term flood risk - GOV.UK')
       expect(await browser.getUrl()).equals(`${baseUrl}${global.capchaBypass}`)
 
@@ -33,7 +33,7 @@ describe('Check risk displays are as expected', async () => {
       await postcodePage.clickContinue()
 
       // check next page is presented as expected
-     // expect(await browser.getTitle()).equals('Select an address - Check your long term flood risk - GOV.UK')
+      // expect(await browser.getTitle()).equals('Select an address - Check your long term flood risk - GOV.UK')
       await commonFunctions.getTitle('Select an address - Check your long term flood risk - GOV.UK')
     })
 
