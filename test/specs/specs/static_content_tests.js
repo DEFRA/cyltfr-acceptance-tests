@@ -1,5 +1,4 @@
 'use strict'
-
 /*
 It would probably be sensible to place all tests for static content into this one file and rename file to static_content_tests
 */
@@ -28,7 +27,7 @@ describe('Check Privacy Notice Content', async () => {
 })
 
 describe('Check Accessibility statement Content', async () => {
-  it.skip('Should have the correct content for the accessibility statement', async () => {
+  it('Should have the correct content for the accessibility statement', async () => {
     console.log('*** ACCESSIBILITY STATEMENT CONTENT CHECK')
     // grab the accessibility statement txt file, name it and have available for test
     const accessibilityStmtFile = fs.readFileSync('./test/specs/content_data/accessibilty-stmt-data.txt', 'utf8')
@@ -42,7 +41,7 @@ describe('Check Accessibility statement Content', async () => {
 })
 // add test for cookies statement content
 describe('Check Cookies statement Content', async () => {
-  it.skip('Should have the correct content for the cookies statement', async () => {
+  it('Should have the correct content for the cookies statement', async () => {
     console.log('*** COOKIE STATEMENT CONTENT CHECK')
     // grab the Cookie statement txt file, name it and have available for test
     const cookieStmtFile = fs.readFileSync('./test/specs/content_data/cookiestatement_latest.txt', 'utf8')
@@ -59,7 +58,7 @@ describe('Check Get flood risk data Content', async () => {
   it('Should have the correct content for the get flood risk page', async () => {
     console.log('*** FLOOD RISK DATA CONTENT CHECK')
     // grab the Cookie statement txt file, name it and have available for test
-    const floodRiskFile = fs.readFileSync('./test/specs/content_data/floodrisk_data.txt', 'utf8')
+    const floodRiskFile = fs.readFileSync('./test/specs/content_data/flood_riskdata.txt', 'utf8')
     // open browser, check the tab title is correct and we are definately on the correct url
     await browser.url('/risk-data')
     expect(await browser.getTitle()).equals('Get flood risk data - Check your long term flood risk - GOV.UK')
