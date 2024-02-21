@@ -11,9 +11,12 @@ POINTS TO NOTE
 
 const postcodePage = require('../page_objects/postcode_page')
 const addressPage = require('../page_objects/address_page')
+// const riskDisplayDataFile = require('../test_data/risk_display_data_new')
 const riskDisplayDataFile = require('../test_data/risk_display_data')
 const propertyRiskPage = require('../page_objects/risk_display_page')
 const commonFunctions = require('../page_objects/common_functions')
+// adding to read the file for SW, RS, Res and GW content check
+const fs = require('fs')
 
 describe('Check risk displays are as expected', async () => {
 // loop over each object in the array of data
@@ -22,7 +25,7 @@ describe('Check risk displays are as expected', async () => {
       console.log('*** Check risk displays are as expected - TEST CASE ', item.testCase)
       // open browser at postcode search with capture bypass token
       await browser.url(`${global.capchaBypass}`)
-
+      console.log('********LOOPS IN THE DATA FILE************', item)
       // check browser is open on correct page and tab title is as expected
       // expect(await browser.getTitle()).equals('Where do you want to check? - Check your long term flood risk - GOV.UK')
       await commonFunctions.getTitle('Where do you want to check? - Check your long term flood risk - GOV.UK')
@@ -48,20 +51,46 @@ describe('Check risk displays are as expected', async () => {
     })
 
     it('Should display the correct risk values for the selected property', async () => {
-      // check the river and sea risk is as expected
-      expect(await propertyRiskPage.getRiversAndSeaRisk()).equals(item.riverAndSeaRisk)
+      // Check for surface water statis content
+      if (item.surfaceWaterRisk) {
+        // getting surface water banner contents from locator
+        const surfacewaterContents = await propertyRiskPage.getSurfaceWaterContents()
+        // getting the council details from locator
+        const councilDetails = await propertyRiskPage.getsurfaceWaterCouncilDetails()
+        // reading the static content file for surface water from the file
+        let surfacewaterStaticContentFile = fs.readFileSync('./test/specs/content_data/SW_Contentdata.txt', 'utf8')
+        // calling the function to amend the risk level in the file
+        const textFile = await propertyRiskPage.getRiskLevelsData(item.surfaceWaterRisk, surfacewaterStaticContentFile)
+        surfacewaterStaticContentFile = textFile.newRiskText
+        // console.log('*******SW Static Content File*********', surfacewaterStaticContentFile)
+        // console.log('********SW Content*******', surfacewaterContents)
 
-      // check the surface water risk is as expected
-      expect(await propertyRiskPage.getSurfaceWaterRisk()).to.contain(item.surfaceWaterRisk)
-
+        // calling the function to extract the council name from the council details
+        const values = await propertyRiskPage.getCouncilDetails(surfacewaterStaticContentFile, councilDetails)
+        expect(surfacewaterContents).equals(values.surfacewaterModifiedFile.toString().replace(/\r\n/g, '\n'))
+        // console.log('*******SW Static Content File*********', surfacewaterContents)
+        // console.log('********SW Content********************', values.surfacewaterModifiedFile.toString().replace(/\r\n/g, '\n'))
+      }
+      // check rivers and sea static content
+      if (item.riverAndSeaRisk) {
+      // check rivers and sea static contents
+        console.log('*************RS static content check started*********************')
+        const riversseaStaticContentFile = fs.readFileSync('./test/specs/content_data/RS_Contentdata.txt', 'utf8')
+        expect(await propertyRiskPage.getriversAndSeaContents()).to.contains(riversseaStaticContentFile.toString().replace(/\r\n/g, '\n'))
+        // console.log('*************RS static content checked*********************')
+      }
       // if the reservoir risk is expected to be true (in data file)
       if (item.reservoirRisk === true) {
         // check the reservoir risk message is correct
         await expect(await propertyRiskPage.getReservoirRisk()).to.contain('There is a risk of flooding from reservoirs in this area.')
+        console.log(await propertyRiskPage.getReservoirRisk())
+        console.log('***********RESERVOIR RISK CHECK******************')
       } else {
         // else check the reservoir no risk is correct
         await expect(await propertyRiskPage.getReservoirRisk()).to.contain('Flooding from reservoirs is unlikely in this area.' +
         '\n\nWhat a reservoir is and how we check an area\'s risk')
+        console.log(await propertyRiskPage.getReservoirRisk())
+        console.log('***********RESERVOIR NO RISK CHECK******************')
       }
 
       // if the groundwater risk is expected (in data file)
@@ -69,11 +98,15 @@ describe('Check risk displays are as expected', async () => {
         // check the groundwater risk message is correct
         await expect(await propertyRiskPage.getGroundwaterRisk()).to.contain('Groundwater Flooding is possible when groundwater levels are high.' +
         '\n\nWhat groundwater is and how we check an area\'s risk')
+        console.log(await propertyRiskPage.getGroundwaterRisk())
+        console.log('***********GROUNDWATER RISK CHECK******************')
         // else if the groundwater no risk message is expected (in data file file)
       } else {
         // check the groundwater no risk message is correct
         await expect(await propertyRiskPage.getGroundwaterRisk()).to.contain('Groundwater Flooding from groundwater is unlikely in this area.' +
         '\n\nWhat groundwater is and how we check an area\'s risk')
+        console.log(await propertyRiskPage.getGroundwaterRisk())
+        console.log('***********GROUNDWATER NO RISK CHECK******************')
       }
     })
   })
