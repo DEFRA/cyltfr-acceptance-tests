@@ -74,8 +74,7 @@ class RiskDisplayPage {
 
   async getCouncilDetails (surfacewaterStaticContentFile, councilDetails) {
     // Getting the council details
-    const councilMatch = /(\b\w+\b)\s+council/
-    const match = councilDetails.match(councilMatch)
+    const match = councilDetails.match(/\bis\s+(\w+(?:\s+\w+)*)\s+council\b/i)
     const councilName = match ? match[1] : null
     const surfacewaterModifiedFile = surfacewaterStaticContentFile.replace(new RegExp(`\\b${'council'}\\b`, 'g'), `${councilName} ${'council'}`)
     return { councilName, surfacewaterModifiedFile }
@@ -94,7 +93,7 @@ class RiskDisplayPage {
       riskText = 'of between 1% and 3.3% each year.'
     } else if (riskType === 'Low risk') {
       riskText = 'of between 0.1% and 1% each year.'
-    } else if (riskType === 'Very Low risk') {
+    } else if (riskType === 'Very low risk') {
       riskText = 'of less than 0.1% each year.'
     }
     // adding the risk text in the file
