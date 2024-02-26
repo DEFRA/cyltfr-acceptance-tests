@@ -8,7 +8,6 @@ Groundwater data
 How to access flood risk data
 We use a range of datasets to produce flood risk results in the "check your long term flood risk" service.
 Technical users can find and download the datasets and put them into their own GIS or internal systems by following the links on this page.
-You can find and download the datasets and put them into your own GIS or internal systems by following the links on this page.
 You can also search for the datasets on the Data Services Platform (DSP) .
 Once you’ve chosen a dataset you can select an area on the map and download the whole dataset or an area of interest.
 What data you can get
