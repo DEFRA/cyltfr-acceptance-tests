@@ -1,9 +1,18 @@
 'use strict'
 
-const { join } = require('path')
 const allureReporter = require('@wdio/allure-reporter').default
 const fileUtils = require('./test/specs/utilities/deleteFile')
-// const allure = require('allure-commandline')
+
+/* handy shortcuts for running tests against the different environment from local machine.
+NOTE: on pushing to branch and running from jenkins, the below envars shuld always be commented out
+otherwise the test run maybe running against wrong environment */
+// global.baseUrl = 'https://ltf-dev.aws.defra.cloud'
+// global.baseUrl = 'https://ltf-tst.aws.defra.cloud'
+// global.baseUrl = 'https://ltf-pre.aws.defra.cloud'
+// global.baseUrl = 'http://localhost:3001'
+
+global.baseUrl = process.env.CYLTFR_APP_URL
+global.capchaBypass = '/postcode?captchabypass=' + process.env.TESTING_CAPCHA_BYPASS
 
 exports.config = {
   //
@@ -29,7 +38,6 @@ exports.config = {
   //
   specs: [
     './test/specs/specs/*.js'
-    // './test/specs/*.js'
   ],
 
   path: '/',
@@ -55,13 +63,7 @@ exports.config = {
   // from the same test should run tests.
   //
   maxInstances: 20,
-  //
-  // If you have trouble getting all important capabilities together, check out the
-  // Sauce Labs platform configurator - a great tool to configure your capabilities:
-  // https://saucelabs.com/platform/platform-configurator
-  //
   capabilities: [{
-
     // maxInstances can get overwritten per capability. So if you have an in-house Selenium
     // grid with only 5 firefox instances available you can make sure that not more than
     // 5 instances get started at a time.
@@ -69,7 +71,7 @@ exports.config = {
     //
     browserName: 'chrome',
     'goog:chromeOptions': {
-      //args: ['headless', 'disable-gpu']
+      args: ['headless', 'disable-gpu']
     },
     // browserName: 'firefox',
     acceptInsecureCerts: true
@@ -109,8 +111,9 @@ exports.config = {
   // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
   // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
   // gets prepended directly.
-  baseUrl: 'https://ltf-dev.aws.defra.cloud/postcode',
-  // baseUrl: 'http://localhost:3001',
+
+  baseUrl: global.baseUrl,
+
   // Default timeout for all waitFor* commands.
   waitforTimeout: 10000,
   //
@@ -125,38 +128,7 @@ exports.config = {
   // Services take over a specific job you don't want to take care of. They enhance
   // your test setup with almost no effort. Unlike plugins, they don't add new
   // commands. Instead, they hook themselves up into the test process.
-  services: ['chromedriver',
-    [
-      'image-comparison',
-      // The options
-      {
-        // Some options, see the docs for more
-        baselineFolder: join(process.cwd(), './baselineImages/'),
-        formatImageName: '{tag}-{logName}-{width}x{height}',
-        screenshotPath: join(process.cwd(), '.tmp/'),
-        savePerInstance: true,
-        autoSaveBaseline: true,
-        blockOutStatusBar: true,
-        blockOutToolBar: true,
-        ignoreNothing: true,
-        // NOTE: When you are testing a hybrid app please use this setting
-        isHybridApp: true,
-        // Options for the tabbing image
-        tabbableOptions: {
-          circle: {
-            size: 18,
-            fontSize: 18
-            // ...
-          },
-          line: {
-            color: 'blue', // hex-code or for example words like `red|black|green`
-            width: 3
-          }
-        }
-        // ... more options
-      }
-    ]
-  ],
+  services: [],
 
   // Framework you want to run your specs with.
   // The following are supported: Mocha, Jasmine, and Cucumber
@@ -180,11 +152,11 @@ exports.config = {
   // see also: https://webdriver.io/docs/dot-reporter
   reporters: ['spec', 'allure'],
   reporterOptions: {
-   allure: {
+    allure: {
       outputDir: 'allure-results',
       disableWebdriverStepsReporting: true,
       disableWebdriverScreenshotsReporting: true
-   }
+    }
   },
 
   //
@@ -209,9 +181,11 @@ exports.config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      */
   onPrepare: async (config, capabilities) => {
-   fileUtils.deleteDirectory('allure-results')
-   fileUtils.deleteDirectory('allure-report')
-   },
+    fileUtils.deleteDirectory('allure-results')
+    fileUtils.deleteDirectory('allure-report')
+    console.log('***** You\'re now running this test pack against ', global.baseUrl, ' if this is incorrect you may want to abort the test run *****')
+    console.log('***** THE CAPCHA BYPASS YOU ARE USING IS ' + global.capchaBypass)
+  },
   /**
      * Gets executed before a worker process is spawned and can be used to initialise specific service
      * for that worker as well as modify runtime environments in an async fashion.
@@ -252,13 +226,11 @@ exports.config = {
   // original one without async
   // before: function (capabilities, specs) {
   before: async (capabilities, specs) => {
-  //  const chai = require('chai')
-  // const chaiWebdriver = require('chai-webdriverio').default
-  // chai.use(chaiWebdriver(browser))
-  // global.assert = chai.assert
-  // global.should = chai.should
-  // global.expect = chai.expect
-  global.allure = allureReporter
+    const chai = require('chai')
+    global.assert = chai.assert
+    global.should = chai.should
+    global.expect = chai.expect
+    global.allure = allureReporter
   },
   /**
      * Runs before a WebdriverIO command gets executed.
@@ -300,6 +272,9 @@ exports.config = {
      * @param {Boolean} result.passed    true if test has passed, otherwise false
      * @param {Object}  result.retries   informations to spec related retries, e.g. `{ attempts: 0, limit: 0 }`
      */
+  afterTest: async function (test, context, { error, result, duration, passed, config, retries }) {
+    if (!passed) { await browser.takeScreenshot() }
+  }
   // afterTest: function(test, context, { error, result, duration, passed, retries })
   // {if(error){
   //  takeScreenshot();}},

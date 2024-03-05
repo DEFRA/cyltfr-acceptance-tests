@@ -1,0 +1,63 @@
+Get flood risk data
+Contents
+How to access flood risk data
+Rivers and the sea data
+Surface water data
+Reservoir data
+Groundwater data
+How to access flood risk data
+We use a range of datasets to produce flood risk results in the "check your long term flood risk" service.
+Technical users can find and download the datasets and put them into their own GIS or internal systems by following the links on this page.
+You can also search for the datasets on the Data Services Platform (DSP) .
+Once you’ve chosen a dataset you can select an area on the map and download the whole dataset or an area of interest.
+What data you can get
+You can find and access data on flood risk from:
+rivers and the sea
+surface water
+reservoirs
+The datasets are not suitable for identifying whether an individual property will flood.
+Rivers and the sea data
+The following dataset shows the chance of flooding from rivers and the sea, presented as 4 likelihood categories:
+risk of flooding from rivers and sea
+Surface water data
+There are a series of surface water datasets available, including:
+extent of flooding
+velocity (including speed, direction and depth of flooding)
+The surface water datasets on the DSP do not include the 15 metre marker used on the "check your long term flood risk" service.
+Extent of flooding
+The following datasets show the extent of flooding from surface water that could result from a flood in low, medium and high risk scenarios:
+low – risk of flooding from surface water extent: 0.1% annual chance
+medium – risk of flooding from surface water extent: 1% annual chance
+high - risk of flooding from surface water extent: 3.3% annual chance
+Direction of flood water
+The following datasets are based on a 25m grid. They show the direction of flooding from surface water that could result from a flood in low, medium and high risk scenarios:
+low – risk of flooding from surface water direction (25m): 0.1% annual chance
+medium – risk of flooding from surface water direction (25m): 1% annual chance
+high – risk of flooding from surface water direction (25m): 3.3% annual chance
+You can also use the following datasets, which are based on a 2m grid:
+low – risk of flooding from surface water direction (2m): 0.1% annual chance
+medium – risk of flooding from surface water direction (2m): 1% annual chance
+high – risk of flooding from surface water direction (2m): 3.3% annual chance
+Speed of flood water
+The following datasets show the speed of flooding from surface water that could result from a flood in low, medium and high risk scenarios:
+low – risk of flooding from surface water speed: 0.1% annual chance
+medium – risk of flooding from surface water speed: 1% annual chance
+high – risk of flooding from surface water speed: 3.3% annual chance
+Depth of flood water
+The following datasets show the depth of flooding from surface water that could result from a flood in low, medium and high risk scenarios:
+low – risk of flooding from surface water depth: 0.1% annual chance
+medium – risk of flooding from surface water depth: 1% annual chance
+high – risk of flooding from surface water depth: 3.3% annual chance
+About the data modelling
+The following dataset shows information about the computer modelling used in an area:
+risk of flooding from surface water input model details
+Scale and suitability of the data
+The following dataset gives a suitability rating, which tells you what scale the information should be used at:
+risk of flooding from surface water suitability
+Reservoir data
+The following datasets show the predicted extent of flooding if reservoirs fail when nearby rivers:
+are at normal levels – reservoir flood extents - dry day (national)
+have burst their banks – reservoir flood extents - wet day (national)
+Groundwater data
+We do not have modelled data for groundwater flooding.
+We use flood alert data to check the risk of flooding from groundwater.
