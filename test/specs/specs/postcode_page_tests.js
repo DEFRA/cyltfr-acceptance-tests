@@ -119,12 +119,12 @@ describe('Postcode page sad path tests', async () => {
       await postcodePage.enterPostcode(item.postcode)
       await postcodePage.contBtn.click()
 
-      // check the expected error page is produced
-      expect(await postcodeErrorPage.getPageHeading()).equals('Sorry, the requested URL was rejected')
-      //  expect(await browser.getTitle()).equals('Sorry, there is a problem with the service - Check long term flood risk - GOV.UK')
-      await commonFunction.getTitle('Sorry, there is a problem with the service - Check long term flood risk - GOV.UK')
-
-    // expect(await browser.getUrl()).equals(`${baseUrl}/postcode`)
+      // check the expected error page is produced. Different error if we're caught by silverline or not
+      try {
+        expect(await postcodeErrorPage.getPageHeading()).equals('Sorry, the requested URL was rejected')
+      } catch {
+        expect(await postcodePage.getPostcodeBannerMessage()).equals('Enter a full postcode in England')
+      }
     })
 
     //* ************Error message for valid but Empty postcode
