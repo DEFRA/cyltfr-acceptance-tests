@@ -1,4 +1,4 @@
-"use strict";
+"use strict"
 class PostcodePage {
   // LOCATORS
   get title() {
@@ -45,32 +45,32 @@ class PostcodePage {
   // METHODS FUNCTIONS ACTIONS
 
   async enterPostcode(postcode) {
-    await (await this.postcodeTextbox).waitForDisplayed({});
-    return (await this.postcodeTextbox).setValue(postcode);
+    await (await this.postcodeTextbox).waitForDisplayed({})
+    return (await this.postcodeTextbox).setValue(postcode)
   }
 
   async clickContinue() {
-    await (await this.contBtn).waitForDisplayed({});
-    return (await this.contBtn).click();
+    await (await this.contBtn).waitForDisplayed({})
+    return (await this.contBtn).click()
   }
 
   async getPostcodeErrorMessage() {
-    await (await this.postcodeError).waitForDisplayed({});
-    return (await this.postcodeError).getText();
+    await (await this.postcodeError).waitForDisplayed({})
+    return (await this.postcodeError).getText()
   }
 
   async getPostcodeBannerMessage() {
-    await (await this.bannerError).waitForDisplayed({});
-    return (await this.bannerError).getText();
+    await (await this.bannerError).waitForDisplayed({})
+    return (await this.bannerError).getText()
   }
 
   async acceptCookies() {
     try {
-      await (await this.acceptCookieBtn).click();
-      await (await this.hideCookieBtn).click();
+      await (await this.acceptCookieBtn).click()
+      await (await this.hideCookieBtn).click()
     } catch (err) {
-      console.log("Element not present");
+      console.log("Element not present")
     }
   }
 }
-module.exports = new PostcodePage();
+module.exports = new PostcodePage()

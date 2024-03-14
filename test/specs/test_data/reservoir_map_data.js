@@ -1,4 +1,4 @@
-"use strict";
+"use strict"
 
 module.exports = {
   reservoirData: [
@@ -33,4 +33,4 @@ module.exports = {
       groundwaterRisk: false,
     },
   ],
-};
+}
