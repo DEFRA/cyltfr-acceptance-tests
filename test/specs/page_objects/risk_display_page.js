@@ -106,10 +106,10 @@ class RiskDisplayPage {
 
   // Click on View a map of flood risk from rivers and the sea
   async clickViewMapRiversandSea (riskType) {
-    if(riskType == "Very low risk") {
-        await (await this.viewMapVeryLowFloodRiskRiverandSea).click()
-    } else if(riskType == "Medium risk") {
-        await (await this.viewMapMediumFloodRiskRiverandSea).click()
+    if (riskType === 'Very low risk') {
+      await (await this.viewMapVeryLowFloodRiskRiverandSea).click()
+    } else if (riskType === 'Medium risk') {
+      await (await this.viewMapMediumFloodRiskRiverandSea).click()
     }
   }
 }
