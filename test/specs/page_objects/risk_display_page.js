@@ -19,6 +19,8 @@ class RiskDisplayPage {
   get reservoirBannerRiskContents () { return $('#reservoirs-risk-desc') }
   get groundwaterBannerNoRiskContents () { return $('#groundwater-desc') }
   get surfaceWaterCouncilName () { return $('#llfa-flood-authority') }
+  get viewMapVeryLowFloodRiskRiverandSea () { return $('#see-map-very-low-rivers-and-seas-desc > p > a') }
+  get viewMapMediumFloodRiskRiverandSea () { return $('#see-map-medium-rivers-and-seas-desc > p > a') }
 
   // METHODS AND FUNCTIONS
 
@@ -100,6 +102,15 @@ class RiskDisplayPage {
     const addRiskText = /\bflooding\b/
     const newRiskText = modifiedFile.replace(addRiskText, `$& ${riskText}`)
     return { newRiskText }
+  }
+
+  // Click on View a map of flood risk from rivers and the sea
+  async clickViewMapRiversandSea (riskType) {
+    if (riskType === 'Very low risk') {
+      await (await this.viewMapVeryLowFloodRiskRiverandSea).click()
+    } else if (riskType === 'Medium risk') {
+      await (await this.viewMapMediumFloodRiskRiverandSea).click()
+    }
   }
 }
 
