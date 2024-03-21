@@ -21,6 +21,7 @@ class RiskDisplayPage {
   get surfaceWaterCouncilName () { return $('#llfa-flood-authority') }
   get viewMapVeryLowFloodRiskRiverandSea () { return $('#see-map-very-low-rivers-and-seas-desc > p > a') }
   get viewMapMediumFloodRiskRiverandSea () { return $('#see-map-medium-rivers-and-seas-desc > p > a') }
+  get viewPausedUpdatesAboutFloodRisk () { return $('#risk-page > div.page-summary > div.govuk-grid-row > div > p:nth-child(4) > a') }
 
   // METHODS AND FUNCTIONS
 
@@ -111,6 +112,11 @@ class RiskDisplayPage {
     } else if (riskType === 'Medium risk') {
       await (await this.viewMapMediumFloodRiskRiverandSea).click()
     }
+  }
+
+  // Click on updates to national flood and coastal erosion risk information page
+  async clickViewPausedUpdatesLink () {
+    await (await this.viewPausedUpdatesAboutFloodRisk).click()
   }
 }
 
