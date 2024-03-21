@@ -85,19 +85,23 @@ describe('Check flood risk data updates paused page is displayed', async () => {
     await postcodePage.clickContinue()
 
     // check next page is presented as expected
-    // expect(await browser.getTitle()).equals('Select an address - Check your long term flood risk - GOV.UK')
     await commonFunctions.getTitle('Select an address - Check your long term flood risk - GOV.UK')
     await addressPage.selectAddress('1')
     await addressPage.clickContinue()
-    // check the risk assessment page is loaded and the expected address has been summarised
+    // check the risk assessment page is loaded
     expect(await browser.getUrl()).equals(`${baseUrl}/risk#`)
     expect(await browser.getTitle()).equals('Your long term flood risk assessment - Check your long term flood risk - GOV.UK')
-    // click view paused updates link
+    // Click on updates to national flood and coastal erosion risk information page
     await propertyRiskPage.clickViewPausedUpdatesLink()
+    // since the above click opens new window we use windowhandles
     const w = await browser.getWindowHandles()
+    // switch to new window
     await browser.switchToWindow(w[1])
+    // assert page title
     expect(await browser.getTitle()).equals('Updates to national flood and coastal erosion risk information - GOV.UK')
+    // close new window
     await browser.closeWindow()
+    // navigate back to main window
     await browser.switchToWindow(w[0])
   })
 })

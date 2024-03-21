@@ -114,7 +114,7 @@ class RiskDisplayPage {
     }
   }
 
-  // Click on View a map of flood risk from rivers and the sea
+  // Click on updates to national flood and coastal erosion risk information page
   async clickViewPausedUpdatesLink () {
     await (await this.viewPausedUpdatesAboutFloodRisk).click()
   }
