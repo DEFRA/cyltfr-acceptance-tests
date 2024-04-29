@@ -66,7 +66,12 @@ describe('Check risk displays are as expected', async () => {
         expect(surfacewaterContents).equals(values.surfacewaterModifiedFile.toString().replace(/\r\n/g, '\n'))
       }
       // check rivers and sea static content
-      if (item.riverAndSeaRisk) {
+      if (item.riverAndSeaRisk === 'Very low risk') {
+        // check rivers and sea static contents
+        console.log('*************RS Very Low Risk static content check started*********************')
+        const riversseaStaticContentFile = fs.readFileSync('./test/specs/content_data/RS_VeryLowRisk.txt', 'utf8')
+        expect(await propertyRiskPage.getriversAndSeaContents()).to.contains(riversseaStaticContentFile.toString())
+      } else {
       // check rivers and sea static contents
         console.log('*************RS static content check started*********************')
         const riversseaStaticContentFile = fs.readFileSync('./test/specs/content_data/RS_Contentdata.txt', 'utf8')
