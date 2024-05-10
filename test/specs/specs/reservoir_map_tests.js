@@ -61,6 +61,8 @@ describe('Check map data is displayed as expected', async () => {
 
       await riverSeaMapPage.clickShowFloodingCheckBox()
       await riverSeaMapPage.clickShowFloodingCheckBox()
+      // verify if zoom in and zoom out buttons enabled on the map
+      await riverSeaMapPage.verifyZoomInZoomOutButtonsEnabled()
     })
   })
 })
