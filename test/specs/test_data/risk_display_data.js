@@ -19,7 +19,7 @@ module.exports = {
     },
     {
       testCase: 1,
-      houseNumber: 101,
+      houseNumber: 99,
       postcode: 'LE4 5QD',
       dropDownValue: '25',
       riverAndSeaRisk: 'High risk',

@@ -24,12 +24,12 @@ module.exports =
     {
       testCase: 4,
       postcode: 'M13 9PL',
-      expectedResultCount: '1'
+      expectedResultCount: '4'
     },
     {
       testCase: 5,
       postcode: 'CV4 7AL',
-      expectedResultCount: '1'
+      expectedResultCount: '1552'
     }
   ]
 }
