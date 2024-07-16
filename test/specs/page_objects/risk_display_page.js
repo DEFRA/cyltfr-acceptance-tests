@@ -10,18 +10,23 @@ class RiskDisplayPage {
   get addressDetail () { return $("h1[class='govuk-heading-l govuk-!-padding-top-0']") }
   get riversAndSeaBanner () { return $("h2[class='govuk-summary-card__title rivers-and-sea']") }
   get surfaceWaterBanner () { return $("h2[class='govuk-summary-card__title surface-water']") }
-  get reservoirRiskBanner () { return $("dd[class='govuk-summary-list__value reservoirs']") }
-  get groundwaterRiskBanner () { return $('#groundwater-section') }
+  get reservoirRiskBanner () { return $('#reservoirs > div.govuk-summary-card__title-wrapper.vlow.card-padding-left > h2') }
+  get groundwaterRiskBanner () { return $('#groundwater > div.govuk-summary-card__title-wrapper.vlow.card-padding-left > h2') }
   // adding locators for each rivers and sea, surface water, reservoir and ground water description
-  get riversseaBannerContents () { return $('.govuk-summary-card__content.rivers-and-sea') }
-  get surfaceWaterBannerContents () { return $('.govuk-summary-card__content.surface-water') }
+  get riversseaBannerContents () { return $('#main-content > div > div:nth-child(3) > div') }
+  get surfaceWaterBannerContents () { return $('#main-content > div > div:nth-child(3)') }
   get reservoirBannerNoRiskContents () { return $('#reservoirs-no-risk-desc') }
   get reservoirBannerRiskContents () { return $('#reservoirs-risk-desc') }
   get groundwaterBannerNoRiskContents () { return $('#groundwater-desc') }
-  get surfaceWaterCouncilName () { return $('#llfa-flood-authority') }
-  get viewMapVeryLowFloodRiskRiverandSea () { return $('#see-map-very-low-rivers-and-seas-desc > p > a') }
-  get viewMapMediumFloodRiskRiverandSea () { return $('#see-map-medium-rivers-and-seas-desc > p > a') }
+  get surfaceWaterCouncilName () { return $('#main-content > div > div:nth-child(3) > div > p:nth-child(13)') }
+  get viewMoreAboutRiversandSeaFloodRisk () { return $('#rivers-sea > div.govuk-summary-card__title-wrapper.vlow.card-padding-left > ul > li > a') }
+  get viewMoreAboutSurfaceWaterFloodRisk () { return $('#surface-water > div.govuk-summary-card__title-wrapper.vlow.card-padding-left > ul > li > a') }
+  get viewMoreAboutGroundWaterAndReservoirs () { return $('#risk-page > div > div > div.govuk-grid-column-two-thirds.summary-grid-width > div:nth-child(3) > div.govuk-summary-card__title-wrapper.vlow.card-padding-left > ul > li > a') }
+  //   get viewMapMediumFloodRiskRiverandSea () { return $('#rivers-sea > div.govuk-summary-card__title-wrapper.vlow.card-padding-left > ul > li > a') }
   get viewPausedUpdatesAboutFloodRisk () { return $('#risk-page > div.page-summary > div.govuk-grid-row > div > p:nth-child(4) > a') }
+  get viewRiversandSeaMap () { return $('#main-content > div > div:nth-child(3) > div > p:nth-child(6) > a') }
+  get clickNextRiversandSeaPage () { return $('#main-content > div > div:nth-child(3) > div > nav > div > a > span.govuk-pagination__link-label') }
+  get clickBackToSummary () { return $('.govuk-back-link') }
 
   // METHODS AND FUNCTIONS
 
@@ -77,9 +82,9 @@ class RiskDisplayPage {
 
   async getCouncilDetails (surfacewaterStaticContentFile, councilDetails) {
     // Getting the council details
-    const match = councilDetails.match(/\bis\s+(\w+(?:\s+\w+)*)\s+council\b/i)
+    const match = councilDetails.match(/\bYour lead local flood authority is\s+(\w+(?:\s+\w+)*)/i)
     const councilName = match ? match[1] : null
-    const surfacewaterModifiedFile = surfacewaterStaticContentFile.replace(new RegExp(`\\b${'council'}\\b`, 'g'), `${councilName} ${'council'}`)
+    const surfacewaterModifiedFile = surfacewaterStaticContentFile.replace(new RegExp(`\\b${'council'}\\b`, 'g'), `${councilName}`)
     return { councilName, surfacewaterModifiedFile }
   }
 
@@ -106,17 +111,39 @@ class RiskDisplayPage {
   }
 
   // Click on View a map of flood risk from rivers and the sea
-  async clickViewMapRiversandSea (riskType) {
-    if (riskType === 'Very low risk') {
-      await (await this.viewMapVeryLowFloodRiskRiverandSea).click()
-    } else if (riskType === 'Medium risk') {
-      await (await this.viewMapMediumFloodRiskRiverandSea).click()
-    }
+  async clickMoreAboutRiversandSeaFloodRisk () {
+    await (await this.viewMoreAboutRiversandSeaFloodRisk).click()
+  }
+
+  // Click on View a map of flood risk from rivers and the sea
+  async clickMoreAboutSurfaceWaterFloodRisk () {
+    await (await this.viewMoreAboutSurfaceWaterFloodRisk).click()
+  }
+
+  async clickMoreAboutGroundWaterandReservoirs () {
+    await (await this.viewMoreAboutGroundWaterAndReservoirs).click()
+  }
+
+  // Click on updates to national flood and coastal erosion risk information page
+  async clickRiversandSeaMap () {
+    await (await this.viewRiversandSeaMap).click()
   }
 
   // Click on updates to national flood and coastal erosion risk information page
   async clickViewPausedUpdatesLink () {
     await (await this.viewPausedUpdatesAboutFloodRisk).click()
+  }
+
+  // Click Next on surface water page to navigate to rivers and sea page
+  async clickNextRiversandSea () {
+    const clickRiverandSea = await this.clickNextRiversandSeaPage
+    browser.scroll(clickRiverandSea)
+    await (await this.clickNextRiversandSeaPage).click()
+  }
+
+  // Click Back to Summary
+  async clickOnBackToSummary () {
+    await (await this.clickBackToSummary).click()
   }
 }
 

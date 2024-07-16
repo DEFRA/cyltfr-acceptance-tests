@@ -76,7 +76,7 @@ class PostcodePage {
       await (await this.acceptCookieBtn).click()
       await (await this.hideCookieBtn).click()
     } catch (err) {
-      console.log('Element not present')
+      console.log('Cookies already accepted')
     }
   }
 }

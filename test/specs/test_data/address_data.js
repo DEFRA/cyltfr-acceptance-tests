@@ -29,7 +29,7 @@ module.exports =
     {
       testCase: 5,
       postcode: 'CV4 7AL',
-      expectedResultCount: '1552'
+      expectedResultCount: '1709'
     }
   ]
 }
