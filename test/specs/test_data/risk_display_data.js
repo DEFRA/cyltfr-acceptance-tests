@@ -70,7 +70,7 @@ module.exports = {
     },
     // Medium RS with Very Low SW missing
     {
-      testCase: 7,
+      testCase: 6,
       houseNumber: 83,
       postcode: 'LE3 9RD',
       dropDownValue: '41',
@@ -80,7 +80,7 @@ module.exports = {
       groundwaterRisk: false
     },
     {
-      testCase: 8,
+      testCase: 7,
       houseNumber: 21,
       postcode: 'LE3 5JR',
       dropDownValue: '14',
@@ -90,7 +90,7 @@ module.exports = {
       groundwaterRisk: false
     },
     {
-      testCase: 9,
+      testCase: 8,
       houseNumber: 21,
       postcode: 'SW13 0DS',
       dropDownValue: '10',
@@ -100,7 +100,7 @@ module.exports = {
       groundwaterRisk: false
     },
     {
-      testCase: 10,
+      testCase: 9,
       houseNumber: '71',
       postcode: 'WA4 1AB',
       dropDownValue: '2',
@@ -110,7 +110,7 @@ module.exports = {
       groundwaterRisk: false
     },
     {
-      testCase: 11,
+      testCase: 10,
       houseNumber: '3',
       postcode: 'DL10 7RZ',
       dropDownValue: '2',
@@ -120,7 +120,7 @@ module.exports = {
       groundwaterRisk: false
     },
     {
-      testCase: 12,
+      testCase: 11,
       houseNumber: '4',
       postcode: 'DL10 7UA',
       dropDownValue: '3',
@@ -130,7 +130,7 @@ module.exports = {
       groundwaterRisk: false
     },
     {
-      testCase: 13,
+      testCase: 12,
       houseNumber: '1',
       postcode: 'DL7 0RT',
       dropDownValue: '0',
@@ -140,7 +140,7 @@ module.exports = {
       groundwaterRisk: false
     },
     {
-      testCase: 14,
+      testCase: 13,
       houseNumber: '2',
       postcode: 'DL7 0RX',
       dropDownValue: '1',
@@ -150,7 +150,7 @@ module.exports = {
       groundwaterRisk: false
     },
     {
-      testCase: 15,
+      testCase: 14,
       houseNumber: '6',
       postcode: 'DN14 5AD',
       dropDownValue: '5',
@@ -160,7 +160,7 @@ module.exports = {
       groundwaterRisk: false
     },
     {
-      testCase: 16,
+      testCase: 15,
       houseNumber: '8',
       postcode: 'DN14 5AN',
       dropDownValue: '6',

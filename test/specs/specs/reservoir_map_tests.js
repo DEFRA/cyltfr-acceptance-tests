@@ -47,8 +47,15 @@ describe('Check map data is displayed as expected', async () => {
     })
 
     it('Click and View map of flood risk from rivers and the sea and verify links', async () => {
-      // on risk assessment page, click map of flood risk from rivers and the sea link
-      await propertyRiskPage.clickViewMapRiversandSea(item.riverAndSeaRisk)
+      // on risk assessment page, click on more about rivers and the sea
+      await propertyRiskPage.clickMoreAboutRiversandSeaFloodRisk()
+
+      expect(await browser.getUrl()).contains(`${baseUrl}/rivers-and-sea`)
+      expect(await browser.getTitle()).equals(
+        'Rivers and the sea: understand your flood risk - Check your long term flood risk - GOV.UK'
+      )
+      // on risk assessment page, click on rivers and the sea map
+      await propertyRiskPage.clickRiversandSeaMap()
 
       expect(await browser.getUrl()).contains(`${baseUrl}/map?`)
       expect(await browser.getTitle()).equals(
