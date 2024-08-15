@@ -6,7 +6,6 @@ See surface water flood risk on a map
 View a surface water map for information on:
 where any flood water might spread to (extent)
 how deep any flood water could be (depth)
-the speed and direction of any flood water (velocity)
 What you can do
 It's a good idea to check your flood risk regularly because the information may change.
 You can also read about how to prepare yourself and your property.
