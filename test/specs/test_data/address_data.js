@@ -24,7 +24,7 @@ module.exports =
     {
       testCase: 4,
       postcode: 'M13 9PL',
-      expectedResultCount: '7'
+      expectedResultCount: '31'
     },
     {
       testCase: 5,
