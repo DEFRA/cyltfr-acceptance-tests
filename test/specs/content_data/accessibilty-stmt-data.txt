@@ -2,7 +2,7 @@ Accessibility statement for Check your long term flood risk
 This accessibility statement applies to the Check your long term flood risk service at check-long-term-flood-risk.service.gov.uk
 This website is run by the Environment Agency. We want as many people as possible to be able to use this website. For example, that means that you should be able to:
 use browser settings or plugins to change colours, contrast levels and fonts
-use browser settings or other software to zoom in up to 300% without the text spilling off the screen
+use browser settings or other software to zoom in up to 400% without the text spilling off the screen
 navigate most of the website using just a keyboard
 navigate most of the website using speech recognition software
 listen to most of the website using a screen reader (including the most recent versions of JAWS, NVDA and VoiceOver)
@@ -32,13 +32,14 @@ Non-accessible content
 The content listed below is non-accessible for the following reasons.
 Non-compliance with the accessibility regulations
 There are a number of elements of the map user interface that are not fully descriptive or accessible. These are:
-The colour contrast of the scale icon used on the Ordnance Survey mapping fails to meet the required contrast ratio (WCAG 1.4.3 Contrast - Level AA) in certain situations.
-The colour contrast used in various elements of the mapping fails to meet the required contrast ratio (WCAG 1.4.3 Contrast - Level AA) in certain situations.
-The zoom controls provided on the maps do not provide a label that is descriptive enough to inform a user of their function (WCAG 2.4.6 Headings and labels - Level AA).
+the colour contrast of the scale icon used on the Ordnance Survey mapping fails to meet the required contrast ratio (WCAG 1.4.3 Contrast - Level AA) in certain situations
+the colour contrast used in various elements of the mapping fails to meet the required contrast ratio (WCAG 1.4.3 Contrast - Level AA) in certain situations
+the zoom controls provided on the maps do not provide a label that is descriptive enough to inform a user of their function (WCAG 2.4.6 Headings and labels - Level AA)
 We are looking to fix these issues in the following ways:
-We are exploring ways to improve the accessibility of the controls on the map user interface so that they are more descriptive and usable before December 2022.
-We are planning an investigation of a more accessible scheme to differentiate layers used in mapping across all flood services. We plan to carry out this work before July 2023.
-We are planning an investigation about offering alternative, more accessible versions of the Ordnance Survey mapping layers before July 2023.
+We are exploring ways to improve the accessibility of the controls on the map user interface so that they are more descriptive and usable before December 2025.
+We are planning an investigation of a more accessible scheme to differentiate layers used in mapping across all flood services. We plan to carry out this work before December 2025.
+We are planning an investigation about offering alternative, more accessible versions of the Ordnance Survey mapping layers before December 2025.
+We will carry out an accessibility audit in February 2025. This will be followed by usability testing with people with accessibility needs.
 Content that's not within the scope of the accessibility regulations
 The website has the following content which is out of scope of the accessibility regulations:
 maps
@@ -48,7 +49,7 @@ What we’re doing to improve accessibility
 We commit to providing alternative, non-digital access to the service where requests are made to the Environment Agency
 We commit to providing accessible pdfs where requests are made to the Environment Agency
 Preparation of this accessibility statement
-This statement was prepared on 18 September 2023. It was last reviewed on 2 September 2023.
+This statement was prepared on 24 September 2024. It was last reviewed on 24 September 2024.
 This website was last tested on 22 June 2023. The test was carried out by the Digital Accessibility Centre (DAC).
 We tested the following 3 pages, which all users need to interact with to get a flood risk summary for an area:
 Where do you want to check
