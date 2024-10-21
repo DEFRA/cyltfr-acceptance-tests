@@ -1,10 +1,17 @@
-Yearly chance of flooding
-The yearly chance of flooding from rivers and the sea is: Low
+This information tells you the flood risk of the land around a building, not the building itself.
+How likely a river or sea flood is
+The yearly chance of rivers and sea flooding is:
+Low staying at Low between 2036 to 2069
 What the flood risk ratings mean
-See rivers and sea flood risk on a map
-View a rivers and sea map for information on where any flood water might spread to (extent).
-What you can do
-It's a good idea to check your flood risk regularly because the information may change.
-You can also:
-sign up to receive flood warnings by phone, text or email
-read about how to prepare yourself and your property
+View a rivers and sea map to see where any flood water might spread to.
+How deep any flood water could be
+Even a small amount of water can cause serious damage so it's a good idea to know how deep any flooding could be.
+You cannot completely protect your property from flooding, but there's a lot you can do to reduce:
+the amount of flood water that gets in
+the damage from flood water
+the cost and time of cleaning up after a flood
+See how deep any flood water could be at your selected location.
+What to do next
+Sign up to receive flood warnings by phone, text or email.
+Read about how to prepare yourself and your property for flooding.
+You should check your flood risk regularly because the information may change.

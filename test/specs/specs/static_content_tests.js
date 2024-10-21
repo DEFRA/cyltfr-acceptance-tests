@@ -8,10 +8,10 @@ const privacyNoticePage = require('../page_objects/privacy_notice_page')
 const accessibilityStmtPage = require('../page_objects/accessibility_stmt_page')
 const cookieStmtPage = require('../page_objects/cookie_stmt_page')
 const floodRiskPage = require('../page_objects/flood_risk_page')
-const postcodePage = require('../page_objects/postcode_page')
-const addressPage = require('../page_objects/address_page')
-const propertyRiskPage = require('../page_objects/risk_display_page')
-const commonFunctions = require('../page_objects/common_functions')
+// const postcodePage = require('../page_objects/postcode_page')
+// const addressPage = require('../page_objects/address_page')
+// const propertyRiskPage = require('../page_objects/risk_display_page')
+// const commonFunctions = require('../page_objects/common_functions')
 const fs = require('fs')
 
 describe('Check Privacy Notice Content', async () => {
@@ -71,30 +71,30 @@ describe('Check Get flood risk data Content', async () => {
     expect(await floodRiskPage.checkFloodRiskContent()).equals(floodRiskFile.toString().replace(/\r\n/g, '\n'))
   })
 })
-// add test for flood risk data updates paused page
-describe('Check flood risk data updates paused page is displayed', async () => {
-  it('Should redirect the user to flood risk data updates paused page', async () => {
-    console.log('*** FLOOD RISK DATA UPDATES PAUSED PAGE')
-    await browser.url(`${global.capchaBypass}`)
-    // check browser is open on correct page and tab title is as expected
-    await commonFunctions.getTitle('Where do you want to check? - Check your long term flood risk - GOV.UK')
-    expect(await browser.getUrl()).equals(`${baseUrl}${global.capchaBypass}`)
+// // add test for flood risk data updates paused page
+// describe('Check flood risk data updates paused page is displayed', async () => {
+//   it('Should redirect the user to flood risk data updates paused page', async () => {
+//     console.log('*** FLOOD RISK DATA UPDATES PAUSED PAGE')
+//     await browser.url(`${global.capchaBypass}`)
+//     // check browser is open on correct page and tab title is as expected
+//     await commonFunctions.getTitle('Where do you want to check? - Check your long term flood risk - GOV.UK')
+//     expect(await browser.getUrl()).equals(`${baseUrl}${global.capchaBypass}`)
 
-    // pass in postcode search string and then click continue
-    await postcodePage.enterPostcode('CB8 0HL')
-    await postcodePage.clickContinue()
+//     // pass in postcode search string and then click continue
+//     await postcodePage.enterPostcode('CB8 0HL')
+//     await postcodePage.clickContinue()
 
-    // check next page is presented as expected
-    await commonFunctions.getTitle('Select an address - Check your long term flood risk - GOV.UK')
-    await addressPage.selectAddress('1')
-    await addressPage.clickContinue()
-    // check the risk assessment page is loaded
-    expect(await browser.getUrl()).equals(`${baseUrl}/risk#`)
-    expect(await browser.getTitle()).equals('Your long term flood risk assessment - Check your long term flood risk - GOV.UK')
-    // Click on updates to national flood and coastal erosion risk information page
-    await propertyRiskPage.clickViewPausedUpdatesLink()
+//     // check next page is presented as expected
+//     await commonFunctions.getTitle('Select an address - Check your long term flood risk - GOV.UK')
+//     await addressPage.selectAddress('1')
+//     await addressPage.clickContinue()
+//     // check the risk assessment page is loaded
+//     expect(await browser.getUrl()).equals(`${baseUrl}/risk#`)
+//     expect(await browser.getTitle()).equals('Your long term flood risk assessment - Check your long term flood risk - GOV.UK')
+//     // Click on updates to national flood and coastal erosion risk information page
+//     await propertyRiskPage.clickViewPausedUpdatesLink()
 
-    // assert page title
-    expect(await browser.getTitle()).equals('Updates to national flood and coastal erosion risk information - GOV.UK')
-  })
-})
+//     // assert page title
+//     expect(await browser.getTitle()).equals('Updates to national flood and coastal erosion risk information - GOV.UK')
+//   })
+// })

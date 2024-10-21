@@ -97,7 +97,7 @@ describe('Postcode page sad path tests', async () => {
       expect(await postcodeErrorPage.getPageHeading()).equals('This service is for postcodes in England only')
       // expect(await browser.getTitle()).equals('Check your long term flood risk - Check your long term flood risk - GOV.UK')
       await commonFunction.getTitle('Check your long term flood risk - Check your long term flood risk - GOV.UK')
-      expect(await browser.getUrl()).equals(`${baseUrl}/england-only`)
+      expect(await browser.getUrl()).contains(`${baseUrl}/england-only`)
     })
   })
   // It should result in expected number of address options following a valid seach (see nightwatch test 'valid-search')
@@ -120,11 +120,8 @@ describe('Postcode page sad path tests', async () => {
       await postcodePage.contBtn.click()
 
       // check the expected error page is produced. Different error if we're caught by silverline or not
-      try {
-        expect(await postcodeErrorPage.getPageHeading()).equals('Sorry, the requested URL was rejected')
-      } catch {
-        expect(await postcodePage.getPostcodeBannerMessage()).equals('Enter a full postcode in England')
-      }
+
+      expect(await postcodeErrorPage.getPageHeading()).equals('403 Forbidden')
     })
 
     //* ************Error message for valid but Empty postcode

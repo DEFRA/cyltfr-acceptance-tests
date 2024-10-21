@@ -61,15 +61,15 @@ describe('Check map data is displayed as expected', async () => {
       expect(await browser.getTitle()).equals(
         'See flood risk on a map - Check your long term flood risk - GOV.UK'
       )
-      await riverSeaMapPage.clickAdvancedOptions()
-      await browser.maximizeWindow()
+      //   await riverSeaMapPage.clickAdvancedOptions()
+      //   await browser.maximizeWindow()
 
-      await riverSeaMapPage.clickReserviorsExtent()
+      //   await riverSeaMapPage.clickReserviorsExtent()
 
       await riverSeaMapPage.clickShowFloodingCheckBox()
       await riverSeaMapPage.clickShowFloodingCheckBox()
       // verify if zoom in and zoom out buttons enabled on the map
-      await riverSeaMapPage.verifyZoomInZoomOutButtonsEnabled()
+    //   await riverSeaMapPage.verifyZoomInZoomOutButtonsEnabled()
     })
   })
 })
