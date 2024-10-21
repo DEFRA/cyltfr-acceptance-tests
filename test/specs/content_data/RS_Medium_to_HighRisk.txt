@@ -1,7 +1,7 @@
 This information tells you the flood risk of the land around a building, not the building itself.
 How likely a river or sea flood is
 The yearly chance of rivers and sea flooding is:
-Very Low staying at Very Low between 2036 to 2069
+Medium increasing to High between 2036 to 2069
 What the flood risk ratings mean
 View a rivers and sea map to see where any flood water might spread to.
 How deep any flood water could be
@@ -12,5 +12,6 @@ the damage from flood water
 the cost and time of cleaning up after a flood
 See how deep any flood water could be at your selected location.
 What to do next
+Sign up to receive flood warnings by phone, text or email.
 Read about how to prepare yourself and your property for flooding.
 You should check your flood risk regularly because the information may change.
