@@ -1,9 +1,9 @@
 This information tells you the flood risk of the land around a building, not the building itself.
-How likely a river or sea flood is
-The yearly chance of rivers and sea flooding is:
-Very Low staying at Very Low between 2036 to 2069
+How likely a surface water flood is
+The yearly chance of surface water flooding is:
+Very Low increasing to Low between 2040 to 2060
 What the flood risk ratings mean
-View a rivers and sea map to see where any flood water might spread to.
+View a surface water map to see where any flood water might spread to.
 How deep any flood water could be
 Even a small amount of water can cause serious damage so it's a good idea to know how deep any flooding could be.
 You cannot completely protect your property from flooding, but there's a lot you can do to reduce:
@@ -14,3 +14,6 @@ See how deep any flood water could be at your selected location.
 What to do next
 Read about how to prepare yourself and your property for flooding.
 You should check your flood risk regularly because the information may change.
+If you need more details on surface water flood risk
+Lead local flood authorities are responsible for managing flood risk from surface water. They may hold more detailed information.
+Your lead local flood authority is council.
