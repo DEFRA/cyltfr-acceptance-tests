@@ -1,7 +1,7 @@
 This information tells you the flood risk of the land around a building, not the building itself.
 How likely a surface water flood is
 The yearly chance of surface water flooding is:
-Very Low staying at Very Low between 2040 to 2060
+Very low staying at Very low between 2040 to 2060
 What the flood risk ratings mean
 View a surface water map to see where any flood water might spread to.
 How deep any flood water could be

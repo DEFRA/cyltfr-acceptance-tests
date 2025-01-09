@@ -4,7 +4,7 @@ class AccessibilityStmt {
   // LOCATORS
 
   get pageTitle () { return $('.govuk-heading-xl') }
-  get pageContent () { return $('main') }
+  get pageContent () { return $('#home-page') }
 
   // METHODS/FUNCTIONS TO PERFORM ACTIONS ON PAGE
   async getPageTitle () {

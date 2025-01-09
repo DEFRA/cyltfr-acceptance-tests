@@ -43,7 +43,7 @@ describe('Check risk displays are as expected', async () => {
       await addressPage.clickContinue()
       // check the risk assessment page is loaded and the expected address has been summarised
       expect(await browser.getUrl()).equals(`${baseUrl}/risk#`)
-      expect(await browser.getTitle()).equals('Your long term flood risk assessment - Check your long term flood risk - GOV.UK')
+      expect(await browser.getTitle()).equals('Flood risk summary - Check your long term flood risk - GOV.UK')
       expect(await propertyRiskPage.confirmAddressDetail()).contains(item.houseNumber, item.postcode)
     })
 

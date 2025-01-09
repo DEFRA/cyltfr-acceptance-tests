@@ -22,8 +22,8 @@ module.exports = {
       houseNumber: 99,
       postcode: 'LE4 5QD',
       dropDownValue: '25',
-      riverAndSeaRisk: 'Low risk',
-      surfaceWaterRisk: 'Low to Medium risk',
+      riverAndSeaRisk: 'Medium to High risk',
+      surfaceWaterRisk: 'Low risk',
       reservoirRisk: true,
       groundwaterRisk: false
     },
@@ -43,7 +43,7 @@ module.exports = {
       houseNumber: 11,
       postcode: 'CV37 6YZ',
       dropDownValue: '10',
-      riverAndSeaRisk: 'Low risk',
+      riverAndSeaRisk: 'High risk',
       surfaceWaterRisk: 'Very low risk',
       reservoirRisk: true,
       groundwaterRisk: false
@@ -54,7 +54,7 @@ module.exports = {
       postcode: 'S6 4JP',
       dropDownValue: '12',
       riverAndSeaRisk: 'High risk',
-      surfaceWaterRisk: 'Very low to Low risk',
+      surfaceWaterRisk: 'Low risk',
       reservoirRisk: true,
       groundwaterRisk: false
     },
@@ -74,8 +74,8 @@ module.exports = {
       houseNumber: 83,
       postcode: 'LE3 9RD',
       dropDownValue: '41',
-      riverAndSeaRisk: 'Very low risk',
-      surfaceWaterRisk: 'Very low to Low risk',
+      riverAndSeaRisk: 'High risk',
+      surfaceWaterRisk: 'Very low risk',
       reservoirRisk: true,
       groundwaterRisk: false
     },
@@ -85,7 +85,7 @@ module.exports = {
       postcode: 'LE3 5JR',
       dropDownValue: '14',
       riverAndSeaRisk: 'Medium to High risk',
-      surfaceWaterRisk: 'Low to Medium risk',
+      surfaceWaterRisk: 'Low risk',
       reservoirRisk: true,
       groundwaterRisk: false
     },
@@ -94,8 +94,8 @@ module.exports = {
       houseNumber: 21,
       postcode: 'SW13 0DS',
       dropDownValue: '10',
-      riverAndSeaRisk: 'Very low to Low risk',
-      surfaceWaterRisk: 'Low risk',
+      riverAndSeaRisk: 'Low risk',
+      surfaceWaterRisk: 'Low to Medium risk',
       reservoirRisk: true,
       groundwaterRisk: false
     },
@@ -155,7 +155,7 @@ module.exports = {
       postcode: 'DN14 5AD',
       dropDownValue: '5',
       riverAndSeaRisk: 'High risk',
-      surfaceWaterRisk: 'Very low risk',
+      surfaceWaterRisk: 'Very low to Low risk',
       reservoirRisk: true,
       groundwaterRisk: false
     },

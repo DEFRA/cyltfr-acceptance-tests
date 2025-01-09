@@ -1,4 +1,3 @@
-This information tells you the flood risk of the land around a building, not the building itself.
 How likely a river or sea flood is
 The yearly chance of rivers and sea flooding is:
 Low staying at Low between 2036 to 2069

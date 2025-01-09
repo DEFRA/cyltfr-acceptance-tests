@@ -13,7 +13,7 @@ class RiskDisplayPage {
   get reservoirRiskBanner () { return $('#main-content > div > div.govuk-width-container > div > div > p:nth-child(12)') }
   get groundwaterRiskBanner () { return $('#main-content > div > div.govuk-width-container > div > div > p:nth-child(6)') }
   // adding locators for each rivers and sea, surface water, reservoir and ground water description
-  get riversseaBannerContents () { return $('#main-content') }
+  get riversseaBannerContents () { return $('#main-content > div > div:nth-child(2) > div') }
   get surfaceWaterBannerContents () { return $('#main-content') }
   get reservoirBannerNoRiskContents () { return $('#reservoirs-no-risk-desc') }
   get reservoirBannerRiskContents () { return $('#reservoirs-risk-desc') }

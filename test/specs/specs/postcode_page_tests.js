@@ -121,7 +121,7 @@ describe('Postcode page sad path tests', async () => {
 
       // check the expected error page is produced. Different error if we're caught by silverline or not
 
-      expect(await postcodeErrorPage.getPageHeading()).equals('Where do you want to check?')
+      expect(await postcodeErrorPage.getPageHeading()).equals('403 Forbidden')
     })
 
     //* ************Error message for valid but Empty postcode
