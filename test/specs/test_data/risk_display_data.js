@@ -13,7 +13,7 @@ module.exports = {
       postcode: 'LE2 7QA',
       dropDownValue: '1',
       riverAndSeaRisk: 'High risk',
-      surfaceWaterRisk: 'High risk',
+      surfaceWaterRisk: 'Medium to High risk',
       reservoirRisk: false,
       groundwaterRisk: false
     },
@@ -22,8 +22,8 @@ module.exports = {
       houseNumber: 99,
       postcode: 'LE4 5QD',
       dropDownValue: '25',
-      riverAndSeaRisk: 'High risk',
-      surfaceWaterRisk: 'Medium risk',
+      riverAndSeaRisk: 'Medium to High risk',
+      surfaceWaterRisk: 'Low risk',
       reservoirRisk: true,
       groundwaterRisk: false
     },
@@ -32,8 +32,8 @@ module.exports = {
       houseNumber: 65,
       postcode: 'LE4 7SG',
       dropDownValue: '32',
-      riverAndSeaRisk: 'High risk',
-      surfaceWaterRisk: 'Low risk',
+      riverAndSeaRisk: 'Low to Medium risk',
+      surfaceWaterRisk: 'Very low risk',
       reservoirRisk: true,
       groundwaterRisk: false
     },
@@ -43,8 +43,8 @@ module.exports = {
       houseNumber: 11,
       postcode: 'CV37 6YZ',
       dropDownValue: '10',
-      riverAndSeaRisk: 'Medium risk',
-      surfaceWaterRisk: 'High risk',
+      riverAndSeaRisk: 'High risk',
+      surfaceWaterRisk: 'Very low risk',
       reservoirRisk: true,
       groundwaterRisk: false
     },
@@ -53,8 +53,8 @@ module.exports = {
       houseNumber: 61,
       postcode: 'S6 4JP',
       dropDownValue: '12',
-      riverAndSeaRisk: 'Medium risk',
-      surfaceWaterRisk: 'Medium risk',
+      riverAndSeaRisk: 'High risk',
+      surfaceWaterRisk: 'Low risk',
       reservoirRisk: true,
       groundwaterRisk: false
     },
@@ -63,8 +63,8 @@ module.exports = {
       houseNumber: '12',
       postcode: 'DN19 7DT',
       dropDownValue: '11',
-      riverAndSeaRisk: 'Medium risk',
-      surfaceWaterRisk: 'Low risk',
+      riverAndSeaRisk: 'High risk',
+      surfaceWaterRisk: 'Very low risk',
       reservoirRisk: false,
       groundwaterRisk: true
     },
@@ -74,8 +74,8 @@ module.exports = {
       houseNumber: 83,
       postcode: 'LE3 9RD',
       dropDownValue: '41',
-      riverAndSeaRisk: 'Low risk',
-      surfaceWaterRisk: 'High risk',
+      riverAndSeaRisk: 'High risk',
+      surfaceWaterRisk: 'Very low risk',
       reservoirRisk: true,
       groundwaterRisk: false
     },
@@ -84,8 +84,8 @@ module.exports = {
       houseNumber: 21,
       postcode: 'LE3 5JR',
       dropDownValue: '14',
-      riverAndSeaRisk: 'Low risk',
-      surfaceWaterRisk: 'Medium risk',
+      riverAndSeaRisk: 'Medium to High risk',
+      surfaceWaterRisk: 'Low risk',
       reservoirRisk: true,
       groundwaterRisk: false
     },
@@ -95,7 +95,7 @@ module.exports = {
       postcode: 'SW13 0DS',
       dropDownValue: '10',
       riverAndSeaRisk: 'Low risk',
-      surfaceWaterRisk: 'Low risk',
+      surfaceWaterRisk: 'Low to Medium risk',
       reservoirRisk: true,
       groundwaterRisk: false
     },
@@ -104,7 +104,7 @@ module.exports = {
       houseNumber: '71',
       postcode: 'WA4 1AB',
       dropDownValue: '2',
-      riverAndSeaRisk: 'Low risk',
+      riverAndSeaRisk: 'Low to Medium risk',
       surfaceWaterRisk: 'Very low risk',
       reservoirRisk: true,
       groundwaterRisk: false
@@ -124,7 +124,7 @@ module.exports = {
       houseNumber: '4',
       postcode: 'DL10 7UA',
       dropDownValue: '3',
-      riverAndSeaRisk: 'Medium risk',
+      riverAndSeaRisk: 'Very low risk',
       surfaceWaterRisk: 'Very low risk',
       reservoirRisk: false,
       groundwaterRisk: false
@@ -145,7 +145,7 @@ module.exports = {
       postcode: 'DL7 0RX',
       dropDownValue: '1',
       riverAndSeaRisk: 'Very low risk',
-      surfaceWaterRisk: 'Low risk',
+      surfaceWaterRisk: 'Very low risk',
       reservoirRisk: false,
       groundwaterRisk: false
     },
@@ -154,8 +154,8 @@ module.exports = {
       houseNumber: '6',
       postcode: 'DN14 5AD',
       dropDownValue: '5',
-      riverAndSeaRisk: 'Low risk',
-      surfaceWaterRisk: 'Low risk',
+      riverAndSeaRisk: 'High risk',
+      surfaceWaterRisk: 'Very low to Low risk',
       reservoirRisk: true,
       groundwaterRisk: false
     },
@@ -164,8 +164,8 @@ module.exports = {
       houseNumber: '8',
       postcode: 'DN14 5AN',
       dropDownValue: '6',
-      riverAndSeaRisk: 'Low risk',
-      surfaceWaterRisk: 'Low risk',
+      riverAndSeaRisk: 'High risk',
+      surfaceWaterRisk: 'Very low risk',
       reservoirRisk: true,
       groundwaterRisk: false
     }

@@ -9,11 +9,7 @@ POINTS TO NOTE
 - There is no check for hierarchy of risk type/risk score.  If there is logic in the app for this, then a new test is needed to check this.
 */
 
-const postcodePage = require('../page_objects/postcode_page')
-const addressPage = require('../page_objects/address_page')
 const riskDisplayDataFile = require('../test_data/risk_display_data')
-const propertyRiskPage = require('../page_objects/risk_display_page')
-const commonFunctions = require('../page_objects/common_functions')
 // adding to read the file for SW, RS, Res and GW content check
 const fs = require('fs')
 
@@ -24,6 +20,8 @@ describe('Check risk displays are as expected', async () => {
       console.log('*** Check risk displays are as expected - TEST CASE ', item.testCase)
       // open browser at postcode search with capture bypass token
       await browser.url(`${global.capchaBypass}`)
+      const commonFunctions = require('../page_objects/common_functions')
+      const postcodePage = require('../page_objects/postcode_page')
       // check browser is open on correct page and tab title is as expected
       await commonFunctions.getTitle('Where do you want to check? - Check your long term flood risk - GOV.UK')
       expect(await browser.getUrl()).equals(`${baseUrl}${global.capchaBypass}`)
@@ -39,16 +37,19 @@ describe('Check risk displays are as expected', async () => {
 
     it('Should select the correct address from the options and move to the summary page', async () => {
       // on address page, select the address from the data file, check the continue button is on the page and click it
+      const addressPage = require('../page_objects/address_page')
+      const propertyRiskPage = require('../page_objects/risk_display_page')
       await addressPage.selectAddress(item.dropDownValue)
       await addressPage.clickContinue()
       // check the risk assessment page is loaded and the expected address has been summarised
       expect(await browser.getUrl()).equals(`${baseUrl}/risk#`)
-      expect(await browser.getTitle()).equals('Your long term flood risk assessment - Check your long term flood risk - GOV.UK')
+      expect(await browser.getTitle()).equals('Flood risk summary - Check your long term flood risk - GOV.UK')
       expect(await propertyRiskPage.confirmAddressDetail()).contains(item.houseNumber, item.postcode)
     })
 
     it('Should display the correct risk values for the selected property', async () => {
       // Check for surface water static content
+      const propertyRiskPage = require('../page_objects/risk_display_page')
       if (item.surfaceWaterRisk === 'High risk') {
         await propertyRiskPage.clickMoreAboutSurfaceWaterFloodRisk()
 
@@ -57,6 +58,7 @@ describe('Check risk displays are as expected', async () => {
           'Surface water: understand your flood risk - Check your long term flood risk - GOV.UK'
         )
         console.log('*************SW High Risk static content check started*********************')
+        const propertyRiskPage = require('../page_objects/risk_display_page')
 
         const surfacewaterContents = await propertyRiskPage.getSurfaceWaterContents()
 
@@ -67,6 +69,7 @@ describe('Check risk displays are as expected', async () => {
         const values = await propertyRiskPage.getCouncilDetails(surfacewaterStaticContentFile, councilDetails)
 
         expect(surfacewaterContents).to.contains(values.surfacewaterModifiedFile.toString().replace(/\r\n/g, '\n'))
+        console.log('*************SW High Risk static content check completed*********************')
       } else if (item.surfaceWaterRisk === 'Medium risk') {
         await propertyRiskPage.clickMoreAboutSurfaceWaterFloodRisk()
 
@@ -85,6 +88,7 @@ describe('Check risk displays are as expected', async () => {
         const values = await propertyRiskPage.getCouncilDetails(surfacewaterStaticContentFile, councilDetails)
 
         expect(surfacewaterContents).to.contains(values.surfacewaterModifiedFile.toString().replace(/\r\n/g, '\n'))
+        console.log('*************SW Medium Risk static content check completed*********************')
       } else if (item.surfaceWaterRisk === 'Low risk') {
         await propertyRiskPage.clickMoreAboutSurfaceWaterFloodRisk()
 
@@ -103,6 +107,7 @@ describe('Check risk displays are as expected', async () => {
         const values = await propertyRiskPage.getCouncilDetails(surfacewaterStaticContentFile, councilDetails)
 
         expect(surfacewaterContents).to.contains(values.surfacewaterModifiedFile.toString().replace(/\r\n/g, '\n'))
+        console.log('*************SW Low Risk static content check completed*********************')
       } else if (item.surfaceWaterRisk === 'Very low risk') {
         await propertyRiskPage.clickMoreAboutSurfaceWaterFloodRisk()
 
@@ -121,6 +126,64 @@ describe('Check risk displays are as expected', async () => {
         const values = await propertyRiskPage.getCouncilDetails(surfacewaterStaticContentFile, councilDetails)
 
         expect(surfacewaterContents).to.contains(values.surfacewaterModifiedFile.toString().replace(/\r\n/g, '\n'))
+        console.log('*************SW Very Low Risk static content check completed*********************')
+      } else if (item.surfaceWaterRisk === 'Medium to High risk') {
+        await propertyRiskPage.clickMoreAboutSurfaceWaterFloodRisk()
+
+        expect(await browser.getUrl()).contains(`${baseUrl}/surface-water`)
+        expect(await browser.getTitle()).equals(
+          'Surface water: understand your flood risk - Check your long term flood risk - GOV.UK'
+        )
+        console.log('*************SW Medium to High risk static content check started*********************')
+
+        const surfacewaterContents = await propertyRiskPage.getSurfaceWaterContents()
+
+        const councilDetails = await propertyRiskPage.getsurfaceWaterCouncilDetails()
+
+        const surfacewaterStaticContentFile = fs.readFileSync('./test/specs/content_data/SW_Medium_to_HighRisk.txt', 'utf8')
+
+        const values = await propertyRiskPage.getCouncilDetails(surfacewaterStaticContentFile, councilDetails)
+
+        expect(surfacewaterContents).to.contains(values.surfacewaterModifiedFile.toString().replace(/\r\n/g, '\n'))
+        console.log('*************SW Medium to High risk static content check completed*********************')
+      } else if (item.surfaceWaterRisk === 'Low to Medium risk') {
+        await propertyRiskPage.clickMoreAboutSurfaceWaterFloodRisk()
+
+        expect(await browser.getUrl()).contains(`${baseUrl}/surface-water`)
+        expect(await browser.getTitle()).equals(
+          'Surface water: understand your flood risk - Check your long term flood risk - GOV.UK'
+        )
+        console.log('*************SW Low to Medium risk static content check started*********************')
+
+        const surfacewaterContents = await propertyRiskPage.getSurfaceWaterContents()
+
+        const councilDetails = await propertyRiskPage.getsurfaceWaterCouncilDetails()
+
+        const surfacewaterStaticContentFile = fs.readFileSync('./test/specs/content_data/SW_Low_to_MediumRisk.txt', 'utf8')
+
+        const values = await propertyRiskPage.getCouncilDetails(surfacewaterStaticContentFile, councilDetails)
+
+        expect(surfacewaterContents).to.contains(values.surfacewaterModifiedFile.toString().replace(/\r\n/g, '\n'))
+        console.log('*************SW Low to Medium risk static content check completed*********************')
+      } else if (item.surfaceWaterRisk === 'Very low to Low risk') {
+        await propertyRiskPage.clickMoreAboutSurfaceWaterFloodRisk()
+
+        expect(await browser.getUrl()).contains(`${baseUrl}/surface-water`)
+        expect(await browser.getTitle()).equals(
+          'Surface water: understand your flood risk - Check your long term flood risk - GOV.UK'
+        )
+        console.log('*************SW Very low to Low risk static content check started*********************')
+
+        const surfacewaterContents = await propertyRiskPage.getSurfaceWaterContents()
+
+        const councilDetails = await propertyRiskPage.getsurfaceWaterCouncilDetails()
+
+        const surfacewaterStaticContentFile = fs.readFileSync('./test/specs/content_data/SW_VeryLow_to_LowRisk.txt', 'utf8')
+
+        const values = await propertyRiskPage.getCouncilDetails(surfacewaterStaticContentFile, councilDetails)
+
+        expect(surfacewaterContents).to.contains(values.surfacewaterModifiedFile.toString().replace(/\r\n/g, '\n'))
+        console.log('*************SW Very low to Low risk static content check completed*********************')
       }
       // check rivers and sea static contents
       if (item.riverAndSeaRisk === 'High risk') {
@@ -132,6 +195,7 @@ describe('Check risk displays are as expected', async () => {
         const riversseaStaticContentFile = fs.readFileSync('./test/specs/content_data/RS_HighRisk.txt', 'utf8')
 
         expect(await propertyRiskPage.getriversAndSeaContents()).to.contains(riversseaStaticContentFile.toString())
+        console.log('*************RS High Risk static content check completed*********************')
       } else if (item.riverAndSeaRisk === 'Medium risk') {
         await propertyRiskPage.clickOnBackToSummary()
 
@@ -141,6 +205,7 @@ describe('Check risk displays are as expected', async () => {
         const riversseaStaticContentFile = fs.readFileSync('./test/specs/content_data/RS_MediumRisk.txt', 'utf8')
 
         expect(await propertyRiskPage.getriversAndSeaContents()).to.contains(riversseaStaticContentFile.toString())
+        console.log('*************RS Medium Risk static content check completed*********************')
       } else if (item.riverAndSeaRisk === 'Low risk') {
         await propertyRiskPage.clickOnBackToSummary()
 
@@ -150,6 +215,7 @@ describe('Check risk displays are as expected', async () => {
         const riversseaStaticContentFile = fs.readFileSync('./test/specs/content_data/RS_LowRisk.txt', 'utf8')
 
         expect(await propertyRiskPage.getriversAndSeaContents()).to.contains(riversseaStaticContentFile.toString())
+        console.log('*************RS Low Risk static content check completed*********************')
       } else if (item.riverAndSeaRisk === 'Very low risk') {
         await propertyRiskPage.clickOnBackToSummary()
 
@@ -159,17 +225,52 @@ describe('Check risk displays are as expected', async () => {
         const riversseaStaticContentFile = fs.readFileSync('./test/specs/content_data/RS_VeryLowRisk.txt', 'utf8')
 
         expect(await propertyRiskPage.getriversAndSeaContents()).to.contains(riversseaStaticContentFile.toString())
+        console.log('*************RS Very Low Risk static content check completed*********************')
+      } else if (item.riverAndSeaRisk === 'Low to Medium risk') {
+        await propertyRiskPage.clickOnBackToSummary()
+
+        await propertyRiskPage.clickMoreAboutRiversandSeaFloodRisk()
+
+        console.log('*************RS Low to Medium risk static content check started*********************')
+        const riversseaStaticContentFile = fs.readFileSync('./test/specs/content_data/RS_Low_to_MediumRisk.txt', 'utf8')
+
+        expect(await propertyRiskPage.getriversAndSeaContents()).to.contains(riversseaStaticContentFile.toString())
+        console.log('*************RS Low to Medium risk static content check completed*********************')
+      } else if (item.riverAndSeaRisk === 'Medium to High risk') {
+        await propertyRiskPage.clickOnBackToSummary()
+
+        await propertyRiskPage.clickMoreAboutRiversandSeaFloodRisk()
+
+        console.log('*************RS Medium to High risk static content check started*********************')
+        const riversseaStaticContentFile = fs.readFileSync('./test/specs/content_data/RS_Medium_to_HighRisk.txt', 'utf8')
+
+        expect(await propertyRiskPage.getriversAndSeaContents()).to.contains(riversseaStaticContentFile.toString())
+        console.log('*************RS Medium to High risk static content check completed*********************')
+      } else if (item.riverAndSeaRisk === 'Very low to Low risk') {
+        await propertyRiskPage.clickOnBackToSummary()
+
+        await propertyRiskPage.clickMoreAboutRiversandSeaFloodRisk()
+
+        console.log('*************RS Very low to Low risk static content check started*********************')
+        const riversseaStaticContentFile = fs.readFileSync('./test/specs/content_data/RS_VeryLow_to_LowRisk.txt', 'utf8')
+
+        expect(await propertyRiskPage.getriversAndSeaContents()).to.contains(riversseaStaticContentFile.toString())
+        console.log('*************RS Very low to Low risk static content check completed*********************')
       }
       // if the reservoir risk is expected to be true (in data file)
       if (item.reservoirRisk === true) {
+        console.log('*********** STARTED******************')
+
         await propertyRiskPage.clickOnBackToSummary()
 
         await propertyRiskPage.clickMoreAboutGroundWaterandReservoirs()
 
         await expect(await propertyRiskPage.getReservoirRisk()).to.contain('There is a risk of flooding from reservoirs in this area.')
 
-        console.log('***********RESERVOIR RISK CHECK COMPLETE******************')
+        console.log('*********** COMPLETE******************')
       } else {
+        console.log('***********RESERVOIR NO RISK CHECK STARTED******************')
+
         await propertyRiskPage.clickOnBackToSummary()
 
         await propertyRiskPage.clickMoreAboutGroundWaterandReservoirs()
@@ -180,10 +281,14 @@ describe('Check risk displays are as expected', async () => {
       }
       // if the groundwater risk is expected (in data file)
       if (item.groundwaterRisk === true) {
-        await expect(await propertyRiskPage.getGroundwaterRisk()).to.contain('Groundwater Flooding is possible when groundwater levels are high.')
+        console.log('***********GROUNDWATER RISK CHECK STARTED******************')
+
+        await expect(await propertyRiskPage.getGroundwaterRisk()).to.contain('Flooding is possible when groundwater levels are high.')
 
         console.log('***********GROUNDWATER RISK CHECK COMPLETE******************')
       } else {
+        console.log('***********GROUNDWATER NO RISK CHECK STARTED******************')
+
         await propertyRiskPage.clickOnBackToSummary()
 
         await propertyRiskPage.clickMoreAboutGroundWaterandReservoirs()

@@ -13,7 +13,7 @@ We know some parts of this website are not fully accessible. For example:
 the mapping, and the tools that are part of it, are not accessible for those using assistive technology
 in some situations, the contrast of colours on maps is not high enough to be legible to all users
 we link to guidance on GOV.UK that includes PDF documents that are not fully accessible to screen reader software
-Feedback and contact information
+What to do if you have difficulty using this service
 If you need information on this website in a different format like an accessible PDF, large print, easy read, audio recording or braille:
 email enquiries@environment-agency.gov.uk
 call 03708 506 506 (Monday to Friday, 8am to 5pm)
@@ -27,31 +27,43 @@ If you're not happy with how we respond to your complaint, contact the Equality 
 Technical information about this website's accessibility
 The Environment Agency is committed to making its website accessible, in accordance with the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018.
 Compliance status
-This website is partially compliant with the Web Content Accessibility Guidelines version 2.1 AA standard, due to the following exemptions.
+This website is partially compliant with the Web Content Accessibility Guidelines version 2.2 AA standard, due to the following exemptions.
 Non-accessible content
 The content listed below is non-accessible for the following reasons.
 Non-compliance with the accessibility regulations
-There are a number of elements of the map user interface that are not fully descriptive or accessible. These are:
-the colour contrast of the scale icon used on the Ordnance Survey mapping fails to meet the required contrast ratio (WCAG 1.4.3 Contrast - Level AA) in certain situations
-the colour contrast used in various elements of the mapping fails to meet the required contrast ratio (WCAG 1.4.3 Contrast - Level AA) in certain situations
-the zoom controls provided on the maps do not provide a label that is descriptive enough to inform a user of their function (WCAG 2.4.6 Headings and labels - Level AA)
-We are looking to fix these issues in the following ways:
-We are exploring ways to improve the accessibility of the controls on the map user interface so that they are more descriptive and usable before December 2025.
-We are planning an investigation of a more accessible scheme to differentiate layers used in mapping across all flood services. We plan to carry out this work before December 2025.
-We are planning an investigation about offering alternative, more accessible versions of the Ordnance Survey mapping layers before December 2025.
-We will carry out an accessibility audit in February 2025. This will be followed by usability testing with people with accessibility needs.
+There are several instances of non-compliance with WCAG level AA. These are:
+navigation landmarks do not provide a label that is descriptive enough to inform a user of their function, which does not meet the requirement for WCAG 2.4.6 Headings and labels
+the Friendly Captcha grey information text does not meet the requirement for WCAG 1.4.3 Contrast (Minimum)
+the map focus element does not meet the requirement for WCAG 1.4.11 Non-text Contrast
+the colours used in the flood depth graphic, for both the grey against the white background and the grey against the blue produce a contrast ratio, which does not meet the requirement for WCAG 1.4.11 Non-text Contrast
+zoom controls are removed from various map pages when viewed in WCAG reflow settings at 1280 x 1024px at a magnification of 400%. Additionally, the positioning of certain elements over the map does not account for the addition of a scroll bar and some of the text is cropped. This does not meet the requirement for WCAG 1.4.10 Reflow
+We will to fix these issues in the following ways:
+we plan to add a descriptive aria-label attribute to the navigation landmark that allows a screen reader to know this section is for page navigation
+we will make sure text colours used provide sufficient contrast against the background, so that the outlines of the text characters are sufficiently defined for low vision users
+we plan to use the format indicated in the GOV.UK Design System, for understanding focus state styles
+we will make sure the flood depth graphics achieves a colour contrast ratio of least 3:1 against any adjacent colours
+we plan to make sure the map pages can be viewed as a single column at 320px without any loss of content or functionality
+We will look to address these issues by December 2025.
 Content that's not within the scope of the accessibility regulations
 The website has the following content which is out of scope of the accessibility regulations:
 maps
 third party content which is out of our control, for example a corporate logo on the map the website uses
 PDF content that was published before 23 September 2018
 What we’re doing to improve accessibility
-We commit to providing alternative, non-digital access to the service where requests are made to the Environment Agency
-We commit to providing accessible pdfs where requests are made to the Environment Agency
+we have fixed 7 issues that failed to meet the WCAG version 2.2 A standard
+we are working to fix all other content which fails to meet the WCAG version 2.2 AA standard and we will update this page when these issues are fixed
+once we have fixed these issues, we will conduct usability testing with people with accessibility needs
 Preparation of this accessibility statement
-This statement was prepared on 24 September 2024. It was last reviewed on 24 September 2024.
-This website was last tested on 22 June 2023. The test was carried out by the Digital Accessibility Centre (DAC).
-We tested the following 3 pages, which all users need to interact with to get a flood risk summary for an area:
+The original statement was prepared on 22 September 2020.
+It was last reviewed on 7 January 2025.
+This website was last tested on 3 December 2024. The test was carried out by the Digital Accessibility Centre (DAC).
+We tested the following pages:
 Where do you want to check
 Select an address
 Flood risk summary
+Rivers and the sea: understand your flood risk
+Rivers and sea map
+Rivers and the sea: possible flood depths
+Surface water: understand your flood risk
+Groundwater and reservoirs: understand your flood risk
+Flood risk map

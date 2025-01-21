@@ -266,7 +266,7 @@ exports.config = {
       const generationTimeout = setTimeout(() => reject(reportError), oneMinute)
 
       generation.on('exit', function (exitCode) {
-        clearTimeout(generationTimeout)
+        clear(generation)
 
         if (exitCode !== 0) {
           return reject(reportError)

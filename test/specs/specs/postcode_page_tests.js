@@ -1,16 +1,13 @@
 'use strict'
 
-const postcodePage = require('../page_objects/postcode_page')
-const postcodeErrorPage = require('../page_objects/postcode_error_page')
 const postcodeDataFile = require('../test_data/postcode_data')
-const addressPage = require('../page_objects/address_page')
 // adding the common function
-const commonFunction = require('../page_objects/common_functions')
 
 describe('Postcode page content tests', async () => {
   it('Should have the expected content in the correct page elements', async () => {
     // open browser at postcode search with capture bypass token
     await browser.url(`${global.capchaBypass}`)
+    const commonFunction = require('../page_objects/common_functions')
 
     // check browser is open on correct page and tab title is as expected
     // expect(await browser.getTitle()).equals('Where do you want to check? - Check your long term flood risk - GOV.UK')
@@ -27,6 +24,8 @@ describe('Postcode page sad path tests', async () => {
       console.log('*** INVALID POSTCODE ERROR TEST CASE ', item.testCase)
       // open browser at postcode search with capture bypass token
       await browser.url(`${global.capchaBypass}`)
+      const commonFunction = require('../page_objects/common_functions')
+      const postcodePage = require('../page_objects/postcode_page')
 
       // check browser is open on correct page and tab title is as expected
       // fix for the Jenkins build failure
@@ -50,6 +49,9 @@ describe('Postcode page sad path tests', async () => {
       console.log('***NI POSTCODE ERROR TEST CASE ', item.testCase)
       // open browser at postcode search with capture bypass token
       await browser.url(`${global.capchaBypass}`)
+      const commonFunction = require('../page_objects/common_functions')
+      const postcodePage = require('../page_objects/postcode_page')
+      const postcodeErrorPage = require('../page_objects/postcode_error_page')
 
       // check browser is open on correct page and tab title is as expected
       // fix for the Jenkins build failure
@@ -74,6 +76,9 @@ describe('Postcode page sad path tests', async () => {
       console.log('***SCOTLAND OR WALES POSTCODE ERROR TEST CASE ', item.testCase)
       // open browser at postcode search with capture bypass token
       await browser.url(`${global.capchaBypass}`)
+      const commonFunction = require('../page_objects/common_functions')
+      const postcodePage = require('../page_objects/postcode_page')
+      const addressPage = require('../page_objects/address_page')
 
       // check browser is open on correct page and tab title is as expected
       // fix for the Jenkins build failure
@@ -84,6 +89,7 @@ describe('Postcode page sad path tests', async () => {
       // pass in postcode search string and then click continue
       await postcodePage.enterPostcode(item.postcode)
       await postcodePage.contBtn.click()
+      const postcodeErrorPage = require('../page_objects/postcode_error_page')
 
       // check address page
       // expect(await browser.getTitle()).equals('Select an address - Check your long term flood risk - GOV.UK')
@@ -97,7 +103,7 @@ describe('Postcode page sad path tests', async () => {
       expect(await postcodeErrorPage.getPageHeading()).equals('This service is for postcodes in England only')
       // expect(await browser.getTitle()).equals('Check your long term flood risk - Check your long term flood risk - GOV.UK')
       await commonFunction.getTitle('Check your long term flood risk - Check your long term flood risk - GOV.UK')
-      expect(await browser.getUrl()).equals(`${baseUrl}/england-only`)
+      expect(await browser.getUrl()).contains(`${baseUrl}/england-only`)
     })
   })
   // It should result in expected number of address options following a valid seach (see nightwatch test 'valid-search')
@@ -108,6 +114,9 @@ describe('Postcode page sad path tests', async () => {
       console.log('***SILVERLINE ERROR MESSAGE', item.postcode)
       // open browser at postcode search with capture bypass token
       await browser.url(`${global.capchaBypass}`)
+      const commonFunction = require('../page_objects/common_functions')
+      const postcodePage = require('../page_objects/postcode_page')
+      const postcodeErrorPage = require('../page_objects/postcode_error_page')
 
       // check browser is open on correct page and tab title is as expected
       // fix for the Jenkins build failure
@@ -120,11 +129,8 @@ describe('Postcode page sad path tests', async () => {
       await postcodePage.contBtn.click()
 
       // check the expected error page is produced. Different error if we're caught by silverline or not
-      try {
-        expect(await postcodeErrorPage.getPageHeading()).equals('Sorry, the requested URL was rejected')
-      } catch {
-        expect(await postcodePage.getPostcodeBannerMessage()).equals('Enter a full postcode in England')
-      }
+
+      expect(await postcodeErrorPage.getPageHeading()).equals('403 Forbidden')
     })
 
     //* ************Error message for valid but Empty postcode
@@ -133,6 +139,8 @@ describe('Postcode page sad path tests', async () => {
         console.log('***EMPTY POSTCODE ERROR MESSAGE', item.postcode)
         // open browser at postcode search with capture bypass token
         await browser.url(`${global.capchaBypass}`)
+        const commonFunction = require('../page_objects/common_functions')
+        const postcodePage = require('../page_objects/postcode_page')
 
         // check browser is open on correct page and tab title is as expected
         // fix for the Jenkins build failure

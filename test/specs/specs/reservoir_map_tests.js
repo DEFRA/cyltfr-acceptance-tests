@@ -39,7 +39,7 @@ describe('Check map data is displayed as expected', async () => {
       // check the risk assessment page is loaded and the expected address has been summarised
       expect(await browser.getUrl()).equals(`${baseUrl}/risk#`)
       expect(await browser.getTitle()).equals(
-        'Your long term flood risk assessment - Check your long term flood risk - GOV.UK'
+        'Flood risk summary - Check your long term flood risk - GOV.UK'
       )
       expect(await propertyRiskPage.confirmAddressDetail()).contains(
         item.postcode
@@ -59,17 +59,11 @@ describe('Check map data is displayed as expected', async () => {
 
       expect(await browser.getUrl()).contains(`${baseUrl}/map?`)
       expect(await browser.getTitle()).equals(
-        'See flood risk on a map - Check your long term flood risk - GOV.UK'
+        'Rivers and sea map - Check your long term flood risk - GOV.UK'
       )
-      await riverSeaMapPage.clickAdvancedOptions()
-      await browser.maximizeWindow()
-
-      await riverSeaMapPage.clickReserviorsExtent()
 
       await riverSeaMapPage.clickShowFloodingCheckBox()
       await riverSeaMapPage.clickShowFloodingCheckBox()
-      // verify if zoom in and zoom out buttons enabled on the map
-      await riverSeaMapPage.verifyZoomInZoomOutButtonsEnabled()
     })
   })
 })

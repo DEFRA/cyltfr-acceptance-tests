@@ -10,7 +10,7 @@ class RiverSeaMapPage {
   }
 
   get getShowFloodingCheckBox () {
-    return $('#map-key__section > div.govuk-form-group > fieldset > div > div:nth-child(1) > label')
+    return $('#rs-section-container > div > fieldset > div > div:nth-child(1) > label')
   }
 
   get getZoomOut () {
