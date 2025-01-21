@@ -55,7 +55,8 @@ we are working to fix all other content which fails to meet the WCAG version 2.2
 once we have fixed these issues, we will conduct usability testing with people with accessibility needs
 Preparation of this accessibility statement
 The original statement was prepared on 22 September 2020.
-It was last reviewed on 7 January 2025. This website was last tested on 3 December 2024. The test was carried out by the Digital Accessibility Centre (DAC).
+It was last reviewed on 7 January 2025.
+This website was last tested on 3 December 2024. The test was carried out by the Digital Accessibility Centre (DAC).
 We tested the following pages:
 Where do you want to check
 Select an address
