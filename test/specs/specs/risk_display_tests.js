@@ -9,11 +9,7 @@ POINTS TO NOTE
 - There is no check for hierarchy of risk type/risk score.  If there is logic in the app for this, then a new test is needed to check this.
 */
 
-const postcodePage = require('../page_objects/postcode_page')
-const addressPage = require('../page_objects/address_page')
 const riskDisplayDataFile = require('../test_data/risk_display_data')
-const propertyRiskPage = require('../page_objects/risk_display_page')
-const commonFunctions = require('../page_objects/common_functions')
 // adding to read the file for SW, RS, Res and GW content check
 const fs = require('fs')
 
@@ -24,6 +20,8 @@ describe('Check risk displays are as expected', async () => {
       console.log('*** Check risk displays are as expected - TEST CASE ', item.testCase)
       // open browser at postcode search with capture bypass token
       await browser.url(`${global.capchaBypass}`)
+      const commonFunctions = require('../page_objects/common_functions')
+      const postcodePage = require('../page_objects/postcode_page')
       // check browser is open on correct page and tab title is as expected
       await commonFunctions.getTitle('Where do you want to check? - Check your long term flood risk - GOV.UK')
       expect(await browser.getUrl()).equals(`${baseUrl}${global.capchaBypass}`)
@@ -39,6 +37,8 @@ describe('Check risk displays are as expected', async () => {
 
     it('Should select the correct address from the options and move to the summary page', async () => {
       // on address page, select the address from the data file, check the continue button is on the page and click it
+      const addressPage = require('../page_objects/address_page')
+      const propertyRiskPage = require('../page_objects/risk_display_page')
       await addressPage.selectAddress(item.dropDownValue)
       await addressPage.clickContinue()
       // check the risk assessment page is loaded and the expected address has been summarised
@@ -49,6 +49,7 @@ describe('Check risk displays are as expected', async () => {
 
     it('Should display the correct risk values for the selected property', async () => {
       // Check for surface water static content
+      const propertyRiskPage = require('../page_objects/risk_display_page')
       if (item.surfaceWaterRisk === 'High risk') {
         await propertyRiskPage.clickMoreAboutSurfaceWaterFloodRisk()
 
@@ -257,7 +258,7 @@ describe('Check risk displays are as expected', async () => {
       }
       // if the reservoir risk is expected to be true (in data file)
       if (item.reservoirRisk === true) {
-        console.log('***********RESERVOIR RISK CHECK STARTED******************')
+        console.log('*********** STARTED******************')
 
         await propertyRiskPage.clickOnBackToSummary()
 
@@ -265,7 +266,7 @@ describe('Check risk displays are as expected', async () => {
 
         await expect(await propertyRiskPage.getReservoirRisk()).to.contain('There is a risk of flooding from reservoirs in this area.')
 
-        console.log('***********RESERVOIR RISK CHECK COMPLETE******************')
+        console.log('*********** COMPLETE******************')
       } else {
         console.log('***********RESERVOIR NO RISK CHECK STARTED******************')
 
