@@ -58,6 +58,7 @@ describe('Check risk displays are as expected', async () => {
           'Surface water: understand your flood risk - Check your long term flood risk - GOV.UK'
         )
         console.log('*************SW High Risk static content check started*********************')
+        const propertyRiskPage = require('../page_objects/risk_display_page')
 
         const surfacewaterContents = await propertyRiskPage.getSurfaceWaterContents()
 
