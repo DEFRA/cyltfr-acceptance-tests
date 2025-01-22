@@ -14,6 +14,8 @@ module.exports = {
       dropDownValue: '1',
       riverAndSeaRisk: 'High risk',
       surfaceWaterRisk: 'Medium to High risk',
+      riverAndSeaDepth: true,
+      surfaceWaterDepth: true,
       reservoirRisk: false,
       groundwaterRisk: false
     },
@@ -24,6 +26,8 @@ module.exports = {
       dropDownValue: '25',
       riverAndSeaRisk: 'Medium to High risk',
       surfaceWaterRisk: 'Low risk',
+      riverAndSeaDepth: false,
+      surfaceWaterDepth: false,
       reservoirRisk: true,
       groundwaterRisk: false
     },
@@ -34,6 +38,8 @@ module.exports = {
       dropDownValue: '32',
       riverAndSeaRisk: 'Low to Medium risk',
       surfaceWaterRisk: 'Very low risk',
+      riverAndSeaDepth: false,
+      surfaceWaterDepth: false,
       reservoirRisk: true,
       groundwaterRisk: false
     },
@@ -45,6 +51,8 @@ module.exports = {
       dropDownValue: '10',
       riverAndSeaRisk: 'High risk',
       surfaceWaterRisk: 'Very low risk',
+      riverAndSeaDepth: false,
+      surfaceWaterDepth: false,
       reservoirRisk: true,
       groundwaterRisk: false
     },
@@ -55,6 +63,8 @@ module.exports = {
       dropDownValue: '12',
       riverAndSeaRisk: 'High risk',
       surfaceWaterRisk: 'Low risk',
+      riverAndSeaDepth: false,
+      surfaceWaterDepth: false,
       reservoirRisk: true,
       groundwaterRisk: false
     },
@@ -65,6 +75,8 @@ module.exports = {
       dropDownValue: '11',
       riverAndSeaRisk: 'High risk',
       surfaceWaterRisk: 'Very low risk',
+      riverAndSeaDepth: false,
+      surfaceWaterDepth: false,
       reservoirRisk: false,
       groundwaterRisk: true
     },
@@ -76,6 +88,8 @@ module.exports = {
       dropDownValue: '41',
       riverAndSeaRisk: 'High risk',
       surfaceWaterRisk: 'Very low risk',
+      riverAndSeaDepth: false,
+      surfaceWaterDepth: false,
       reservoirRisk: true,
       groundwaterRisk: false
     },
@@ -86,6 +100,8 @@ module.exports = {
       dropDownValue: '14',
       riverAndSeaRisk: 'Medium to High risk',
       surfaceWaterRisk: 'Low risk',
+      riverAndSeaDepth: false,
+      surfaceWaterDepth: false,
       reservoirRisk: true,
       groundwaterRisk: false
     },
@@ -96,6 +112,8 @@ module.exports = {
       dropDownValue: '10',
       riverAndSeaRisk: 'Low risk',
       surfaceWaterRisk: 'Low to Medium risk',
+      riverAndSeaDepth: false,
+      surfaceWaterDepth: false,
       reservoirRisk: true,
       groundwaterRisk: false
     },
@@ -106,6 +124,8 @@ module.exports = {
       dropDownValue: '2',
       riverAndSeaRisk: 'Low to Medium risk',
       surfaceWaterRisk: 'Very low risk',
+      riverAndSeaDepth: false,
+      surfaceWaterDepth: false,
       reservoirRisk: true,
       groundwaterRisk: false
     },
@@ -116,6 +136,8 @@ module.exports = {
       dropDownValue: '2',
       riverAndSeaRisk: 'Very low risk',
       surfaceWaterRisk: 'Very low risk',
+      riverAndSeaDepth: false,
+      surfaceWaterDepth: false,
       reservoirRisk: true,
       groundwaterRisk: false
     },
@@ -126,6 +148,8 @@ module.exports = {
       dropDownValue: '3',
       riverAndSeaRisk: 'Very low risk',
       surfaceWaterRisk: 'Very low risk',
+      riverAndSeaDepth: false,
+      surfaceWaterDepth: false,
       reservoirRisk: false,
       groundwaterRisk: false
     },
@@ -136,6 +160,8 @@ module.exports = {
       dropDownValue: '0',
       riverAndSeaRisk: 'Very low risk',
       surfaceWaterRisk: 'Very low risk',
+      riverAndSeaDepth: false,
+      surfaceWaterDepth: false,
       reservoirRisk: false,
       groundwaterRisk: false
     },
@@ -146,6 +172,8 @@ module.exports = {
       dropDownValue: '1',
       riverAndSeaRisk: 'Very low risk',
       surfaceWaterRisk: 'Very low risk',
+      riverAndSeaDepth: false,
+      surfaceWaterDepth: false,
       reservoirRisk: false,
       groundwaterRisk: false
     },
@@ -156,6 +184,8 @@ module.exports = {
       dropDownValue: '5',
       riverAndSeaRisk: 'High risk',
       surfaceWaterRisk: 'Very low to Low risk',
+      riverAndSeaDepth: false,
+      surfaceWaterDepth: false,
       reservoirRisk: true,
       groundwaterRisk: false
     },
@@ -166,6 +196,8 @@ module.exports = {
       dropDownValue: '6',
       riverAndSeaRisk: 'High risk',
       surfaceWaterRisk: 'Very low risk',
+      riverAndSeaDepth: false,
+      surfaceWaterDepth: false,
       reservoirRisk: true,
       groundwaterRisk: false
     }

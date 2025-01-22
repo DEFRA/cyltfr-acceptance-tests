@@ -27,6 +27,10 @@ class RiskDisplayPage {
   get viewRiversandSeaMap () { return $('#main-content > div > div:nth-child(2) > div > p:nth-child(5) > a') }
   get clickNextRiversandSeaPage () { return $('#main-content > div > div:nth-child(3) > div > nav > div > a > span.govuk-pagination__link-label') }
   get clickBackToSummary () { return $('.govuk-back-link') }
+  get clickRiversAndSeaDepth () { return $('#main-content > div > div:nth-child(2) > div > p:nth-child(10) > a') }
+  get clickSurfaceWaterDepth () { return $('#main-content > div > div:nth-child(2) > div > p:nth-child(11) > a') }
+  get riversAndSeaDepthContent () { return $('#main-content > div > div > div') }
+  get surfaceWaterDepthContent () { return $('#main-content > div > div > div') }
 
   // METHODS AND FUNCTIONS
 
@@ -144,6 +148,26 @@ class RiskDisplayPage {
   // Click Back to Summary
   async clickOnBackToSummary () {
     await (await this.clickBackToSummary).click()
+  }
+
+  // Click Rivers and Sea Depth
+  async clickOnRiversAndSeaDepth () {
+    await (await this.clickRiversAndSeaDepth).click()
+  }
+
+  // Click Surface water Depth
+  async clickOnSurfaceWaterDepth () {
+    await (await this.clickSurfaceWaterDepth).click()
+  }
+
+  async getriversAndSeaDepthContents () {
+    await (await this.riversAndSeaDepthContent).waitForDisplayed()
+    return (await this.riversAndSeaDepthContent).getText()
+  }
+
+  async getsurfaceWaterDepthContents () {
+    await (await this.surfaceWaterDepthContent).waitForDisplayed()
+    return (await this.surfaceWaterDepthContent).getText()
   }
 }
 

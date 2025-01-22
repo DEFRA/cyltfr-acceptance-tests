@@ -8,6 +8,8 @@ const privacyNoticePage = require('../page_objects/privacy_notice_page')
 const accessibilityStmtPage = require('../page_objects/accessibility_stmt_page')
 const cookieStmtPage = require('../page_objects/cookie_stmt_page')
 const floodRiskPage = require('../page_objects/flood_risk_page')
+const informationForPlanningPage = require('../page_objects/information_for_planning_page')
+const feedBackPage = require('../page_objects/feedback_page')
 // const postcodePage = require('../page_objects/postcode_page')
 // const addressPage = require('../page_objects/address_page')
 // const propertyRiskPage = require('../page_objects/risk_display_page')
@@ -57,6 +59,7 @@ describe('Check Cookies statement Content', async () => {
     expect(await cookieStmtPage.checkcookieContent()).equals(cookieStmtFile.toString().replace(/\r\n/g, '\n'))
   })
 })
+
 // add test for Get flood risk data content
 describe('Check Get flood risk data Content', async () => {
   it('Should have the correct content for the get flood risk page', async () => {
@@ -69,5 +72,32 @@ describe('Check Get flood risk data Content', async () => {
     expect(await browser.getUrl()).equals(`${baseUrl}/risk-data`)
     // using page object, get the content fromt the page we are checking, and check against what we have in the txt file replacing some characters picked up with carrige returns.
     expect(await floodRiskPage.checkFloodRiskContent()).equals(floodRiskFile.toString().replace(/\r\n/g, '\n'))
+  })
+})
+// add test for Information to support planning Application content
+describe('Check Information to support planning Application Content', async () => {
+  it('Should have the correct content for the Information to support planning Application page', async () => {
+    console.log('*** INFORMATION FOR PLANNING APPLICATION CONTENT CHECK')
+    // grab the Information to support planning application txt file, name it and have available for test
+    const informationFile = fs.readFileSync('./test/specs/content_data/information-for-planning-application-data.txt', 'utf8')
+    // open browser, check the tab title is correct and we are definately on the correct url
+    await browser.url('/information-for-planning')
+    expect(await browser.getTitle()).equals('Information for planning - Check your long term flood risk - GOV.UK')
+    expect(await browser.getUrl()).equals(`${baseUrl}/information-for-planning`)
+    // using page object, get the content fromt the page we are checking, and check against what we have in the txt file replacing some characters picked up with carrige returns.
+    expect(await informationForPlanningPage.checkInformationForPlanningPageContent()).equals(informationFile.toString().replace(/\r\n/g, '\n'))
+  })
+})
+// add test for feedback page content
+describe('Click feedback page back link and navigate back to the application', async () => {
+  it('Should click on back link and navigate to postcode page', async () => {
+    console.log('*** NAVIGATE TO FEEDBACK PAGE')
+    await browser.url('/feedback')
+    expect(await browser.getTitle()).equals('Give feedback on the Check Your Long Term Flood Risk service - Check your long term flood risk - GOV.UK')
+    expect(await browser.getUrl()).equals(`${baseUrl}/feedback`)
+    console.log('*** CLICK BACK LINK ON FEEDBACK PAGE')
+    expect(await feedBackPage.clickBackLink())
+    expect(await browser.getTitle()).equals('Where do you want to check? - Check your long term flood risk - GOV.UK')
+    expect(await browser.getUrl()).equals(`${baseUrl}/postcode`)
   })
 })

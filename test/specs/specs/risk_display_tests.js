@@ -146,6 +146,25 @@ describe('Check risk displays are as expected', async () => {
 
         expect(surfacewaterContents).to.contains(values.surfacewaterModifiedFile.toString().replace(/\r\n/g, '\n'))
         console.log('*************SW Medium to High risk static content check completed*********************')
+
+        if (item.surfaceWaterDepth === true) {
+          console.log('*************Navigate to Surface water Depth page*********************')
+          await propertyRiskPage.clickOnSurfaceWaterDepth()
+          expect(await browser.getUrl()).contains(`${baseUrl}/surface-water-depth`)
+          expect(await browser.getTitle()).equals(
+            'Surface water: possible flood depths - Check your long term flood risk - GOV.UK'
+          )
+
+          console.log('*************Surface water Depth page static content check started*********************')
+
+          const surfaceWaterDepthStaticContentFile = fs.readFileSync('./test/specs/content_data/SW_Medium_to_HighRisk_Depth.txt', 'utf8')
+
+          expect(await propertyRiskPage.getsurfaceWaterDepthContents()).to.contains(surfaceWaterDepthStaticContentFile.toString())
+
+          console.log('*************Surface water Depth page static content check completed*********************')
+
+          await propertyRiskPage.clickOnBackToSummary()
+        }
       } else if (item.surfaceWaterRisk === 'Low to Medium risk') {
         await propertyRiskPage.clickMoreAboutSurfaceWaterFloodRisk()
 
@@ -196,6 +215,25 @@ describe('Check risk displays are as expected', async () => {
 
         expect(await propertyRiskPage.getriversAndSeaContents()).to.contains(riversseaStaticContentFile.toString())
         console.log('*************RS High Risk static content check completed*********************')
+
+        if (item.riverAndSeaDepth === true) {
+          console.log('*************Navigate to Rivers and Sea Depth page*********************')
+          await propertyRiskPage.clickOnRiversAndSeaDepth()
+          expect(await browser.getUrl()).contains(`${baseUrl}/rivers-and-sea-depth`)
+          expect(await browser.getTitle()).equals(
+            'Rivers and the sea: possible flood depths - Check your long term flood risk - GOV.UK'
+          )
+
+          console.log('*************Rivers and Sea Depth page static content check started*********************')
+
+          const riversseaDepthStaticContentFile = fs.readFileSync('./test/specs/content_data/RS_HighRisk_Depth.txt', 'utf8')
+
+          expect(await propertyRiskPage.getriversAndSeaDepthContents()).to.contains(riversseaDepthStaticContentFile.toString())
+
+          console.log('*************Rivers and Sea Depth page static content check completed*********************')
+
+          await propertyRiskPage.clickOnBackToSummary()
+        }
       } else if (item.riverAndSeaRisk === 'Medium risk') {
         await propertyRiskPage.clickOnBackToSummary()
 

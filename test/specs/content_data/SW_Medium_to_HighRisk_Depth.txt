@@ -1,0 +1,53 @@
+This information tells you the flood risk of the land around a building, not the building itself.
+Flooding is hard to predict and there is always a chance any flood water could be deeper than what we show.
+What the flood risk ratings mean
+Chance of flooding to 20cm
+Present day
+60cm (2ft)
+30cm (1ft)
+20cm (8in)
+Medium
+which is the highest likelihood
+2040 – 2060
+60cm (2ft)
+30cm (1ft)
+20cm (8in)
+Medium
+which is the highest likelihood
+At this location there's a Medium chance of flooding to 20cm (or 8 inches).
+Between 2040 and 2060 this stays at a Medium chance of flooding to 20cm (or 8 inches).
+At 20cm, flood water can get into some homes and buildings, especially if the property has a basement. At this level, water can also damage your car or cause a breakdown.
+Chance of flooding to 30cm
+Present day
+60cm (2ft)
+30cm (1ft)
+Medium
+which is the highest likelihood
+20cm (8in)
+2040 – 2060
+60cm (2ft)
+30cm (1ft)
+Medium
+which is the highest likelihood
+20cm (8in)
+At this location there's a Medium chance of flooding to 30cm (or 1ft)
+Between 2040 and 2060 this stays at a Medium chance of flooding to 30cm (or 1ft)
+At 30cm, flood water can get into homes and buildings. Water at this level can also move a car, damage roads and cause major traffic disruption.
+Chance of flooding to 60cm
+Present day
+60cm (2ft)
+Very low
+which is the highest likelihood
+30cm (1ft)
+20cm (8in)
+2040 – 2060
+60cm (2ft)
+Very low
+which is the highest likelihood
+30cm (1ft)
+20cm (8in)
+At this location there's a Very low chance of flooding to 60cm (or 2ft)
+Between 2040 and 2060 this stays at a Very low chance of flooding to 60cm (or 2ft)
+At 60cm, we expect flood water to get into homes and buildings. Water at this level can float most vehicles, including 4x4s.
+Flood protection measures are usually effective up to 60cm. You should not try and keep flood water out of buildings if it's over 90cm. Water at this level can cause collapse or permanent structural damage.
+Return to surface water to read advice on how to manage your risk from flooding.
