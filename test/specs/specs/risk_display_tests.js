@@ -313,6 +313,8 @@ describe('Check risk displays are as expected', async () => {
 
         await propertyRiskPage.clickMoreAboutGroundWaterandReservoirs()
 
+        await browser.saveScreenshot('./testResults/tests/MoreAboutGroundWaterandReservoirs.png')
+
         await expect(await propertyRiskPage.getReservoirRisk()).to.contain('Flooding from reservoirs is unlikely in this area.')
 
         console.log('***********RESERVOIR NO RISK CHECK COMPLETE******************')
