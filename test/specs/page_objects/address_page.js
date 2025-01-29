@@ -24,7 +24,6 @@ class AddressPage {
   }
 
   async getAddressText (item) {
-    await (await this.addressComboText).waitForDisplayed()
     return (await this.addressComboText).getText()
   }
 

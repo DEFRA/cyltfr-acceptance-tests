@@ -14,6 +14,7 @@ describe('Check Your Long Term Flood Risk, Address page', async () => {
     await commonFunctions.getTitle('Where do you want to check? - Check your long term flood risk - GOV.UK')
     expect(await browser.getUrl()).equals(`${baseUrl}${global.capchaBypass}`)
 
+    await postcodePage.acceptCookies()
     await postcodePage.enterPostcode('WA41AB')
     await postcodePage.clickContinue()
 
@@ -46,9 +47,7 @@ describe('Check Your Long Term Flood Risk, Address page', async () => {
 
       await postcodePage.enterPostcode(item.postcode)
       await postcodePage.clickContinue()
-      // check address page
-      // fix for Jenkins failure
-      // expect(await browser.getTitle()).equals('Select an address - Check your long term flood risk - GOV.UK')
+
       await commonFunctions.getTitle('Select an address - Check your long term flood risk - GOV.UK')
       // check address count result set
       const resultText = await addressPage.getAddressText()

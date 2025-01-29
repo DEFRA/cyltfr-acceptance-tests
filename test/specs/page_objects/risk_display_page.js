@@ -10,8 +10,8 @@ class RiskDisplayPage {
   get addressDetail () { return $("//*[@id='risk-page']/div[1]/div/div[1]/p[1]") }
   get riversAndSeaBanner () { return $("h2[class='govuk-summary-card__title rivers-and-sea']") }
   get surfaceWaterBanner () { return $("h2[class='govuk-summary-card__title surface-water']") }
-  get reservoirRiskBanner () { return $('#main-content > div > div.govuk-width-container > div > div > p:nth-child(12)') }
-  get groundwaterRiskBanner () { return $('#main-content > div > div.govuk-width-container > div > div > p:nth-child(6)') }
+  get reservoirRiskBanner () { return $('h2=Reservoirs').$(function () { return this.nextSibling.nextSibling }) }
+  get groundwaterRiskBanner () { return $('h2=Groundwater').$(function () { return this.nextSibling.nextSibling }) }
   // adding locators for each rivers and sea, surface water, reservoir and ground water description
   get riversseaBannerContents () { return $('#main-content > div > div:nth-child(2) > div') }
   get surfaceWaterBannerContents () { return $('#main-content') }
@@ -19,16 +19,16 @@ class RiskDisplayPage {
   get reservoirBannerRiskContents () { return $('#reservoirs-risk-desc') }
   get groundwaterBannerNoRiskContents () { return $('#groundwater-desc') }
   get surfaceWaterCouncilName () { return $("//*[@id='main-content']/div/div[2]/div/p[11]") }
-  get viewMoreAboutRiversandSeaFloodRisk () { return $('#rivers-sea > div.govuk-summary-card__title-wrapper.vlow.card-padding-left > ul > li > a') }
-  get viewMoreAboutSurfaceWaterFloodRisk () { return $('#surface-water > div.govuk-summary-card__title-wrapper.vlow.card-padding-left > ul > li > a') }
-  get viewMoreAboutGroundWaterAndReservoirs () { return $('#risk-page > div > div > div.govuk-grid-column-two-thirds.summary-grid-width > div:nth-child(3) > div.govuk-summary-card__title-wrapper.vlow.card-padding-left > ul > li > a') }
+  get viewMoreAboutRiversandSeaFloodRisk () { return $('=More about your rivers and sea flood risk') }
+  get viewMoreAboutSurfaceWaterFloodRisk () { return $('=More about your surface water flood risk') }
+  get viewMoreAboutGroundWaterAndReservoirs () { return $('=More about groundwater and reservoirs') }
   //   get viewMapMediumFloodRiskRiverandSea () { return $('#rivers-sea > div.govuk-summary-card__title-wrapper.vlow.card-padding-left > ul > li > a') }
   get viewPausedUpdatesAboutFloodRisk () { return $('#risk-page > div.page-summary > div.govuk-grid-row > div > p:nth-child(4) > a') }
   get viewRiversandSeaMap () { return $('#main-content > div > div:nth-child(2) > div > p:nth-child(5) > a') }
   get clickNextRiversandSeaPage () { return $('#main-content > div > div:nth-child(3) > div > nav > div > a > span.govuk-pagination__link-label') }
   get clickBackToSummary () { return $('.govuk-back-link') }
-  get clickRiversAndSeaDepth () { return $('#main-content > div > div:nth-child(2) > div > p:nth-child(10) > a') }
-  get clickSurfaceWaterDepth () { return $('#main-content > div > div:nth-child(2) > div > p:nth-child(11) > a') }
+  get clickRiversAndSeaDepth () { return $('=See how deep any flood water could be at your selected location') }
+  get clickSurfaceWaterDepth () { return $('=See how deep any flood water could be at your selected location') }
   get riversAndSeaDepthContent () { return $('#main-content > div > div > div') }
   get surfaceWaterDepthContent () { return $('#main-content > div > div > div') }
 
