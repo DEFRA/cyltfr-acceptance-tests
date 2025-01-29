@@ -50,7 +50,7 @@ class RiskDisplayPage {
   }
 
   async getReservoirRisk () {
-    // await (await this.reservoirRiskBanner).waitForDisplayed()
+    await (await this.reservoirRiskBanner).waitForDisplayed()
     return (await this.reservoirRiskBanner).getText()
   }
 
