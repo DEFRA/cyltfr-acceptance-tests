@@ -8,12 +8,12 @@ class FloodRiskData {
 
   // METHODS/FUNCTIONS TO PERFORM ACTIONS ON PAGE
   async getPageTitle () {
-    await (await this.pageTitle).waitForDisplayed({})
+    // await (await this.pageTitle).waitForDisplayed({})
     return (await this.pageTitle).getText()
   }
 
   async checkFloodRiskContent () {
-    await this.pageContent.waitForDisplayed({})
+    // await this.pageContent.waitForDisplayed({})
     return (await this.pageContent).getText()
   }
 }

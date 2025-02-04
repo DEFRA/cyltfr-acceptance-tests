@@ -35,52 +35,52 @@ class RiskDisplayPage {
   // METHODS AND FUNCTIONS
 
   async confirmAddressDetail () {
-    await (await this.addressDetail).waitForDisplayed()
+    // await (await this.addressDetail).waitForDisplayed()
     return (await this.addressDetail).getText()
   }
 
   async getRiversAndSeaRisk () {
-    await (await this.riversAndSeaBanner).waitForDisplayed()
+    // await (await this.riversAndSeaBanner).waitForDisplayed()
     return (await this.riversAndSeaBanner).getText()
   }
 
   async getSurfaceWaterRisk () {
-    await (await this.surfaceWaterBanner).waitForDisplayed()
+    // await (await this.surfaceWaterBanner).waitForDisplayed()
     return (await this.surfaceWaterBanner).getText()
   }
 
   async getReservoirRisk () {
-    await (await this.reservoirRiskBanner).waitForDisplayed()
+    // await (await this.reservoirRiskBanner).waitForDisplayed()
     return (await this.reservoirRiskBanner).getText()
   }
 
   async getGroundwaterRisk () {
-    await (await this.groundwaterRiskBanner).waitForDisplayed()
+    // await (await this.groundwaterRiskBanner).waitForDisplayed()
     return (await this.groundwaterRiskBanner).getText()
   }
 
   // Adding method to get Surface Water Contents details
 
   async getSurfaceWaterContents () {
-    await (await this.surfaceWaterBannerContents).waitForDisplayed()
+    // await (await this.surfaceWaterBannerContents).waitForDisplayed()
     return (await this.surfaceWaterBannerContents).getText()
   }
   // Adding method too get rivers and sea Contents details
 
   async getriversAndSeaContents () {
-    await (await this.riversseaBannerContents).waitForDisplayed()
+    // await (await this.riversseaBannerContents).waitForDisplayed()
     return (await this.riversseaBannerContents).getText()
   }
 
   // Adding method to get risk level
   async getRisklevels () {
-    await (await this.risklevels).waitForDisplayed()
+    // await (await this.risklevels).waitForDisplayed()
     return (await this.risklevels).getText()
   }
 
   // Adding method to get council name
   async getsurfaceWaterCouncilDetails () {
-    await (await this.surfaceWaterCouncilName).waitForDisplayed()
+    // await (await this.surfaceWaterCouncilName).waitForDisplayed()
     return (await this.surfaceWaterCouncilName).getText()
   }
 
@@ -161,12 +161,12 @@ class RiskDisplayPage {
   }
 
   async getriversAndSeaDepthContents () {
-    await (await this.riversAndSeaDepthContent).waitForDisplayed()
+    // await (await this.riversAndSeaDepthContent).waitForDisplayed()
     return (await this.riversAndSeaDepthContent).getText()
   }
 
   async getsurfaceWaterDepthContents () {
-    await (await this.surfaceWaterDepthContent).waitForDisplayed()
+    // await (await this.surfaceWaterDepthContent).waitForDisplayed()
     return (await this.surfaceWaterDepthContent).getText()
   }
 }

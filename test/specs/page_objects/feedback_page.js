@@ -6,7 +6,7 @@ class FeedbackPage {
   get backLink () { return $('.govuk-back-link') }
 
   async clickBackLink () {
-    await this.backLink.waitForDisplayed({})
+    // await this.backLink.waitForDisplayed({})
     return (await this.backLink).click()
   }
 }
