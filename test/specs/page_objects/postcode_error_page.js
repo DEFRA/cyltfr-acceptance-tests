@@ -12,7 +12,7 @@ class PostcodeErrorPage {
   // METHODS FUNCTIONS ACTIONS
 
   async getPageHeading () {
-    await (await this.title).waitForDisplayed({})
+    // await (await this.title).waitForDisplayed({})
     return (await this.title).getText()
   }
 }

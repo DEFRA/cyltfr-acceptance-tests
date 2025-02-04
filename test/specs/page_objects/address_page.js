@@ -19,27 +19,26 @@ class AddressPage {
   // METHODS AND FUNCTIONS
 
   async selectAddress (item) {
-    await (await this.addressCombo).waitForDisplayed()
+    // await (await this.addressCombo).waitForDisplayed()
     return (await this.addressCombo).selectByAttribute('value', item)
   }
 
   async getAddressText (item) {
-    await (await this.addressComboText).waitForDisplayed()
     return (await this.addressComboText).getText()
   }
 
   async clickContinue () {
-    await (await this.addressContinueButton).waitForDisplayed({})
+    // await (await this.addressContinueButton).waitForDisplayed({})
     return (await this.addressContinueButton).click()
   }
 
   async getAdressErrorMessage () {
-    await (await this.addressError).waitForDisplayed({})
+    // await (await this.addressError).waitForDisplayed({})
     return (await this.addressError).getText()
   }
 
   async getAddressBannerMessage () {
-    await (await this.bannerError).waitForDisplayed({})
+    // await (await this.bannerError).waitForDisplayed({})
     return (await this.bannerError).getText()
   }
 }

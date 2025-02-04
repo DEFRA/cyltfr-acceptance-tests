@@ -92,6 +92,7 @@ describe('Check Information to support planning Application Content', async () =
 describe('Click feedback page back link and navigate back to the application', async () => {
   it('Should click on back link and navigate to postcode page', async () => {
     console.log('*** NAVIGATE TO FEEDBACK PAGE')
+    await browser.url(`${global.capchaBypass}`)
     await browser.url('/feedback')
     expect(await browser.getTitle()).equals('Give feedback on the Check Your Long Term Flood Risk service - Check your long term flood risk - GOV.UK')
     expect(await browser.getUrl()).equals(`${baseUrl}/feedback`)

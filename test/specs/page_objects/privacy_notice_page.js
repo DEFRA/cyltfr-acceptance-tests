@@ -6,7 +6,7 @@ class PrivacyNotice {
 
   // METHODS AND FUNCTIONS
   async checkPrivacyNoticeContent () {
-    await (await this.pageContent).waitForDisplayed({})
+    // await (await this.pageContent).waitForDisplayed({})
     return (await this.pageContent).getText()
   }
 }

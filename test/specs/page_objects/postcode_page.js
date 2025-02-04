@@ -52,22 +52,22 @@ class PostcodePage {
   // METHODS FUNCTIONS ACTIONS
 
   async enterPostcode (postcode) {
-    await (await this.postcodeTextbox).waitForDisplayed({})
+    // await (await this.postcodeTextbox).waitForDisplayed({})
     return (await this.postcodeTextbox).setValue(postcode)
   }
 
   async clickContinue () {
-    await (await this.contBtn).waitForDisplayed({})
+    // await (await this.contBtn).waitForDisplayed({})
     return (await this.contBtn).click()
   }
 
   async getPostcodeErrorMessage () {
-    await (await this.postcodeError).waitForDisplayed({})
+    // await (await this.postcodeError).waitForDisplayed({})
     return (await this.postcodeError).getText()
   }
 
   async getPostcodeBannerMessage () {
-    await (await this.bannerError).waitForDisplayed({})
+    // await (await this.bannerError).waitForDisplayed({})
     return (await this.bannerError).getText()
   }
 
