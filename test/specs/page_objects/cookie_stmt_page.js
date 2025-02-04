@@ -7,7 +7,7 @@ class CookieStmt {
 
   // METHODS/FUNCTIONS
   async checkcookieContent () {
-    await (await this.pageContent).waitForDisplayed({})
+    // await (await this.pageContent).waitForDisplayed({})
     return (await this.pageContent).getText()
   }
 }
