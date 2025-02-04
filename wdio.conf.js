@@ -73,6 +73,11 @@ exports.config = {
     'goog:chromeOptions': {
       args: ['headless', 'disable-gpu']
     },
+   //  proxy: {
+   //    proxyType: 'manual',
+   //    httpProxy: 'zia-proxy.infra.defra.gov.uk:443',
+   //    noProxy: '127.0.0.1,localhost'
+   //  },
     // browserName: 'firefox',
     acceptInsecureCerts: true
     // If outputDir is provided WebdriverIO can capture driver session logs
