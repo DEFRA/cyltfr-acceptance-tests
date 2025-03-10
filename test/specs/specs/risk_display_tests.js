@@ -58,7 +58,6 @@ describe('Check risk displays are as expected', async () => {
           'Surface water: understand your flood risk - Check your long term flood risk - GOV.UK'
         )
         console.log('*************SW High Risk static content check started*********************')
-        const propertyRiskPage = require('../page_objects/risk_display_page')
 
         const surfacewaterContents = await propertyRiskPage.getSurfaceWaterContents()
 
@@ -294,6 +293,16 @@ describe('Check risk displays are as expected', async () => {
 
         expect(await propertyRiskPage.getriversAndSeaContents()).to.contains(riversseaStaticContentFile.toString())
         console.log('*************RS Very low to Low risk static content check completed*********************')
+      } else if (item.riverAndSeaRisk === 'Low to no data risk') {
+        await propertyRiskPage.clickOnBackToSummary()
+
+        await propertyRiskPage.clickMoreAboutRiversandSeaFloodRisk()
+
+        console.log('*************RS Low to no data available risk static content check started*********************')
+        const riversseaStaticContentFile = fs.readFileSync('./test/specs/content_data/RS_Low_to_No_DataRisk.txt', 'utf8')
+
+        expect(await propertyRiskPage.getriversAndSeaContents()).to.contains(riversseaStaticContentFile.toString())
+        console.log('*************RS Low to no data available risk static content check completed*********************')
       }
       // if the reservoir risk is expected to be true (in data file)
       if (item.reservoirRisk === true) {
