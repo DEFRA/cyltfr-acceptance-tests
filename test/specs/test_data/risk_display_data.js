@@ -200,6 +200,78 @@ module.exports = {
       surfaceWaterDepth: false,
       reservoirRisk: true,
       groundwaterRisk: false
+    },
+    {
+      testCase: 16,
+      houseNumber: 12,
+      postcode: 'LE2 7QA',
+      dropDownValue: '7',
+      riverAndSeaRisk: 'High risk',
+      surfaceWaterRisk: 'Low risk',
+      riverAndSeaDepth: false,
+      surfaceWaterDepth: false,
+      reservoirRisk: false,
+      groundwaterRisk: false
+    },
+    {
+      testCase: 17,
+      houseNumber: '10',
+      postcode: 'TA8 1LD',
+      dropDownValue: '9',
+      riverAndSeaRisk: 'Low to no data risk',
+      surfaceWaterRisk: 'Low risk',
+      riverAndSeaDepth: false,
+      surfaceWaterDepth: false,
+      reservoirRisk: false,
+      groundwaterRisk: false
+    },
+    {
+      testCase: 18,
+      houseNumber: '27a',
+      postcode: 'S6 4JP',
+      dropDownValue: '21',
+      riverAndSeaRisk: 'Medium risk',
+      surfaceWaterRisk: 'Very low risk',
+      riverAndSeaDepth: false,
+      surfaceWaterDepth: false,
+      reservoirRisk: true,
+      groundwaterRisk: false
+    },
+    {
+      testCase: 19,
+      houseNumber: '66',
+      postcode: 'TW3 1XL',
+      dropDownValue: '8',
+      riverAndSeaRisk: 'Very low risk',
+      surfaceWaterRisk: 'Very low risk',
+      riverAndSeaDepth: false,
+      surfaceWaterDepth: false,
+      reservoirRisk: false,
+      groundwaterRisk: false
+    },
+    {
+      testCase: 20,
+      houseNumber: '315',
+      postcode: 'TW3 3SE',
+      dropDownValue: '11',
+      riverAndSeaRisk: 'Very low risk',
+      surfaceWaterRisk: 'Low risk',
+      riverAndSeaDepth: false,
+      surfaceWaterDepth: false,
+      reservoirRisk: false,
+      groundwaterRisk: false
+    },
+    {
+      testCase: 21,
+      houseNumber: '315',
+      postcode: 'TW3 3SE',
+      dropDownValue: '11',
+      riverAndSeaRisk: 'Very low risk',
+      surfaceWaterRisk: 'Low risk',
+      riverAndSeaDepth: false,
+      surfaceWaterDepth: false,
+      reservoirRisk: false,
+      groundwaterRisk: false
     }
   ]
 }
