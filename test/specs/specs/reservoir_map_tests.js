@@ -15,7 +15,7 @@ describe('Check map data is displayed as expected', async () => {
         item.testCase
       )
       // open browser at postcode search with capture bypass token
-      await browser.url(`${global.capchaBypass}`)
+      await browser.navigateTo(`${baseUrl}${global.capchaBypass}`)
       // check browser is open on correct page and tab title is as expected
       await commonFunctions.getTitle(
         'Where do you want to check? - Check your long term flood risk - GOV.UK'
