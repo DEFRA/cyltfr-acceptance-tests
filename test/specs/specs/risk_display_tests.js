@@ -19,7 +19,7 @@ describe('Check risk displays are as expected', async () => {
     it('Should open the page and submit a postcode search', async () => {
       console.log('*** Check risk displays are as expected - TEST CASE ', item.testCase)
       // open browser at postcode search with capture bypass token
-      await browser.url(`${global.capchaBypass}`)
+      await browser.navigateTo(`${baseUrl}${global.capchaBypass}`)
       const commonFunctions = require('../page_objects/common_functions')
       const postcodePage = require('../page_objects/postcode_page')
       // check browser is open on correct page and tab title is as expected
