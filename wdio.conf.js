@@ -276,7 +276,7 @@ exports.config = {
      * @param {Object}  result.retries   informations to spec related retries, e.g. `{ attempts: 0, limit: 0 }`
      */
   afterTest: async function (test, context, { error, result, duration, passed, config, retries }) {
-    if (!passed) { await browser.saveScreenshot('screenshots') }
+    if (!passed) { await browser.saveScreenshot(`screenshots/${(new Date()).toISOString().replaceAll(':', '.')}.png`, {}) }
   }
   // afterTest: function(test, context, { error, result, duration, passed, retries })
   // {if(error){
