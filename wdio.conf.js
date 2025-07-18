@@ -227,6 +227,7 @@ exports.config = {
   // before: function (capabilities, specs) {
   before: async (capabilities, specs) => {
     const chai = require('chai')
+    chai.config.truncateThreshold = 0
     global.assert = chai.assert
     global.should = chai.should
     global.expect = chai.expect
