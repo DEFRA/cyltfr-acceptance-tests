@@ -183,6 +183,8 @@ exports.config = {
   onPrepare: async (config, capabilities) => {
     fileUtils.deleteDirectory('allure-results')
     fileUtils.deleteDirectory('allure-report')
+    fileUtils.deleteDirectory('screenshots')
+    fileUtils.makeDirectory('screenshots')
     console.log('***** You\'re now running this test pack against ', global.baseUrl, ' if this is incorrect you may want to abort the test run *****')
     console.log('***** THE CAPCHA BYPASS YOU ARE USING IS ' + global.capchaBypass)
   },
@@ -274,7 +276,7 @@ exports.config = {
      * @param {Object}  result.retries   informations to spec related retries, e.g. `{ attempts: 0, limit: 0 }`
      */
   afterTest: async function (test, context, { error, result, duration, passed, config, retries }) {
-    if (!passed) { await browser.takeScreenshot() }
+    if (!passed) { await browser.saveScreenshot('screenshots') }
   }
   // afterTest: function(test, context, { error, result, duration, passed, retries })
   // {if(error){
