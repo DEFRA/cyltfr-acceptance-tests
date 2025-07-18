@@ -2,6 +2,7 @@
 
 const allureReporter = require('@wdio/allure-reporter').default
 const fileUtils = require('./test/specs/utilities/deleteFile')
+const file = require('./test/specs/utilities/file')
 
 /* handy shortcuts for running tests against the different environment from local machine.
 NOTE: on pushing to branch and running from jenkins, the below envars shuld always be commented out
@@ -276,7 +277,12 @@ exports.config = {
      * @param {Object}  result.retries   informations to spec related retries, e.g. `{ attempts: 0, limit: 0 }`
      */
   afterTest: async function (test, context, { error, result, duration, passed, config, retries }) {
-    if (!passed) { await browser.saveScreenshot(`screenshots/${(new Date()).toISOString().replaceAll(':', '.')}.png`, {}) }
+    if (!passed) {
+      const outputFileName = (new Date()).toISOString().replaceAll(':', '.')
+      const strTest = (key, value) => { if (['parent', '_runnable', 'test', '_idlePrev', '_idleNext'].includes(key)) { return value.id } else return value }
+      fileUtils.writeString(`screenshots/${outputFileName}-testobject.json`, JSON.stringify(test, strTest))
+      await browser.saveScreenshot(`screenshots/${outputFileName}.png`, {})
+    }
   }
   // afterTest: function(test, context, { error, result, duration, passed, retries })
   // {if(error){
