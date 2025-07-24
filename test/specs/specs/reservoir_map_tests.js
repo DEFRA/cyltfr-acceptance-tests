@@ -17,30 +17,23 @@ describe('Check map data is displayed as expected', async () => {
       // open browser at postcode search with capture bypass token
       await browser.navigateTo(`${baseUrl}${global.capchaBypass}`)
       // check browser is open on correct page and tab title is as expected
-      await commonFunctions.getTitle(
-        'Where do you want to check? - Check your long term flood risk - GOV.UK'
-      )
+      await commonFunctions.waitTitle('Where do you want to check? - Check your long term flood risk - GOV.UK')
       expect(await browser.getUrl()).equals(`${baseUrl}${global.capchaBypass}`)
 
       // pass in postcode search string and then click continue
       await postcodePage.acceptCookies()
       await postcodePage.enterPostcode(item.postcode)
       await postcodePage.clickContinue()
-
-      await commonFunctions.getTitle(
-        'Select an address - Check your long term flood risk - GOV.UK'
-      )
     })
 
     it('Should select the correct address from the options and move to the summary page', async () => {
       // on address page, select the address from the data file, check the continue button is on the page and click it
       await addressPage.selectAddress(item.dropDownValue)
       await addressPage.clickContinue()
+
       // check the risk assessment page is loaded and the expected address has been summarised
+      await commonFunctions.waitTitle('Flood risk summary - Check your long term flood risk - GOV.UK')
       expect(await browser.getUrl()).equals(`${baseUrl}/risk#`)
-      expect(await browser.getTitle()).equals(
-        'Flood risk summary - Check your long term flood risk - GOV.UK'
-      )
       expect(await propertyRiskPage.confirmAddressDetail()).contains(
         item.postcode
       )
@@ -50,20 +43,19 @@ describe('Check map data is displayed as expected', async () => {
       // on risk assessment page, click on more about rivers and the sea
       await propertyRiskPage.clickMoreAboutRiversandSeaFloodRisk()
 
+      await commonFunctions.waitTitle('Rivers and the sea: understand your flood risk - Check your long term flood risk - GOV.UK')
       expect(await browser.getUrl()).contains(`${baseUrl}/rivers-and-sea`)
-      expect(await browser.getTitle()).equals(
-        'Rivers and the sea: understand your flood risk - Check your long term flood risk - GOV.UK'
-      )
       // on risk assessment page, click on rivers and the sea map
       await propertyRiskPage.clickRiversandSeaMap()
 
+      await commonFunctions.waitTitle('Rivers and sea map - Check your long term flood risk - GOV.UK')
       expect(await browser.getUrl()).contains(`${baseUrl}/map?`)
-      expect(await browser.getTitle()).equals(
-        'Rivers and sea map - Check your long term flood risk - GOV.UK'
-      )
 
       await riverSeaMapPage.clickShowFloodingCheckBox()
+      await commonFunctions.waitUntilStable()
+
       await riverSeaMapPage.clickShowFloodingCheckBox()
+      await commonFunctions.waitUntilStable()
     })
   })
 })
