@@ -8,6 +8,14 @@ class FileUtils {
       fs.rmSync(dirPath, { recursive: true })
     }
   }
+
+  makeDirectory (dirPath) {
+    fs.mkdirSync(dirPath)
+  }
+
+  writeString (fileName, content) {
+    fs.writeFileSync(fileName, content)
+  }
 }
 
 module.exports = new FileUtils()

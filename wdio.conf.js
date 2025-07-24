@@ -62,16 +62,16 @@ exports.config = {
   // and 30 processes will get spawned. The property handles how many capabilities
   // from the same test should run tests.
   //
-  maxInstances: 20,
+  maxInstances: 1,
   capabilities: [{
     // maxInstances can get overwritten per capability. So if you have an in-house Selenium
     // grid with only 5 firefox instances available you can make sure that not more than
     // 5 instances get started at a time.
-    maxInstances: 5,
+    maxInstances: 1,
     //
     browserName: 'chrome',
     'goog:chromeOptions': {
-      args: ['headless', 'disable-gpu']
+      args: ['headless', 'no-sandbox', 'disable-gpu', 'disable-dev-shm-usage', 'window-size=1920,1080']
     },
     // browserName: 'firefox',
     acceptInsecureCerts: true
@@ -183,6 +183,8 @@ exports.config = {
   onPrepare: async (config, capabilities) => {
     fileUtils.deleteDirectory('allure-results')
     fileUtils.deleteDirectory('allure-report')
+    fileUtils.deleteDirectory('screenshots')
+    fileUtils.makeDirectory('screenshots')
     console.log('***** You\'re now running this test pack against ', global.baseUrl, ' if this is incorrect you may want to abort the test run *****')
     console.log('***** THE CAPCHA BYPASS YOU ARE USING IS ' + global.capchaBypass)
   },
@@ -227,6 +229,7 @@ exports.config = {
   // before: function (capabilities, specs) {
   before: async (capabilities, specs) => {
     const chai = require('chai')
+    chai.config.truncateThreshold = 0
     global.assert = chai.assert
     global.should = chai.should
     global.expect = chai.expect
@@ -273,7 +276,17 @@ exports.config = {
      * @param {Object}  result.retries   informations to spec related retries, e.g. `{ attempts: 0, limit: 0 }`
      */
   afterTest: async function (test, context, { error, result, duration, passed, config, retries }) {
-    if (!passed) { await browser.takeScreenshot() }
+    if (!passed) {
+      const outputFileName = (new Date()).toISOString().replaceAll(':', '.')
+      const strTest = (key, value) => { if (['parent', '_runnable', 'test', '_idlePrev', '_idleNext'].includes(key)) { return value.id } else return value }
+      const testData = {
+        test,
+        url: await browser.getUrl(),
+        title: await browser.getTitle()
+      }
+      fileUtils.writeString(`screenshots/${outputFileName}-testobject.json`, JSON.stringify(testData, strTest))
+      await browser.saveScreenshot(`screenshots/${outputFileName}.png`, {})
+    }
   }
   // afterTest: function(test, context, { error, result, duration, passed, retries })
   // {if(error){
