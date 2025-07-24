@@ -48,7 +48,7 @@ describe('Check Your Long Term Flood Risk, Address page', async () => {
       await postcodePage.enterPostcode(item.postcode)
       await postcodePage.clickContinue()
 
-      await commonFunctions.getTitle('Select an address - Check your long term flood risk - GOV.UK')
+      await commonFunctions.waitTitle('Select an address - Check your long term flood risk - GOV.UK')
       // check address count result set
       const resultText = await addressPage.getAddressText()
       const resultcount = await resultText.slice(0, resultText.indexOf(' '))

@@ -2,7 +2,6 @@
 
 const allureReporter = require('@wdio/allure-reporter').default
 const fileUtils = require('./test/specs/utilities/deleteFile')
-const file = require('./test/specs/utilities/file')
 
 /* handy shortcuts for running tests against the different environment from local machine.
 NOTE: on pushing to branch and running from jenkins, the below envars shuld always be commented out
@@ -280,7 +279,12 @@ exports.config = {
     if (!passed) {
       const outputFileName = (new Date()).toISOString().replaceAll(':', '.')
       const strTest = (key, value) => { if (['parent', '_runnable', 'test', '_idlePrev', '_idleNext'].includes(key)) { return value.id } else return value }
-      fileUtils.writeString(`screenshots/${outputFileName}-testobject.json`, JSON.stringify(test, strTest))
+      const testData = {
+        test,
+        url: await browser.getUrl(),
+        title: await browser.getTitle()
+      }
+      fileUtils.writeString(`screenshots/${outputFileName}-testobject.json`, JSON.stringify(testData, strTest))
       await browser.saveScreenshot(`screenshots/${outputFileName}.png`, {})
     }
   }
