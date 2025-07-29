@@ -15,7 +15,6 @@ class AddressPage {
   get bannerError () { return $("ul[class='govuk-list govuk-error-summary__list']") }
   // getting index path for the address count
   get addressComboText () { return $("//*[@id='address']/option[1]") }
-  get riskPageH1 () { return $("//h1[contains(text(),'Flood risk summary')]") }
 
   // METHODS AND FUNCTIONS
 
@@ -31,18 +30,6 @@ class AddressPage {
   async clickContinue () {
     // await (await this.addressContinueButton).waitForDisplayed({})
     return (await this.addressContinueButton).click()
-  }
-
-  async selectAddressTitleDisplayed () {
-    const element = await this.selectaddressTitle
-    await element.waitForExist({ timeout: 10000 })
-    expect(await element.isDisplayed()).equals(true)
-  }
-
-  async riskPageH1Displayed () {
-    const element = await this.riskPageH1
-    await element.waitForExist({ timeout: 5000 })
-    expect(await element.isDisplayed()).equals(true)
   }
 
   async getAdressErrorMessage () {
