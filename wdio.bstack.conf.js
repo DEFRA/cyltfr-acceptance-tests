@@ -5,7 +5,7 @@ const fileUtils = require('./test/specs/utilities/deleteFile')
 
 const allure = require('allure-commandline')
 
-const oneMinute = 60 * 1000
+// MCC const oneMinute = 60 * 1000
 
 global.baseUrl = process.env.CYLTFR_APP_URL
 
@@ -263,10 +263,10 @@ exports.config = {
     const generation = allure(['generate', 'allure-results', '--clean'])
 
     return new Promise((resolve, reject) => {
-      const generationTimeout = setTimeout(() => reject(reportError), oneMinute)
+      // MCC const generationTimeout = setTimeout(() => reject(reportError), oneMinute)
 
       generation.on('exit', function (exitCode) {
-        clear(generation)
+        // MCC clear(generation)
 
         if (exitCode !== 0) {
           return reject(reportError)
