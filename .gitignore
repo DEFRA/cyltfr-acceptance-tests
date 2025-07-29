@@ -5,3 +5,5 @@ selenium-debug.log
 .vscode
 local.log
 allure-results
+.env
+.DS_Store

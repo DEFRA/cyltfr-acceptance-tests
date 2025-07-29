@@ -15,5 +15,11 @@ class PostcodeErrorPage {
     // await (await this.title).waitForDisplayed({})
     return (await this.title).getText()
   }
+
+  async selectHeading () {
+    const element = await this.heading
+    await element.waitForExist({ timeout: 5000 })
+    expect(await element.isDisplayed()).equals(true)
+  }
 }
 module.exports = new PostcodeErrorPage()
