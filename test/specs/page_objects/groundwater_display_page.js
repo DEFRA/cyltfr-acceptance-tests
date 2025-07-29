@@ -15,6 +15,5 @@ class GroundWaterDisplayPage {
     // await (await this.groundwaterRiskBanner).waitForDisplayed()
     return (await this.groundwaterRiskBanner).getText()
   }
-
 }
 module.exports = new GroundWaterDisplayPage()
