@@ -18,7 +18,7 @@ class RiskDisplayPage {
   get reservoirBannerNoRiskContents () { return $('#reservoirs-no-risk-desc') }
   get reservoirBannerRiskContents () { return $('#reservoirs-risk-desc') }
   get groundwaterBannerNoRiskContents () { return $('#groundwater-desc') }
-  get surfaceWaterCouncilName () { return $("//*[@id='main-content']/div/div[2]/div/p[11]") }
+  get surfaceWaterCouncilName () { return $("//*[@id='main-content']/div/div[2]/div/p[10]") }
   get viewMoreAboutRiversandSeaFloodRisk () { return $('=More about your rivers and sea flood risk') }
   get viewMoreAboutSurfaceWaterFloodRisk () { return $('=More about your surface water flood risk') }
   get viewMoreAboutGroundWaterAndReservoirs () { return $('=More about groundwater and reservoirs') }
