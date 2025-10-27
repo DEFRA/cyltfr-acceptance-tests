@@ -10,8 +10,8 @@ class RiskDisplayPage {
   get addressDetail () { return $("//*[@id='risk-page']/div[1]/div/div[1]/p[1]") }
   get riversAndSeaBanner () { return $("h2[class='govuk-summary-card__title rivers-and-sea']") }
   get surfaceWaterBanner () { return $("h2[class='govuk-summary-card__title surface-water']") }
-  get reservoirRiskBanner () { return $('h2=Reservoirs').$(function () { return this.nextSibling.nextSibling }) }
-  get groundwaterRiskBanner () { return $('h2=Groundwater').$(function () { return this.nextSibling.nextSibling }) }
+  get reservoirRiskBanner () { return $('h1=Reservoirs: understand your flood risk').$(function () { return this.nextElementSibling.nextElementSibling.nextElementSibling }) }
+  get groundwaterRiskBanner () { return $('h1=Groundwater: understand your flood risk').$(function () { return this.nextElementSibling.nextElementSibling.nextElementSibling }) }
   // adding locators for each rivers and sea, surface water, reservoir and ground water description
   get riversseaBannerContents () { return $('#main-content > div > div:nth-child(2) > div') }
   get surfaceWaterBannerContents () { return $('#main-content') }
@@ -21,7 +21,8 @@ class RiskDisplayPage {
   get surfaceWaterCouncilName () { return $("//*[@id='main-content']/div/div[2]/div/p[10]") }
   get viewMoreAboutRiversandSeaFloodRisk () { return $('=More about your rivers and sea flood risk') }
   get viewMoreAboutSurfaceWaterFloodRisk () { return $('=More about your surface water flood risk') }
-  get viewMoreAboutGroundWaterAndReservoirs () { return $('=More about groundwater and reservoirs') }
+  get viewMoreAboutGroundWater () { return $('=More about your groundwater flood risk') }
+  get viewMoreAboutReservoirs () { return $('=More about your reservoir flood risk') }
   //   get viewMapMediumFloodRiskRiverandSea () { return $('#rivers-sea > div.govuk-summary-card__title-wrapper.vlow.card-padding-left > ul > li > a') }
   get viewPausedUpdatesAboutFloodRisk () { return $('#risk-page > div.page-summary > div.govuk-grid-row > div > p:nth-child(4) > a') }
   get viewRiversandSeaMap () { return $('#main-content > div > div:nth-child(2) > div > p:nth-child(5) > a') }
@@ -124,8 +125,12 @@ class RiskDisplayPage {
     await (await this.viewMoreAboutSurfaceWaterFloodRisk).click()
   }
 
-  async clickMoreAboutGroundWaterandReservoirs () {
-    await (await this.viewMoreAboutGroundWaterAndReservoirs).click()
+  async clickMoreAboutGroundWater () {
+    await (await this.viewMoreAboutGroundWater).click()
+  }
+
+  async clickMoreAboutReservoirs () {
+    await (await this.viewMoreAboutReservoirs).click()
   }
 
   // Click on updates to national flood and coastal erosion risk information page

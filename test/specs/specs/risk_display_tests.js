@@ -318,7 +318,7 @@ describe('Check risk displays are as expected', async () => {
         await propertyRiskPage.clickOnBackToSummary()
         await commonFunctions.waitUntilStable()
 
-        await propertyRiskPage.clickMoreAboutGroundWaterandReservoirs()
+        await propertyRiskPage.clickMoreAboutReservoirs()
         await commonFunctions.waitUntilStable()
 
         await expect(await propertyRiskPage.getReservoirRisk()).to.contain('There is a risk of flooding from reservoirs in this area.')
@@ -330,7 +330,7 @@ describe('Check risk displays are as expected', async () => {
         await propertyRiskPage.clickOnBackToSummary()
         await commonFunctions.waitUntilStable()
 
-        await propertyRiskPage.clickMoreAboutGroundWaterandReservoirs()
+        await propertyRiskPage.clickMoreAboutReservoirs()
         await commonFunctions.waitUntilStable()
 
         await expect(await propertyRiskPage.getReservoirRisk()).to.contain('Flooding from reservoirs is unlikely in this area.')
@@ -341,7 +341,13 @@ describe('Check risk displays are as expected', async () => {
       if (item.groundwaterRisk === true) {
         console.log('***********GROUNDWATER RISK CHECK STARTED******************')
 
-        await expect(await propertyRiskPage.getGroundwaterRisk()).to.contain('Flooding is possible when groundwater levels are high.')
+        await propertyRiskPage.clickOnBackToSummary()
+        await commonFunctions.waitUntilStable()
+
+        await propertyRiskPage.clickMoreAboutGroundWater()
+        await commonFunctions.waitUntilStable()
+
+        await expect(await propertyRiskPage.getGroundwaterRisk()).to.contain('This location is inside a groundwater flood alert area.')
 
         console.log('***********GROUNDWATER RISK CHECK COMPLETE******************')
       } else {
@@ -350,10 +356,10 @@ describe('Check risk displays are as expected', async () => {
         await propertyRiskPage.clickOnBackToSummary()
         await commonFunctions.waitUntilStable()
 
-        await propertyRiskPage.clickMoreAboutGroundWaterandReservoirs()
+        await propertyRiskPage.clickMoreAboutGroundWater()
         await commonFunctions.waitUntilStable()
 
-        await expect(await propertyRiskPage.getGroundwaterRisk()).to.contain('Flooding from groundwater is unlikely in this area.')
+        await expect(await propertyRiskPage.getGroundwaterRisk()).to.contain('This location is outside of a groundwater flood alert area.')
 
         console.log('***********GROUNDWATER NO RISK CHECK COMPLETE******************')
       }
