@@ -47,17 +47,17 @@ describe('Check map data is displayed as expected', async () => {
 
     it('Click and View map of flood risk from groundwater and reservoirs and verify links', async () => {
       // on risk assessment page, click on more about rivers and the sea
-      await propertyRiskPage.clickMoreAboutReservoirs()
+      await propertyRiskPage.clickMoreAboutGroundWater()
 
-      await commonFunctions.waitTitle('Reservoirs: understand your flood risk - Check your long term flood risk - GOV.UK')
-      expect(await browser.getUrl()).contains(`${baseUrl}/reservoirs`)
+      await commonFunctions.waitTitle('Groundwater: understand your flood risk - Check your long term flood risk - GOV.UK')
+      expect(await browser.getUrl()).contains(`${baseUrl}/ground-water`)
 
-      if (item.reservoirRisk === true) {
-        console.log('Reservoir risk is true')
-        expect(await groundWaterDisplayPage.getReservoirRisk()).equals('There is a risk of flooding from reservoirs in this area.')
+      if (item.groundwaterRisk === true) {
+        console.log('Groundwater risk is true')
+        expect(await groundWaterDisplayPage.getGroundwaterRisk()).equals('This location is inside of a groundwater flood alert area.')
       } else if (item.reservoirRisk === false) {
-        console.log('Reservoir risk is false')
-        expect(await groundWaterDisplayPage.getReservoirRisk()).equals('Flooding from reservoirs is unlikely in this area.')
+        console.log('Groundwater risk is false')
+        expect(await groundWaterDisplayPage.getGroundwaterRisk()).equals('This location is outside of a groundwater flood alert area.')
       }
     })
   })
