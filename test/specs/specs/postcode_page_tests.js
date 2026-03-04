@@ -69,7 +69,7 @@ describe('Postcode page sad path tests', async () => {
       // check the expected error page is produced
       await commonFunctions.waitTitle('Check your long term flood risk - Check your long term flood risk - GOV.UK')
       expect(await postcodeErrorPage.getPageHeading()).equals('This service is for postcodes in England only')
-      expect(await browser.getUrl()).equals(`${baseUrl}/england-only?postcode=BT8%204AA&region=northern-ireland#`)
+      expect(await browser.getUrl()).equals(`${baseUrl}/england-only?postcode=BT84AA&region=northern-ireland#`)
     })
   })
   //* **************************************************************************************//
