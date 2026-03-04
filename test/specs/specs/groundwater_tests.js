@@ -1,10 +1,5 @@
 'use strict'
-const postcodePage = require('../page_objects/postcode_page')
-const addressPage = require('../page_objects/address_page')
 const reservoirDataFile = require('../test_data/reservoir_test_data')
-const propertyRiskPage = require('../page_objects/risk_display_page')
-const commonFunctions = require('../page_objects/common_functions')
-const groundWaterDisplayPage = require('../page_objects/groundwater_display_page')
 
 // const riverSeaMapPage = require('../page_objects/river_sea_map_page')
 
@@ -18,10 +13,12 @@ describe('Check map data is displayed as expected', async () => {
       // open browser at postcode search with capture bypass token
       await browser.url(`${global.capchaBypass}`)
       // check browser is open on correct page and tab title is as expected
+      const commonFunctions = require('../page_objects/common_functions')
       await commonFunctions.waitTitle(
         'Where do you want to check? - Check your long term flood risk - GOV.UK'
       )
       expect(await browser.getUrl()).equals(`${baseUrl}${global.capchaBypass}`)
+      const postcodePage = require('../page_objects/postcode_page')
 
       // pass in postcode search string and then click continue
       await postcodePage.acceptCookies()
@@ -34,10 +31,14 @@ describe('Check map data is displayed as expected', async () => {
 
     it('Should select the correct address from the options and move to the summary page', async () => {
       // on address page, select the address from the data file, check the continue button is on the page and click it
+      const addressPage = require('../page_objects/address_page')
       await addressPage.selectAddress(item.dropDownValue)
       await addressPage.clickContinue()
+
       // check the risk assessment page is loaded and the expected address has been summarised0
+      const commonFunctions = require('../page_objects/common_functions')
       await commonFunctions.waitTitle('Flood risk summary - Check your long term flood risk - GOV.UK')
+      const propertyRiskPage = require('../page_objects/risk_display_page')
 
       expect(await browser.getUrl()).equals(`${baseUrl}/risk#`)
       expect(await propertyRiskPage.confirmAddressDetail()).contains(
@@ -47,11 +48,14 @@ describe('Check map data is displayed as expected', async () => {
 
     it('Click and View map of flood risk from groundwater and reservoirs and verify links', async () => {
       // on risk assessment page, click on more about rivers and the sea
+      const propertyRiskPage = require('../page_objects/risk_display_page')
       await propertyRiskPage.clickMoreAboutGroundWater()
 
+      const commonFunctions = require('../page_objects/common_functions')
       await commonFunctions.waitTitle('Groundwater: understand your flood risk - Check your long term flood risk - GOV.UK')
       expect(await browser.getUrl()).contains(`${baseUrl}/ground-water`)
 
+      const groundWaterDisplayPage = require('../page_objects/groundwater_display_page')
       if (item.groundwaterRisk === true) {
         console.log('Groundwater risk is true')
         expect(await groundWaterDisplayPage.getGroundwaterRisk()).equals('This location is inside of a groundwater flood alert area.')
