@@ -7,3 +7,4 @@ local.log
 allure-results
 .env
 .DS_Store
+screenshots/

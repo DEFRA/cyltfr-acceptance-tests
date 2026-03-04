@@ -19,32 +19,17 @@
         "husky": "^9.1.7",
         "mocha": "^11.0.0",
         "resemblejs": "^5.0.0",
-        "standard": "^17.0.0"
+        "neostandard": "^0.13.0"
     },
     "scripts": {
         "prepare": "husky .husky",
         "pre-commit": "npm run lint",
-        "lint": "npx standard",
+        "lint": "npx eslint",
         "wdio": "wdio run wdio.conf.js",
         "test": "wdio run wdio.conf.js",
         "pretest": "npm run lint",
         "allure": "allure serve ./allure-results",
         "allure-report": "allure generate /.allure-results --clean && allure open",
         "bstack": "wdio run wdio.bstack.conf.js"
-    },
-    "standard": {
-        "globals": [
-            "describe",
-            "context",
-            "before",
-            "beforeEach",
-            "after",
-            "afterEach",
-            "it",
-            "expect",
-            "browser",
-            "$",
-            "baseUrl"
-        ]
     }
 }
