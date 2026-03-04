@@ -10,9 +10,9 @@ otherwise the test run maybe running against wrong environment */
 // global.baseUrl = 'https://ltf-dev.aws.defra.cloud'
 // global.baseUrl = 'https://ltf-tst.aws.defra.cloud'
 // global.baseUrl = 'https://ltf-pre.aws.defra.cloud'
-global.baseUrl = 'http://localhost:3000'
+// global.baseUrl = 'http://localhost:3000'
 
-// global.baseUrl = process.env.CYLTFR_APP_URL
+global.baseUrl = process.env.CYLTFR_APP_URL
 global.capchaBypass = '/postcode?captchabypass=' + process.env.TESTING_CAPCHA_BYPASS
 
 exports.config = {
