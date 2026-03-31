@@ -12,58 +12,54 @@ How accessible this website is
 We know some parts of this website are not fully accessible. For example:
 the mapping, and the tools that are part of it, are not accessible for those using assistive technology
 in some situations, the contrast of colours on maps is not high enough to be legible to all users
-we link to guidance on GOV.UK that includes PDF documents that are not fully accessible to screen reader software
-What to do if you have difficulty using this service
+Feedback and contact information
+If you find any problems not listed on this page or think we're not meeting accessibility requirements, contact:
+email enquiries@environment-agency.gov.uk
+call 03708 506 506 (Monday to Friday, 8am to 5pm)
 If you need information on this website in a different format like an accessible PDF, large print, easy read, audio recording or braille:
 email enquiries@environment-agency.gov.uk
 call 03708 506 506 (Monday to Friday, 8am to 5pm)
-Reporting accessibility problems with this website
-We're always looking to improve the accessibility of this website. If you find any problems not listed on this page or think we're not meeting accessibility requirements, contact:
-email enquiries@environment-agency.gov.uk
-call 03708 506 506 (Monday to Friday, 8am to 5pm)
 Enforcement procedure
-The Equality and Human Rights Commission (EHRC) is responsible for enforcing the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018 (the ‘accessibility regulations').
+The Equality and Human Rights Commission (EHRC) is responsible for enforcing the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018 (the 'accessibility regulations').
 If you're not happy with how we respond to your complaint, contact the Equality Advisory and Support Service (EASS).
 Technical information about this website's accessibility
 The Environment Agency is committed to making its website accessible, in accordance with the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018.
 Compliance status
-This website is partially compliant with the Web Content Accessibility Guidelines version 2.2 AA standard, due to the following exemptions.
+The website has been tested against the Web Content Accessibility Guidelines (WCAG) 2.2 AA standard.
+This website is partially compliant with the Web Content Accessibility Guidelines version 2.2 AA standard, due to the non-compliances listed below.
 Non-accessible content
 The content listed below is non-accessible for the following reasons.
 Non-compliance with the accessibility regulations
-There are a few instances of non-compliance with WCAG level AA. These are:
-navigation landmarks do not provide a label that is descriptive enough to inform a user of their function, which does not meet the requirement for WCAG 2.4.6 Headings and labels
-the Friendly Captcha grey information text does not meet the requirement for WCAG 1.4.3 Contrast (Minimum)
-the map focus element does not meet the requirement for WCAG 1.4.11 Non-text Contrast
-the colours used in the flood depth graphic, for both the grey against the white background and the grey against the blue produce a contrast ratio, which does not meet the requirement for WCAG 1.4.11 Non-text Contrast
-zoom controls are removed from various map pages when viewed in WCAG reflow settings at 1280 x 1024px at a magnification of 400%. Additionally, the positioning of certain elements over the map does not account for the addition of a scroll bar and some of the text is cropped. This does not meet the requirement for WCAG 1.4.10 Reflow
-We will fix these issues in the following ways:
-we plan to add a descriptive aria-label attribute to the navigation landmark that allows a screen reader to know this section is for page navigation
-we will make sure text colours used provide sufficient contrast against the background, so that the outlines of the text characters are sufficiently defined for low vision users
-we plan to use the format indicated in the GOV.UK Design System, for understanding focus state styles
-we will make sure the flood depth graphics achieves a colour contrast ratio of least 3:1 against any adjacent colours
-we plan to make sure the map pages can be viewed as a single column at 320px without any loss of content or functionality
-We will look to address these issues by December 2025.
+These are the instances of non-compliance with WCAG 2.2 AA.
+The requirement for WCAG 1.3.1 Information and relationships was not met because the:
+flood risk sections are coded in a way that leaves out important markers that help screen readers understand the layout, some people using screen readers may find it hard to follow how the information is organised
+visual layout of the 'What the flood risk ratings mean' section suggests relationships that aren't defined in the code, which may prevent assistive technology users from understanding the structure of the information
+map radio buttons are coded and displayed in a way that makes them look like two separate choices instead of part of the same group, this can make it hard for some people to understand how the options are meant to relate to each other
+The requirement for WCAG 4.1.2 Name, Role, Value was not met because the:
+'What the flood risk ratings mean' section uses a label in a way that doesn't work with the type of element it's on, it needs the right setup for the label to work properly
+map area uses a label in a way that doesn't work with the type of element it's on, so the label won't function as intended
+heading 'Surface water map' is inside an element that uses an invalid role, so assistive technology may not read it correctly
+'Zoom in' and 'Zoom out' buttons on the map are inside elements that aren't set up correctly, so assistive tools may not recognise them as proper controls
+The requirement for WCAG 2.4.3 was not met because:
+when the cookies panel appears on the map page, the tab order becomes confusing, some controls are set with higher tab index values, so keyboard focus jumps around in an unexpected order, which can be disorienting for keyboard users
+The requirement for WCAG 1.4.10 Reflow was not met because:
+when the page is zoomed in, some map content gets cut off or pushed out of view, like the 'Key' button and copyright text, as users can't scroll in both directions, people who rely on high magnification may struggle to see important information or controls
+We will fix these in the following ways:
+make sure the description lists use the correct tags or remove any that have caused confusion
+make sure that any meaning shown by layout or styling is also clear in the code or written text
+review the way we use labels on element components and amend or remove as necessary
+we plan to carry out an investigation into the accessibility issues identified on our maps so we can understand what's happening and how to fix it
+We will look to address these issues by December 2026.
 Content that's not within the scope of the accessibility regulations
 The website has the following content which is out of scope of the accessibility regulations:
 maps
 third party content which is out of our control, for example a corporate logo on the map the website uses
-PDF content that was published before 23 September 2018
-What we’re doing to improve accessibility
-we have fixed 10 issues that failed to meet the WCAG version 2.2 A standard
+What we're doing to improve accessibility
+We are working to fix content that failed to meet the Web Content Accessibility Guidelines version 2.2 AA standard:
+we have fixed 6 issues that failed to meet the WCAG version 2.2 A standard
 we are working to fix all other content which fails to meet the WCAG version 2.2 AA standard and we will update this page when these issues are fixed
 once we have fixed these issues, we will conduct usability testing with people with accessibility needs
 Preparation of this accessibility statement
-The original statement was prepared on 22 September 2020.
-It was last reviewed on 6 February 2025.
-This website was last tested on 3 December 2024. The test was carried out by the Digital Accessibility Centre (DAC).
-We tested the following pages:
-Where do you want to check
-Select an address
-Flood risk summary
-Rivers and the sea: understand your flood risk
-Rivers and sea map
-Rivers and the sea: possible flood depths
-Surface water: understand your flood risk
-Groundwater and reservoirs: understand your flood risk
-Flood risk map
+The original statement was prepared on 22 September 2020. It was last reviewed on 12 February 2026.
+This website was last tested in January 2026 against the WCAG 2.2 AA standard. This test of the most viewed pages was carried out by the Digital Accessibility Centre (DAC).
+We also used findings from our own testing when preparing this accessibility statement.
