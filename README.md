@@ -5,7 +5,7 @@ It uses wdio, combined with Mocha framework and Chai assertions library
 
 # Prerequisites
 
-Node.js v18.x.x +
+Node.js v22.x.x +
 
 # Install
 
@@ -19,7 +19,7 @@ Then from the root of the project folder:
 
 This should install all dependacies etc
 
-Linting is built in with Standard - you will need to add the StandardJS extension in VScode.
+Linting is built in with neoStandard - you will need to add the eslint extension in VScode.
 
 ## Branching Strategy
 
@@ -49,44 +49,6 @@ switch to development branch and git pull
 
 The changes you have merged should now be in development branch
 
-## Release Candidate Branching
-
-Assume dev branch up to date with what is to be released
-
-create release candidate branch off development branch
-
-`$ git checkout -b release/name-of-release`
-
-`$ git commit --allow-empty`
-
-`$ git push -u origin feature or fix/name-of-branch`
-
-stage, commit and push until branch ready to merge - in this case the only change likely to be made is app version test.
-
-in github create PR merging release candidate into master
-wait for approval in GUI - but do not merge in GUI
-in CLI
-
-`$ git switch {release branch}`
-
-`$ git pull`
-
-`$ git switch master`
-
-`$ git pull`
-
-`$ git merge --no-commit {release branch}`
-
-`$ git push`
-
-`$ git switch development`
-
-`$ git merge --no-commit {release branch}`
-
-`$ git push`
-
-
-This should now have merged the release candidate branch into both dev and master branches, without comimit numbers, and both branches should be aligned.
 
 # Environment variables
 
@@ -124,7 +86,7 @@ The repo has allure reporting plugged in so an easy to view output of the test r
 
 # Browserstack testing
 
-Currently not in palce
+Currently not in place
 
 # Jenkins pipeline
 

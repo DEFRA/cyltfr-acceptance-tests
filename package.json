@@ -14,11 +14,10 @@
         "@wdio/mocha-framework": "^9.0.0",
         "@wdio/spec-reporter": "^9",
         "allure-commandline": "^2.21.0",
-        "chai": "^5.0.0",
+        "chai": "^6.2.2",
         "fs": "^0.0.1-security",
         "husky": "^9.1.7",
         "mocha": "^11.0.0",
-        "resemblejs": "^5.0.0",
         "neostandard": "^0.13.0"
     },
     "scripts": {
