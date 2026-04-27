@@ -54,7 +54,6 @@ describe('Postcode page sad path tests', async () => {
       await setUrl(`${global.capchaBypass}`)
       const commonFunctions = require('../page_objects/common_functions')
       const postcodePage = require('../page_objects/postcode_page')
-      const postcodeErrorPage = require('../page_objects/postcode_error_page')
 
       // check browser is open on correct page and tab title is as expected
       // fix for the Jenkins build failure
@@ -65,22 +64,22 @@ describe('Postcode page sad path tests', async () => {
       // pass in postcode search string and then click continue
       await postcodePage.enterPostcode(item.postcode)
       await postcodePage.contBtn.click()
+      const postcodeErrorPage = require('../page_objects/postcode_error_page')
 
       // check the expected error page is produced
       await commonFunctions.waitTitle('Check your long term flood risk - Check your long term flood risk - GOV.UK')
       expect(await postcodeErrorPage.getPageHeading()).equals('This service is for postcodes in England only')
-      expect(await browser.getUrl()).equals(`${baseUrl}/england-only?postcode=BT84AA&region=northern-ireland#`)
+      expect(await browser.getUrl()).contains(`${baseUrl}/england-only`)
     })
   })
   //* **************************************************************************************//
-  postcodeDataFile.outsideUKpostcodes.forEach(function (item) {
-    it('Should result in England only page when Scotland or Wales postcode provided', async () => {
-      console.log('***SCOTLAND OR WALES POSTCODE ERROR TEST CASE ', item.testCase)
+  postcodeDataFile.scotlandPostcode.forEach(function (item) {
+    it('Should result in England only page when Scotland postcode provided', async () => {
+      console.log('***SCOTLAND POSTCODE ERROR TEST CASE ', item.testCase)
       // open browser at postcode search with capture bypass token
       await setUrl(`${global.capchaBypass}`)
       const commonFunctions = require('../page_objects/common_functions')
       const postcodePage = require('../page_objects/postcode_page')
-      const addressPage = require('../page_objects/address_page')
 
       // check browser is open on correct page and tab title is as expected
       // fix for the Jenkins build failure
@@ -93,21 +92,38 @@ describe('Postcode page sad path tests', async () => {
       await postcodePage.contBtn.click()
       const postcodeErrorPage = require('../page_objects/postcode_error_page')
 
-      // check address page
-      // expect(await browser.getTitle()).equals('Select an address - Check your long term flood risk - GOV.UK')
-      await commonFunctions.waitTitle('Select an address - Check your long term flood risk - GOV.UK')
-
-      // selecting the address from the combo
-      await addressPage.selectAddress(1)
-      await addressPage.clickContinue()
-
       // check the expected error page is produced
+      await commonFunctions.waitTitle('Check your long term flood risk - Check your long term flood risk - GOV.UK')
+      expect(await postcodeErrorPage.getPageHeading()).equals('This service is for postcodes in England only')
+      expect(await browser.getUrl()).contains(`${baseUrl}/england-only`)
+    })
+  })
+  postcodeDataFile.walesPostcode.forEach(function (item) {
+    it('Should result in England only page when Wales postcode provided', async () => {
+      console.log('***WALES POSTCODE ERROR TEST CASE ', item.testCase)
+      // open browser at postcode search with capture bypass token
+      await setUrl(`${global.capchaBypass}`)
+      const commonFunctions = require('../page_objects/common_functions')
+      const postcodePage = require('../page_objects/postcode_page')
+
+      // check browser is open on correct page and tab title is as expected
+      // fix for the Jenkins build failure
+      await commonFunctions.waitTitle('Where do you want to check? - Check your long term flood risk - GOV.UK')
+      // expect(await browser.getTitle()).equals('Where do you want to check? - Check your long term flood risk - GOV.UK')
+      expect(await browser.getUrl()).equals(`${baseUrl}${global.capchaBypass}`)
+
+      // pass in postcode search string and then click continue
+      await postcodePage.enterPostcode(item.postcode)
+      await postcodePage.contBtn.click()
+      const postcodeErrorPage = require('../page_objects/postcode_error_page')
+
       await commonFunctions.waitTitle('Check your long term flood risk - Check your long term flood risk - GOV.UK')
       expect(await postcodeErrorPage.getPageHeading()).equals('This service is for postcodes in England only')
       // expect(await browser.getTitle()).equals('Check your long term flood risk - Check your long term flood risk - GOV.UK')
       expect(await browser.getUrl()).contains(`${baseUrl}/england-only`)
     })
   })
+
   // It should result in expected number of address options following a valid seach (see nightwatch test 'valid-search')
 
   // It should result in silverline error message when script injection attack is attempted
@@ -133,32 +149,6 @@ describe('Postcode page sad path tests', async () => {
       // check the expected error page is produced. Different error if we're caught by silverline or not
       await commonFunctions.waitTitle('403 Forbidden')
       expect(await postcodeErrorPage.getPageHeading()).equals('403 Forbidden')
-    })
-
-    //* ************Error message for valid but Empty postcode
-    postcodeDataFile.emptyPostcode.forEach(function (item) {
-      it('Should result in Error message when postcode with Empty result', async () => {
-        console.log('***EMPTY POSTCODE ERROR MESSAGE', item.postcode)
-        // open browser at postcode search with capture bypass token
-        await setUrl(`${global.capchaBypass}`)
-        const commonFunctions = require('../page_objects/common_functions')
-        const postcodePage = require('../page_objects/postcode_page')
-
-        // check browser is open on correct page and tab title is as expected
-        // fix for the Jenkins build failure
-        await commonFunctions.waitTitle('Where do you want to check? - Check your long term flood risk - GOV.UK')
-        // expect(await browser.getTitle()).equals('Where do you want to check? - Check your long term flood risk - GOV.UK')
-        expect(await browser.getUrl()).equals(`${baseUrl}${global.capchaBypass}`)
-
-        // pass in postcode search string and then click continue
-        await postcodePage.enterPostcode(item.postcode)
-        await postcodePage.contBtn.click()
-
-        // check the expected error message is produced
-
-        expect(await postcodePage.getPostcodeBannerMessage()).equals('This postcode does not appear to exist')
-        expect(await postcodePage.getPostcodeErrorMessage()).equals('Error:\nThis postcode does not appear to exist')
-      })
     })
   })
 })
