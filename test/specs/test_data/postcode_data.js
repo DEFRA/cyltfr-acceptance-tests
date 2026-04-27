@@ -60,25 +60,20 @@ module.exports = {
   northerIrelandPostcode: [
     {
       testCase: 1,
-      postcode: 'BT8 4AA'
+      postcode: 'BT38 7BG'
     }
   ],
   // added for Welsh and Scotland postcode error messages
-  outsideUKpostcodes: [
+  scotlandPostcode: [
     {
       testCase: 1,
       postcode: 'EH1 1HR'
-    },
-    {
-      testCase: 2,
-      postcode: 'CF14 3BL'
     }
   ],
-  // added for valid postcode but results in empty result set
-  emptyPostcode: [
+  walesPostcode: [
     {
-      testcase: 1,
-      postcode: 'TQ72PM'
+      testCase: 1,
+      postcode: 'CF14 3BL'
     }
   ]
 }

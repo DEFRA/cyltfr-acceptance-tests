@@ -2,6 +2,7 @@
 
 const allureReporter = require('@wdio/allure-reporter').default
 const fileUtils = require('./test/specs/utilities/deleteFile')
+const debug = process.env.DEBUG
 
 /* handy shortcuts for running tests against the different environment from local machine.
 NOTE: on pushing to branch and running from jenkins, the below envars shuld always be commented out
@@ -9,12 +10,14 @@ otherwise the test run maybe running against wrong environment */
 // global.baseUrl = 'https://ltf-dev.aws.defra.cloud'
 // global.baseUrl = 'https://ltf-tst.aws.defra.cloud'
 // global.baseUrl = 'https://ltf-pre.aws.defra.cloud'
-// global.baseUrl = 'http://localhost:3001'
+// global.baseUrl = 'http://localhost:3000'
 
 global.baseUrl = process.env.CYLTFR_APP_URL
 global.capchaBypass = '/postcode?captchabypass=' + process.env.TESTING_CAPCHA_BYPASS
 
 exports.config = {
+
+  execArgv: debug ? ['--inspect'] : [],
   //
   // ====================
   // Runner Configuration
@@ -62,12 +65,12 @@ exports.config = {
   // and 30 processes will get spawned. The property handles how many capabilities
   // from the same test should run tests.
   //
-  maxInstances: 10,
+  maxInstances: 1,
   capabilities: [{
     // maxInstances can get overwritten per capability. So if you have an in-house Selenium
     // grid with only 5 firefox instances available you can make sure that not more than
     // 5 instances get started at a time.
-    maxInstances: 5,
+    maxInstances: 1,
     //
     browserName: 'chrome',
     'goog:chromeOptions': {
