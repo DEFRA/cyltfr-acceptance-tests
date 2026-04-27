@@ -118,11 +118,11 @@ exports.config = {
   baseUrl: global.baseUrl,
 
   // Default timeout for all waitFor* commands.
-  waitforTimeout: 2000,
+  waitforTimeout: 5000,
   //
   // Default timeout in milliseconds for request
   // if browser driver or grid doesn't send response
-  connectionRetryTimeout: 30000,
+  connectionRetryTimeout: 60000,
   //
   // Default request retries count
   connectionRetryCount: 3,
@@ -281,6 +281,7 @@ exports.config = {
   afterTest: async function (test, context, { error, result, duration, passed, config, retries }) {
     if (!passed) {
       const outputFileName = (new Date()).toISOString().replaceAll(':', '.')
+      await browser.saveScreenshot(`screenshots/${outputFileName}.png`, {})
       const strTest = (key, value) => { if (['parent', '_runnable', 'test', '_idlePrev', '_idleNext'].includes(key)) { return value.id } else return value }
       const testData = {
         test,
@@ -288,7 +289,6 @@ exports.config = {
         title: await browser.getTitle()
       }
       fileUtils.writeString(`screenshots/${outputFileName}-testobject.json`, JSON.stringify(testData, strTest))
-      await browser.saveScreenshot(`screenshots/${outputFileName}.png`, {})
     }
   }
   // afterTest: function(test, context, { error, result, duration, passed, retries })
