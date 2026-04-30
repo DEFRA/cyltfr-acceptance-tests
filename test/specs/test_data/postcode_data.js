@@ -11,7 +11,7 @@ module.exports = {
     },
     {
       testCase: 3,
-      postcode: 'WA4 1ABZ'
+      postcode: 'WA4 ABZ'
     },
     {
       testCase: 4,

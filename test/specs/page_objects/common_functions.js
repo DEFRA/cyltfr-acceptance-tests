@@ -2,7 +2,9 @@
 
 class CommonFunctions {
   async getTitle (expected) {
-    expect(await browser.getTitle()).to.include(expected)
+    const title = await browser.getTitle()
+    expect(title).to.include(expected)
+    return title
   }
 
   async waitTitle (expected, timeout = 15000) {

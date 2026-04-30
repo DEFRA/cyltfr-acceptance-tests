@@ -65,7 +65,7 @@ exports.config = {
   // and 30 processes will get spawned. The property handles how many capabilities
   // from the same test should run tests.
   //
-  maxInstances: 1,
+  maxInstances: 5,
   capabilities: [{
     // maxInstances can get overwritten per capability. So if you have an in-house Selenium
     // grid with only 5 firefox instances available you can make sure that not more than
@@ -74,7 +74,7 @@ exports.config = {
     //
     browserName: 'chrome',
     'goog:chromeOptions': {
-      args: ['headless', 'no-sandbox', 'disable-gpu', 'disable-dev-shm-usage', 'window-size=1920,1080']
+      args: ['headless', 'no-sandbox', 'disable-gpu', 'disable-dev-shm-usage', 'window-size=1920,3080']
     },
     // browserName: 'firefox',
     acceptInsecureCerts: true
@@ -254,8 +254,14 @@ exports.config = {
   /**
      * Function to be executed before a test (in Mocha/Jasmine) starts.
      */
-  // beforeTest: function (test, context) {
-  // },
+  beforeTest: async function (test, context) {
+    await browser.addInitScript(() => {
+      const btn = document.getElementById('post-code-button')
+      if (btn) {
+        btn.disabled = false
+      }
+    })
+  },
   /**
      * Hook that gets executed _before_ a hook within the suite starts (e.g. runs before calling
      * beforeEach in Mocha)
