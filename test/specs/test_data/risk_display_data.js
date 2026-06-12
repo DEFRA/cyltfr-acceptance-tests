@@ -98,7 +98,7 @@ module.exports = {
       houseNumber: 21,
       postcode: 'LE3 5JR',
       dropDownValue: '14',
-      riverAndSeaRisk: 'Medium to Medium risk',
+      riverAndSeaRisk: 'Medium risk',
       surfaceWaterRisk: 'Low risk',
       riverAndSeaDepth: false,
       surfaceWaterDepth: false,
