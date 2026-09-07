@@ -8,7 +8,7 @@ Name Purpose Expires
 cyltfr_session Used to store page state When you close your browser
 cookies_policy Saves your cookie consent settings 1 year
 AWSALBTG Keeps your connection to the same website service while you use the site 7 days
-AWSALBTHCORS Helps the website work properly when connecting to related online services 7 days
+AWSALBTGCORS Helps the website work properly when connecting to related online services 7 days
 Third party cookies
 We use Smart Survey to collect feedback comments. You can find out more in the Smart Survey privacy policy. SmartSurvey uses cookies to help its website work effectively.
 Analytics cookies (optional)
