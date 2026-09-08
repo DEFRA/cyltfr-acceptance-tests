@@ -82,7 +82,7 @@ describe('Check Information to support planning Application Content', async () =
     const informationFile = fs.readFileSync('./test/specs/content_data/information-for-planning-application-data.txt', 'utf8')
     // open browser, check the tab title is correct and we are definately on the correct url
     await browser.url('/information-for-planning')
-    expect(await browser.getTitle()).equals('Are you looking for information to support a planning application? - Check your long term flood risk - GOV.UK')
+    expect(await browser.getTitle()).equals('Do you need information for a planning application? - Check your long term flood risk - GOV.UK')
     expect(await browser.getUrl()).equals(`${baseUrl}/information-for-planning`)
     // using page object, get the content fromt the page we are checking, and check against what we have in the txt file replacing some characters picked up with carrige returns.
     expect(await informationForPlanningPage.checkInformationForPlanningPageContent()).equals(informationFile.toString().replace(/\r\n/g, '\n'))

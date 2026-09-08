@@ -1,6 +1,6 @@
-Are you looking for information to support a planning application?
-The climate change and depth scenarios shown on this map may help to inform risk assessments. Further assessment is likely to be needed to assess planned development.
-You can:
-carry on to the flood risk map
-read when and how to use climate change allowances in flood risk assessments
-use the flood risk information for planning service
+Do you need information for a planning application?
+The rivers, sea and surface water information on this service is not suitable for flood risk assessments.
+Use the flood risk information for planning service if you need information to support a planning application.
+Reservoir flood risk information on the long term flood risk map can be used to support planning applications.
+Carry on to the long term flood risk map.
+Why the rivers, sea and surface water information is not suitable
